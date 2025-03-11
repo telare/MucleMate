@@ -1,0 +1,7 @@
+@use "../../../shared/styles/mixins/btn__mixins.scss" as global__btn-mixins;
+@use "../../../shared/styles/mixins/breakpoints__mixin.scss" as
+  global__breakpoints-mixins;
+
+button {
+  @include global__btn-mixins.btn();
+}

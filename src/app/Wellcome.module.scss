@@ -1,0 +1,127 @@
+@use "../shared/styles/mixins/div__mixin.scss" as global__div-mixins;
+@use "../shared/styles/mixins/breakpoints__mixin.scss" as global__breakpoints-mixins;
+.main__con {
+  @include global__div-mixins.basic__div();
+  width: 100%;
+  height: 100%;
+  
+  text-align: center;
+  font-weight: bold;
+  @include global__breakpoints-mixins.breakpoint(small) {
+    width: 100%;
+    height: 100%;
+  }
+}
+.back__img {
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.main__info {
+  @include global__div-mixins.basic__div();
+  width: 50%;
+  height: 50%;
+
+  .logo {
+    animation: logo__animation 2s ease-in-out 1 forwards;
+    z-index: 2;
+    width: 300px;
+    height: 300px;
+    @include global__breakpoints-mixins.breakpoint(small) {
+      width: 100px;
+      height: 100px;
+      animation-name: native-logo__animation;
+    }
+  }
+  & > div {
+    @include global__div-mixins.basic__div();
+    width: auto;
+    height: auto;
+    flex-direction: column;
+    animation: main_text__animation 3s ease-in-out 1 forwards;
+    color: white;
+    h1 {
+      line-height: 126px;
+      font-size: 84px;
+    }
+    h3 {
+      line-height: 27px;
+      font-size: 32px;
+    }
+
+    @include global__breakpoints-mixins.breakpoint(small) {
+      width: 100%;
+      animation-name: native-main_text__animation;
+      h1 {
+        line-height: 51px;
+        font-size: 54px;
+      }
+      h3 {
+        line-height: 27px;
+        font-size: 20px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+    }
+  }
+  @include global__breakpoints-mixins.breakpoint(small) {
+    width: 90%;
+    height: 80%;
+    flex-direction: column;
+  }
+}
+
+@keyframes logo__animation {
+  from {
+    scale: 0.3%;
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-30%);
+
+  }
+}
+
+@keyframes main_text__animation {
+  0%{
+    opacity: 0;
+    transform: translateX(-70%);
+
+  }
+  70%{
+    opacity: 0;
+    transform: translateX(-70%);
+
+  }
+  100%{
+    opacity: 1;
+    transform: translateX(20%);
+  }
+}
+
+@keyframes native-logo__animation {
+  from {
+    transform: translateY(20%);
+    scale: 0.3%;
+  }
+  to {
+    transform: translateY(-30%);
+  }
+}
+@keyframes native-main_text__animation {
+  0%{
+    opacity: 0;
+    transform: translateY(-70%);
+
+  }
+  70%{
+    opacity: 0;
+    transform: translateY(-70%);
+
+  }
+  100%{
+    opacity: 1;
+    transform: translateY(20%);
+  }
+}

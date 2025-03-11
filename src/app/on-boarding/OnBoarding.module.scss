@@ -1,0 +1,75 @@
+@use "../../shared/styles/mixins/div__mixin.scss" as global__div-mixins;
+@use "../../shared/styles/mixins/breakpoints__mixin.scss" as
+  global__breakpoints-mixins;
+.main__con {
+  @include global__div-mixins.basic__div();
+  width: 100%;
+  height: 100%;
+  justify-content: flex-end;
+  color: white;
+  font-weight: bold;
+}
+.back__img {
+  width: 100%;
+  z-index: -1;
+  height: 100%;
+}
+.main__con__inner {
+  @include global__div-mixins.basic__div();
+  width: auto;
+  height: auto;
+  flex-direction: column;
+  .logo {
+    width: 120px;
+    height: 130px;
+  }
+  // text container
+  div:nth-of-type(1) {
+    @include global__div-mixins.basic__div();
+    width: 540px;
+    height: 216px;
+    text-align: center;
+    margin: 32px 0 24px 0;
+    h3 {
+      font-size: 48px;
+      line-height: 72px;
+    }
+  }
+  // buttons container
+  div:nth-of-type(2) {
+    @include global__div-mixins.basic__div();
+    width: 539px;
+    height: 44px;
+    margin-top: 24px;
+  }
+
+  @include global__breakpoints-mixins.breakpoint(small) {
+    width: 90%;
+    height: 80%;
+    position: absolute;
+    right: 5%;
+    .logo {
+      width: 70px;
+      height: 80px;
+    }
+    // text container
+    div:nth-of-type(1) {
+      @include global__div-mixins.basic__div();
+      margin: 5px 0 5px 0;
+      width: 287px;
+      height: 186px;
+      text-align: center;
+      h3 {
+        font-size: 24px;
+        line-height: 36px;
+      }
+    }
+    // buttons container
+    div:nth-of-type(2) {
+      @include global__div-mixins.basic__div();
+      width: 300px;
+      height: 37px;
+      margin-top: 16px;
+    }
+  }
+}
