@@ -11,7 +11,7 @@ export default function OnBoardingHomePage3() {
       btn_texts={["Previous", "Next"]}
       logo_src="/images/on-boarding/Community.png"
       text={text}
-      next_path="/on-boarding/3"
+      next_path="/sign-in"
     />
   );
 }

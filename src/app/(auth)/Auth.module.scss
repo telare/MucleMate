@@ -1,0 +1,7 @@
+@use "@shared/styles/mixins/btn__mixins" as global_btn__mixins;
+@use "@shared/styles/mixins/div__mixin" as global_div__mixins;
+@use "@shared/styles/mixins/breakpoints__mixin" as global_breakpoints__mixins;
+
+.auth_main__con {
+  @include global_div__mixins.basic__div();
+}

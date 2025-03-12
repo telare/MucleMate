@@ -1,0 +1,29 @@
+@use "@shared/styles/mixins/btn__mixins.scss" as global__btn_mixins;
+@use "@shared/styles/mixins/div__mixin.scss" as global__div_mixins;
+@use "@shared/styles/mixins/breakpoints__mixin.scss" as
+  global__breakpoints-mixins;
+
+.button {
+  @include global__btn_mixins.btn(
+    $width: 50px,
+    $height: 24px,
+    $border-radius: 10px,
+    $margin: 0
+  );
+  justify-content: start;
+  position: relative;
+  .ball {
+    @include global__div_mixins.basic__div($width: 45%, $height: 90%);
+    border-radius: 50%;
+    position: absolute;
+    margin-left: 5%;
+    margin-right: 5%;
+    // animation: ball_anim 1s ease-in-out 1;
+  }
+}
+
+// @keyframes ball_anim {
+//   to{
+//     transform: translateX(90%);
+//   }
+// }
