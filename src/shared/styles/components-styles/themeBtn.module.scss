@@ -2,6 +2,7 @@
 @use "@shared/styles/mixins/div__mixin.scss" as global__div_mixins;
 @use "@shared/styles/mixins/breakpoints__mixin.scss" as
   global__breakpoints-mixins;
+@use "@shared/styles/Variables.scss" as variables;
 
 .button {
   @include global__btn_mixins.btn(
@@ -12,18 +13,33 @@
   );
   justify-content: start;
   position: relative;
+  :global(html.light) & {
+    background-color: variables.$base_background_color__light;
+  }
+  :global(html.dark) & {
+    background-color: variables.$base_background_color__dark;
+  }
   .ball {
     @include global__div_mixins.basic__div($width: 45%, $height: 90%);
     border-radius: 50%;
     position: absolute;
     margin-left: 5%;
     margin-right: 5%;
-    // animation: ball_anim 1s ease-in-out 1;
+    transition: transform 1s ease-in-out;
+    :global(html.light) & {
+      background-color: variables.$base_background_color__dark;
+      transform: translateX(100%);
+    }
+    :global(html.dark) & {
+      background-color: variables.$base_background_color__light;
+      transform: translateX(0);
+    }
+    // animation: ball_anim 2s ease-in-out 1 backwards ;
+  }
+  .active__ball {
+    transform: translateX(100%);
+  }
+  .non__active__ball {
+    transform: translateX(0);
   }
 }
-
-// @keyframes ball_anim {
-//   to{
-//     transform: translateX(90%);
-//   }
-// }

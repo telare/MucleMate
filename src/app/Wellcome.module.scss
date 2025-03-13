@@ -1,5 +1,5 @@
-@use "../shared/styles/mixins/div__mixin.scss" as global__div-mixins;
-@use "../shared/styles/mixins/breakpoints__mixin.scss" as global__breakpoints-mixins;
+@use "@shared/styles/mixins/div__mixin.scss" as global__div-mixins;
+@use "@shared/styles/mixins/breakpoints__mixin.scss" as global__breakpoints-mixins;
 .main__con {
   @include global__div-mixins.basic__div();
   width: 100%;
@@ -40,7 +40,6 @@
     height: auto;
     flex-direction: column;
     animation: main_text__animation 3s ease-in-out 1 forwards;
-    color: white;
     h1 {
       line-height: 126px;
       font-size: 84px;

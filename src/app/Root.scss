@@ -1,3 +1,4 @@
+@use "@shared/styles/Variables.scss" as variables;
 body {
   // padding: 1.5%;
   height: 100vh;
@@ -6,12 +7,10 @@ body {
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-}
-html.dark {
-  background-color: blue;
-  color: white;
-}
-html.light {
-  background-color: white;
-  color: blue;
+  background-color: variables.$base_background_color__light;
+  color: variables.$base_color__light;
+  html.dark & {
+    background-color: variables.$base_background_color__dark;
+    color: variables.$base_color__dark;
+  }
 }

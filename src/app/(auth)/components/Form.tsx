@@ -3,7 +3,7 @@ import Button from "@/shared/components/buttons/Button";
 import styles from "../Form.module.scss";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { z, ZodObject, ZodRawShape} from "zod";
+import { z, ZodObject, ZodRawShape } from "zod";
 import { FormProvider, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import FormField from "./FormField";
@@ -30,7 +30,9 @@ export default function AuthForm({ titleTexts, schema }: AuthFormProps) {
   return (
     <>
       <div className={styles.main__con}>
-        <ThemeBtn/>
+        <div className={styles.theme_btn__con}>
+          <ThemeBtn />
+        </div>
         <form onSubmit={methods.handleSubmit(submitFnc)}>
           {/* title */}
           <div className={styles.title__con}>
@@ -42,7 +44,7 @@ export default function AuthForm({ titleTexts, schema }: AuthFormProps) {
             <Button fnc={() => {}} text="Twitter" type="button" />
             <Button fnc={() => {}} text="Google" type="button" />
           </div>
-          <div className={styles.or__con}>or</div>
+          <div className={styles.or__con}><p>or</p></div>
           {/* inputs */}
           <FormProvider {...methods}>
             <div className={styles.input_fields__con}>

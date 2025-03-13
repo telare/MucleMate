@@ -1,14 +1,28 @@
-@mixin btn($width:211px, $height:44px, $font-size:18px, $border-radius:20px, $margin:10px) {
+@use "@shared/styles/Variables.scss" as variables;
+@mixin btn(
+  $width: 211px,
+  $height: 44px,
+  $font-size: variables.$base_font_size_p__desktop,
+  $border-radius: 20px,
+  $margin: 10px
+) {
   display: flex;
   text-align: center;
   justify-content: center;
   align-items: center;
-  color:#1877F2;
   font-size: $font-size;
   cursor: pointer;
-  background-color: rgba(255, 255, 255, 0.09);
   width: $width;
   height: $height;
   margin: $margin;
   border-radius: $border-radius;
+  html.dark & {
+    background-color: white;
+    color: blue;
+  }
+  background-color: blue;
+  color: white;
 }
+
+
+// add adaptive styles

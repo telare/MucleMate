@@ -1,12 +1,13 @@
-@use "../../shared/styles/mixins/div__mixin.scss" as global__div-mixins;
-@use "../../shared/styles/mixins/breakpoints__mixin.scss" as
+@use "@shared/styles/mixins/div__mixin.scss" as global__div-mixins;
+@use "@shared/styles/mixins/btn__mixins.scss" as global__btn-mixins;
+@use "@shared/styles/mixins/breakpoints__mixin.scss" as
   global__breakpoints-mixins;
+@use "@shared/styles/Variables.scss" as variables;
 .main__con {
   @include global__div-mixins.basic__div();
   width: 100%;
   height: 100%;
   justify-content: flex-end;
-  color: white;
   font-weight: bold;
 }
 .back__img {
@@ -16,6 +17,7 @@
 }
 .main__con__inner {
   @include global__div-mixins.basic__div();
+  position: relative;
   width: auto;
   height: auto;
   flex-direction: column;
@@ -41,6 +43,10 @@
     width: 539px;
     height: 44px;
     margin-top: 24px;
+    button {
+      @include global__btn-mixins.btn();
+      background-color: rgba(255, 255, 255, 0.09);
+    }
   }
 
   @include global__breakpoints-mixins.breakpoint(small) {
@@ -72,4 +78,15 @@
       margin-top: 16px;
     }
   }
+}
+
+.skip__btn {
+  @include global__btn-mixins.btn();
+  background-color: rgba(255, 255, 255, 0.09);
+  color: variables.$base_accent_color;
+  width: 4%;
+  height: 3%;
+  position: absolute;
+  top: 10%;
+  right: 2%;
 }

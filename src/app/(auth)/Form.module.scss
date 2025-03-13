@@ -1,18 +1,34 @@
 @use "@shared/styles/mixins/btn__mixins" as global_btn__mixins;
 @use "@shared/styles/mixins/div__mixin" as global_div__mixins;
 @use "@shared/styles/mixins/breakpoints__mixin" as global_breakpoints__mixins;
+@use "@shared/styles/Variables" as variables;
 
-//scaled
 .main__con {
   @include global_div__mixins.basic__div($width: 1032px, $height: 852px);
-  background-color: white;
   border-radius: 66px;
   flex-direction: column;
-
+  position: relative;
+  .theme_btn__con {
+    position: absolute;
+    right: 10%;
+    top: 8%;
+  }
+  background-color: variables.$base_background_color__dark;
+  color: variables.$base_color__dark;
+  input {
+    background-color: variables.$base_input_background_color__light;
+    color: variables.$base_input_color;
+  }
+  :global(html.dark) & {
+    background-color: variables.$base_background_color__light;
+    color: variables.$base_color__light;
+    input {
+      background-color: variables.$base_input_background_color__dark;
+    }
+  }
   form {
     @include global_div__mixins.basic__div($width: 414px, $height: 686px);
     flex-direction: column;
-
     div:nth-last-child(1) {
       @include global_div__mixins.basic__div($height: 20%);
       flex-direction: column;
@@ -23,6 +39,11 @@
         margin-left: 19px;
         width: 100%;
         margin-top: 19px;
+        font-size: variables.$base_font_size_p__desktop;
+        color: variables.$base_color__dark;
+        :global(html.dark) & {
+          color: variables.$base_color__light;
+        }
       }
       a {
         text-decoration: underline;
@@ -30,16 +51,19 @@
       button {
         width: 100%;
         height: 72px;
-        font-size: 32px;
-        background-color: #3461fd;
-        color: white;
-        box-shadow: 5px 31px 53px 0px rgba(52, 97, 253, 0.4);
+        font-size: variables.$base_font_size_btn__desktop;
+        // box-shadow: 5px 31px 53px 0px rgba(52, 97, 253, 0.4);
         border-radius: 17px;
         margin: 0px;
+        background-color: variables.$base_background_color__dark;
+        color: variables.$base_color__dark;
+        :global(html.light) & {
+          background-color: variables.$base_background_color__light;
+          color: variables.$base_color__light;
+        }
       }
     }
   }
-
   @include global_breakpoints__mixins.breakpoint(small) {
     @include global_div__mixins.basic__div($width: 90%, $height: 80%);
     form {
@@ -52,7 +76,7 @@
         }
         button {
           border-radius: 14px;
-          font-size: 20px;
+          font-size: variables.$base_font_size_btn__mobile;
         }
       }
     }
@@ -63,153 +87,64 @@
   @include global_div__mixins.basic__div($width: 100%, $height: 20%);
   flex-direction: column;
   text-align: center;
-
   h1 {
-    font-size: 38px;
+    font-size: variables.$base_font_size_title__desktop;
     line-height: 48px;
   }
-
   p {
     margin: 19px 0 0;
-    font-size: 17px;
+    font-size: variables.$base_font_size_p__desktop;
     line-height: 26px;
   }
 }
 
 .social__btns {
   @include global_div__mixins.basic__div($width: 100%, $height: 12%);
+
+  button {
+    background-color: variables.$base_background_color__light;
+    color: variables.$base_color__light;
+    :global(html.dark) & {
+      background-color: variables.$base_background_color__dark;
+      color: variables.$base_color__dark;
+    }
+  }
+
   margin-top: 35px;
 }
 
-.or-con {
+.or__con {
   @include global_div__mixins.basic__div($width: 100%, $height: 6%);
+  font-size: variables.$base_font_size_p__desktop;
 }
 
 .input_fields__con {
   @include global_div__mixins.basic__div($width: 100%, $height: auto);
   flex-direction: column;
-  text-align:left;
+  text-align: left;
   input {
-    width: 100%;
-    height: 72px;
+    @include global_div__mixins.basic__div($width: 100%, $height: 72px);
     padding: 22px 29px;
     margin: 19px 0 0;
-    background-color: #f5f9fe;
     border-radius: 17px;
-    font-size: 24px;
+    // font-size: 24px;
+    font-size: variables.$base_font_size_p__desktop;
     &::placeholder {
-      font-size: 19px;
       line-height: 29px;
     }
-
     &:focus {
       outline: none;
     }
   }
-  span{
-    color: red;
-    width:100%;
+  span {
+    width: 100%;
+    :global(html.light) & {
+      color: variables.$base_color__dark;
+    }
+    :global(html.dark) & {
+      color: variables.$base_color__light;
+    }
   }
   @include global_breakpoints__mixins.breakpoint(small) {
-    
   }
 }
-
-// .main__con {
-//   @include global_div__mixins.basic__div($width: 860px, $height: 710px);
-//   background-color: white;
-//   border-radius: 55px;
-//   flex-direction: column;
-//   form {
-//     @include global_div__mixins.basic__div($width: 345px, $height: 572px);
-//     flex-direction: column;
-//     div:nth-last-child(1) {
-//       @include global_div__mixins.basic__div($height: 20%);
-//       flex-direction: column;
-//       margin-top: 29px;
-//       text-align: left;
-//       p {
-//         margin-left: 16px;
-//         width: 100%;
-//         margin-top: 16px;
-//       }
-//       button {
-//         width: 100%;
-//         height: 60px;
-//         background-color: #3461fd;
-//         color: white;
-//         box-shadow: 4px 26px 44px 0px rgba(52, 97, 253, 0.4);
-//         border-radius: 14px;
-//         margin: 0px;
-//       }
-//     }
-//   }
-
-//   @include global_breakpoints__mixins.breakpoint(small) {
-//     @include global_div__mixins.basic__div($width: 90%, $height: 80%);
-//     form {
-//       @include global_div__mixins.basic__div($width: 345px, $height: 572px);
-//       div:nth-last-child(1) {
-//         margin-top: 32px;
-//         p {
-//           margin-left: 16px;
-//           width: 100%;
-//           margin-top: 16px;
-//         }
-//         button {
-//           //   box-shadow: 4px 26px 44px 0px rgba(52, 97, 253, 0.4);
-//           border-radius: 14px;
-//         }
-//       }
-//     }
-//   }
-// }
-
-// .title__con {
-//   @include global_div__mixins.basic__div($width: 100%, $height: 20%);
-//   flex-direction: column;
-//   text-align: center;
-//   h1 {
-//     font-size: 32px;
-//     line-height: 40px;
-//   }
-//   p {
-//     margin: 16px 0 0;
-//     font-size: 14px;
-//     line-height: 22px;
-//   }
-
-//   //   @include global_breakpoints__mixins.breakpoint(small) {
-//   //   }
-// }
-
-// .social__btns {
-//   @include global_div__mixins.basic__div($width: 100%, $height: 10%);
-//   margin-top: 29px;
-// }
-
-// .or-con {
-//   @include global_div__mixins.basic__div($width: 100%, $height: 5%);
-// }
-
-// .input_fields__con {
-//   @include global_div__mixins.basic__div($width: 100%, $height: auto);
-//   flex-direction: column;
-//   input {
-//     width: 100%;
-//     height: 60px;
-//     padding: 18px 24px;
-//     margin: 16px 0 0;
-//     background-color: #f5f9fe;
-//     border-radius: 14px;
-//     &::placeholder {
-//       font-size: 16px;
-//       line-height: 24px;
-//     }
-//     &:focus {
-//       outline: none;
-//     }
-//   }
-//   //   @include global_breakpoints__mixins.breakpoint(small) {
-//   //   }
-// }
