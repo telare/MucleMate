@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import styles from "../OnBoarding.module.scss";
 import Button from "@/shared/components/buttons/Button";
 import SkipBtn from "./SkipBtn";
+import ThemeBtn from "@/shared/components/buttons/ThemeBtn";
 
 export default function OnBoardingScreen({
   logo_src,
@@ -19,6 +20,9 @@ export default function OnBoardingScreen({
   const router = useRouter();
   return (
     <div className={styles.main__con}>
+      <div className={styles.theme_btn__con}>
+        <ThemeBtn />
+      </div>
       <Image
         src="/images/wellcome-background-img.png"
         alt="background"
@@ -43,7 +47,6 @@ export default function OnBoardingScreen({
             type="button"
           />
         </div>
-        
       </div>
     </div>
   );

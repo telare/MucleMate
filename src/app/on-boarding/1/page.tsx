@@ -2,9 +2,11 @@ import OnBoardingScreen from "../components/OnBoardingScreen";
 
 export default function OnBoardingHomePage1() {
   const text: React.ReactNode = (
-      <h3>
-        Start Your Journey <br /> Towards A More <br /> Active Lifestyle
-      </h3>
+    <>
+      <h3>Start Your Journey</h3>
+      <h3>Towards A More</h3>
+      <h3>Active Lifestyle</h3>
+    </>
   );
 
   return (

@@ -4,4 +4,18 @@
 
 .auth_main__con {
   @include global_div__mixins.basic__div();
+  position: relative;
+  flex-direction: column-reverse;
+  .theme_btn__con {
+    position: absolute;
+    top: 11%;
+    right: 10%;
+  }
+  @include global_breakpoints__mixins.breakpoint(small){
+    .theme_btn__con {
+      position: absolute;
+      top: 4%;
+      right: 4%;
+    }
+  }
 }

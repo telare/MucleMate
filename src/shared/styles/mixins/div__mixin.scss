@@ -1,8 +1,44 @@
-@mixin basic__div($width:100%, $height:100%) {
+@use "@shared/styles/mixins/breakpoints__mixin.scss" as
+  global__breakpoints-mixins;
+@use "@shared/styles/Variables.scss" as variables;
+@mixin basic__div(
+  $width: 100%,
+  $height: 100%,
+  $width-mobile: $width,
+  $height-mobile: $height,
+) {
   display: flex;
   justify-content: center;
   align-items: center;
   width: $width;
-  height:$height;
-}
+  height: $height;
+  h1 {
+    font-size: variables.$base_font_size_h1__desktop;
+    // line-height: variables.$base_font_size_h1_line_height__desktop;
+  }
+  h3 {
+    font-size: variables.$base_font_size_h3__desktop;
+    // line-height: variables.$base_font_size_h3_line_height__desktop;
+  }
+  p {
+    font-size: variables.$base_font_size_p__desktop;
+    // line-height: variables.$base_font_size_p_line_height__desktop;
+  }
 
+  @include global__breakpoints-mixins.breakpoint(small) {
+    width: $width-mobile;
+    height: $height-mobile;
+    h1 {
+      font-size: variables.$base_font_size_h1__mobile;
+      // line-height: variables.$base_font_size_h1_line_height__mobile;
+    }
+    h3 {
+      font-size: variables.$base_font_size_h3__mobile;
+      // line-height: variables.$base_font_size_h3_line_height__mobile;
+    }
+    p {
+      font-size: variables.$base_font_size_p__mobile;
+      // line-height: variables.$base_font_size_p_line_height__mobile;
+    }
+  }
+}

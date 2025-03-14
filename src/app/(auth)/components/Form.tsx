@@ -8,7 +8,6 @@ import { FormProvider, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import FormField from "./FormField";
 import { useRouter } from "next/navigation";
-import ThemeBtn from "@/shared/components/buttons/ThemeBtn";
 type AuthFormProps = {
   titleTexts: string[];
   schema: ZodObject<ZodRawShape>;
@@ -30,13 +29,10 @@ export default function AuthForm({ titleTexts, schema }: AuthFormProps) {
   return (
     <>
       <div className={styles.main__con}>
-        <div className={styles.theme_btn__con}>
-          <ThemeBtn />
-        </div>
         <form onSubmit={methods.handleSubmit(submitFnc)}>
           {/* title */}
           <div className={styles.title__con}>
-            <h1>{titleTexts[0]}</h1>
+            <h3>{titleTexts[0]}</h3>
             <p>{titleTexts[1]}</p>
           </div>
           {/* Social btns */}
@@ -57,13 +53,13 @@ export default function AuthForm({ titleTexts, schema }: AuthFormProps) {
             <Button fnc={() => {}} text="Submit" type="submit" />
             <span>
               {pathname === "/sign-in" ? (
-                <>
+                <p>
                   Don’t have account? <Link href="/sign-up">Sign Up</Link>
-                </>
+                </p>
               ) : (
-                <>
+                <p>
                   Do you have account? <Link href="/sign-in">Sign In</Link>
-                </>
+                </p>
               )}
             </span>
           </div>
