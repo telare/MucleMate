@@ -4,7 +4,7 @@ import "./Root.scss";
 import { ThemeProvider } from "next-themes";
 const poppins = Poppins({
   subsets: ["latin"],
-  weight: "400",
+  weight: ["400", "600", "700"],
 });
 
 export default function RootLayout({

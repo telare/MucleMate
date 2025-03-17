@@ -13,7 +13,7 @@ export default function OnBoardingScreen({
   next_path,
 }: {
   logo_src: string;
-  text: React.ReactNode;
+  text: string[];
   btn_texts: string[];
   next_path: string;
 }) {
@@ -38,7 +38,11 @@ export default function OnBoardingScreen({
           height={100}
           className={styles.logo}
         />
-        <div>{text}</div>
+        <div>
+          {text.map((_, i) => (
+            <h3 key={i}>{_}</h3>
+          ))}
+        </div>
         <div>
           <Button text={btn_texts[0]} fnc={() => router.back()} type="button" />
           <Button

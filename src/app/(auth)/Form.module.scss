@@ -31,58 +31,43 @@
       $width: 414px,
       $height: 686px,
       $width-mobile: 354px,
-      $height-mobile: 572px
+      // $height-mobile: 572px
+      $height-mobile: 659px
     );
     flex-direction: column;
     div:nth-last-child(1) {
       @include global_div__mixins.basic__div($height: 20%);
       flex-direction: column;
-      margin-top: 35px;
+      margin-top: 32px;
       text-align: left;
 
       span {
-        margin-left: 19px;
+        margin: 16px 0 0 16px;
         width: 100%;
-        margin-top: 19px;
-        font-size: variables.$base_font_size_p__desktop;
         color: variables.$base_color__dark;
         :global(html.dark) & {
           color: variables.$base_color__light;
         }
+        a {
+          text-decoration: underline;
+        }
       }
-      a {
-        text-decoration: underline;
-      }
+
       button {
         @include global_btn__mixins.btn(
           $width: 100%,
           $height: 72px,
           $width-mobile: 100%,
-          $height-mobile: 72px
+          $height-mobile: 72px,
+          $margin: 0
         );
         // box-shadow: 5px 31px 53px 0px rgba(52, 97, 253, 0.4);
-        margin: 0px;
         background-color: variables.$base_background_color__dark;
         color: variables.$base_color__dark;
         :global(html.light) & {
           background-color: variables.$base_background_color__light;
           color: variables.$base_color__light;
         }
-      }
-    }
-  }
-  @include global_breakpoints__mixins.breakpoint(small) {
-    form {
-      div:nth-last-child(1) {
-        margin-top: 32px;
-        span {
-          margin-left: 16px;
-          margin-top: 16px;
-        }
-        // button {
-        //   border-radius: 14px;
-        //   font-size: variables.$base_font_size_btn__mobile;
-        // }
       }
     }
   }
@@ -93,26 +78,25 @@
   flex-direction: column;
   text-align: center;
   h3 {
-    // font-size: variables.$base_font_size_title__desktop;
     line-height: 48px;
+    font-weight: 600;
   }
   p {
     margin: 19px 0 0;
-    // font-size: variables.$base_font_size_p__desktop;
     line-height: 26px;
   }
 }
 
 .social__btns {
-  @include global_div__mixins.basic__div($width: 100%, $height: 72px, $width-mobile: 100%, $height-mobile: 72px);
+  @include global_div__mixins.basic__div(
+    $width: 100%,
+    $height: 72px,
+    $height-mobile: 56px
+  );
   gap: 20px;
+  justify-content: space-between;
   button {
-    @include global_btn__mixins.btn(
-      $width: 45%,
-      $height: 100%,
-      $width-mobile: 45%,
-      $height-mobile: 100%
-    );
+    @include global_btn__mixins.btn($width: 45%, $height: 100%, $margin: 0);
     background-color: variables.$base_background_color__light;
     color: variables.$base_color__light;
     :global(html.dark) & {
@@ -120,45 +104,39 @@
       color: variables.$base_color__dark;
     }
   }
-  @include global_breakpoints__mixins.breakpoint(small) {
-    gap: 10px;
-  }
-  margin-top: 35px;
+  margin-top: 19px;
 }
 
 .or__con {
-  @include global_div__mixins.basic__div(
-    $width: 100%,
-    $height: 6%,
-  );
+  @include global_div__mixins.basic__div($width: 100%, $height: 6%);
+  margin: 19px 0 19px 0;
 }
 
 .input_fields__con {
-  @include global_div__mixins.basic__div(
-    $width: 100%,
-    $height: auto,
-  );
+  @include global_div__mixins.basic__div($width: 100%, $height: auto);
   flex-direction: column;
   text-align: left;
+  input:nth-child(1) {
+    margin: 0;
+  }
   input {
-    @include global_div__mixins.basic__div(
-      $width: 100%,
-      $height: 72px,
-    );
-    padding: 22px 29px;
+    @include global_div__mixins.basic__div($width: 100%, $height: 72px);
+    padding: 22px 24px;
     margin: 19px 0 0;
     border-radius: 17px;
-    // font-size: 24px;
-    font-size: variables.$base_font_size_p__desktop;
     &::placeholder {
       line-height: 29px;
     }
     &:focus {
       outline: none;
     }
+    @include global_breakpoints__mixins.breakpoint(small) {
+      padding: 11px 12px;
+    }
   }
   span {
     width: 100%;
+    margin: 8px 0 0 16px;
     :global(html.light) & {
       color: variables.$base_color__dark;
     }

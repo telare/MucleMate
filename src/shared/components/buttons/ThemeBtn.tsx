@@ -6,9 +6,6 @@ import styles from "@shared/styles/components-styles/themeBtn.module.scss";
 export default function ThemeBtn() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState<boolean>(false);
-  function themeBtnFnc(): void {
-    setTheme(theme === "dark" ? "light" : "dark");
-  }
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -18,15 +15,9 @@ export default function ThemeBtn() {
         text=""
         type="button"
         style={styles.button}
-        fnc={() => themeBtnFnc()}
+        fnc={() => setTheme(theme === "dark" ? "light" : "dark")}
       >
-        <div
-          className={
-            theme === "dark"
-              ? [styles.ball, styles.active__ball].join(" ")
-              : [styles.ball, styles.non__active__ball].join(" ")
-          }
-        ></div>
+        <div className={styles.ball}></div>
       </Button>
     );
   }

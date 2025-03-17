@@ -21,30 +21,36 @@
     background-color: variables.$base_background_color__dark;
   }
   .ball {
-    @include global__div_mixins.basic__div(
-      $width: 45%,
-      $height: 90%,
-    );
+    @include global__div_mixins.basic__div($width: 45%, $height: 90%);
     border-radius: 50%;
     position: absolute;
     margin-left: 5%;
     margin-right: 5%;
-    transition: transform 1s ease-in-out;
-
     :global(html.light) & {
       background-color: variables.$base_background_color__light;
+      // animation: active 1s ease-in-out 1 forwards;
       transform: translateX(100%);
     }
     :global(html.dark) & {
       background-color: variables.$base_background_color__dark;
-      transform: translateX(0);
+      transform: translateX(0%);
+      // animation: anim 1s ease-in-out 1;
     }
-    // animation: ball_anim 2s ease-in-out 1 backwards ;
-  }
-  .active__ball {
-    transform: translateX(100%);
-  }
-  .non__active__ball {
-    transform: translateX(0);
   }
 }
+// @keyframes active {
+//   from {
+//     transform: translateX(0%);
+//   }
+//   to {
+//     transform: translateX(100%);
+//   }
+// }
+// @keyframes anim {
+//   from {
+//     transform: translateX(100%);
+//   }
+//   to {
+//     transform: translateX(0%);
+//   }
+// }

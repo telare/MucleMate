@@ -1,15 +1,18 @@
 @use "@shared/styles/mixins/breakpoints__mixin.scss" as
   global__breakpoints-mixins;
 @use "@shared/styles/Variables.scss" as variables;
+%div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 @mixin basic__div(
   $width: 100%,
   $height: 100%,
   $width-mobile: $width,
   $height-mobile: $height,
 ) {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @extend %div;
   width: $width;
   height: $height;
   h1 {
@@ -23,6 +26,9 @@
   p {
     font-size: variables.$base_font_size_p__desktop;
     // line-height: variables.$base_font_size_p_line_height__desktop;
+  }
+  input{
+    font-size: variables.$base_font_size_p__desktop;
   }
 
   @include global__breakpoints-mixins.breakpoint(small) {
@@ -39,6 +45,9 @@
     p {
       font-size: variables.$base_font_size_p__mobile;
       // line-height: variables.$base_font_size_p_line_height__mobile;
+    }
+    input{
+      font-size: variables.$base_font_size_p__mobile;
     }
   }
 }
