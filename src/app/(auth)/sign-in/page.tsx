@@ -6,7 +6,7 @@ export default function SignInPage() {
     Email: z.string().email({ message: "Invalid email address" }),
     Password: z
       .string()
-      .min(6, { message: "Password must be at least 6 characters long" }),
+      .min(6, { message: "At least 6 characters long" }),
   });
   return (
     <AuthForm

@@ -1,6 +1,8 @@
 import Image from "next/image";
 import styles from "../Wellcome.module.scss";
+import { useTranslations } from "next-intl";
 export default function Wellcome() {
+  const  t  = useTranslations("wellcome");
   return (
     <div className={styles.main__con}>
       <Image
@@ -18,9 +20,9 @@ export default function Wellcome() {
           className={styles.logo}
         />
         <div>
-          <h3>Welcome to</h3>
+          <h3>{t("title1")}</h3>
           <h1>MucleMate</h1>
-          <h3>Your personal fitness coach</h3>
+          <h3>{t("title2")}</h3>
         </div>
       </div>
     </div>

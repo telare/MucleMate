@@ -1,0 +1,5 @@
+@function figma-h-to-percent($figma-py:0, $base-height: 900) {
+    @return ($figma-py / $base-height) * 100%; 
+}
+
+

@@ -8,6 +8,7 @@ import { FormProvider, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import FormField from "./FormField";
 import { useRouter } from "next/navigation";
+import Form from "next/form";
 type AuthFormProps = {
   titleTexts: string[];
   schema: ZodObject<ZodRawShape>;
@@ -15,21 +16,22 @@ type AuthFormProps = {
 export default function AuthForm({ titleTexts, schema }: AuthFormProps) {
   const pathname = usePathname();
   const router = useRouter();
-  const submitFnc = async () => {
-    const resp = await fetch(`/auth/${pathname}`);
+  type Schema = z.infer<typeof schema>;
+  const submitFnc = async (data:Schema) => {
+    const resp = await fetch(`/auth/${pathname}`, data );
     if (resp.status === 201) return router.push("/home");
     router.push("/error");
   };
 
-  type Schema = z.infer<typeof schema>;
   const methods = useForm<Schema>({
     resolver: zodResolver(schema),
   });
   const fields: string[] = Object.keys(schema._def.shape());
+
+
   return (
-    <>
       <div className={styles.main__con}>
-        <form onSubmit={methods.handleSubmit(submitFnc)}>
+        <Form action="/home" onSubmit={methods.handleSubmit(submitFnc)}>
           {/* title */}
           <div className={styles.title__con}>
             <h3>{titleTexts[0]}</h3>
@@ -40,7 +42,9 @@ export default function AuthForm({ titleTexts, schema }: AuthFormProps) {
             <Button fnc={() => {}} text="Twitter" type="button" />
             <Button fnc={() => {}} text="Google" type="button" />
           </div>
-          <div className={styles.or__con}><p>or</p></div>
+          <div className={styles.or__con}>
+            <p>or</p>
+          </div>
           {/* inputs */}
           <FormProvider {...methods}>
             <div className={styles.input_fields__con}>
@@ -63,8 +67,7 @@ export default function AuthForm({ titleTexts, schema }: AuthFormProps) {
               )}
             </span>
           </div>
-        </form>
+        </Form>
       </div>
-    </>
   );
 }

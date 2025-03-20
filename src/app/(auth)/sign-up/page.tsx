@@ -6,11 +6,11 @@ export default function SignUpPage() {
   const SignUpSchema = z.object({
     Username: z
       .string()
-      .min(3, { message: "Username must be at least 3 characters long" }),
+      .min(3, { message: "At least 3 characters long" }),
     Email: z.string().email({ message: "Invalid email address" }),
     Password: z
       .string()
-      .min(6, { message: "Password must be at least 6 characters long" }),
+      .min(6, { message: "At least 6 characters long" }),
   });
   return (
     <AuthForm

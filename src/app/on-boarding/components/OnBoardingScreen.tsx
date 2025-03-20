@@ -24,7 +24,7 @@ export default function OnBoardingScreen({
         <ThemeBtn />
       </div>
       <Image
-        src="/images/wellcome-background-img.png"
+        src="/images/wellcome-background-img-3.jpg"
         alt="background"
         fill
         className={styles.back__img}

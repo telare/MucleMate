@@ -2,18 +2,22 @@ import "./globals.css";
 import { Poppins } from "next/font/google";
 import "./Root.scss";
 import { ThemeProvider } from "next-themes";
+import { NextIntlClientProvider } from "next-intl";
+import { getLocale } from "next-intl/server";
+
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "600", "700"],
 });
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = await getLocale();
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning>
       <body className={poppins.className}>
         <ThemeProvider
           attribute="class"
@@ -21,7 +25,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <NextIntlClientProvider> {children}</NextIntlClientProvider>
         </ThemeProvider>
       </body>
     </html>

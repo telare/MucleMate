@@ -1,21 +1,18 @@
 @use "@shared/styles/mixins/btn__mixins" as global_btn__mixins;
 @use "@shared/styles/mixins/div__mixin" as global_div__mixins;
 @use "@shared/styles/mixins/breakpoints__mixin" as global_breakpoints__mixins;
-
+@use "@shared/styles/Functions.scss" as global_functions; 
 .auth_main__con {
   @include global_div__mixins.basic__div();
   position: relative;
   flex-direction: column-reverse;
   .theme_btn__con {
     position: absolute;
-    top: 11%;
-    right: 10%;
-  }
-  @include global_breakpoints__mixins.breakpoint(small){
-    .theme_btn__con {
-      position: absolute;
-      top: 4%;
-      right: 4%;
+    top:global_functions.figma-h-to-percent($figma-py:50);
+    right: 394px;
+    @include global_breakpoints__mixins.breakpoint(small) {
+      top:global_functions.figma-h-to-percent($figma-py:32);
+      right: 24px;
     }
   }
 }
