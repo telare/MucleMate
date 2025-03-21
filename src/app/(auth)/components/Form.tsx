@@ -9,16 +9,20 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import FormField from "./FormField";
 import { useRouter } from "next/navigation";
 import Form from "next/form";
+
 type AuthFormProps = {
   titleTexts: string[];
   schema: ZodObject<ZodRawShape>;
 };
+
+
 export default function AuthForm({ titleTexts, schema }: AuthFormProps) {
   const pathname = usePathname();
   const router = useRouter();
   type Schema = z.infer<typeof schema>;
+  
   const submitFnc = async (data:Schema) => {
-    const resp = await fetch(`/auth/${pathname}`, data );
+    const resp = await fetch(`http://localhost:8080/auth/${pathname}`, data);
     if (resp.status === 201) return router.push("/home");
     router.push("/error");
   };
@@ -27,7 +31,6 @@ export default function AuthForm({ titleTexts, schema }: AuthFormProps) {
     resolver: zodResolver(schema),
   });
   const fields: string[] = Object.keys(schema._def.shape());
-
 
   return (
       <div className={styles.main__con}>

@@ -5,7 +5,6 @@ export default function OnBoardingHomePage1() {
   const t = useTranslations("onBoarding");
   return (
     <OnBoardingScreen
-      btn_texts={["Previous", "Next"]}
       logo_src="/images/on-boarding/WorkOut.png"
       text={[t("title1"), t("title1_2"), t("title1_3")]}
       next_path="/on-boarding/2"

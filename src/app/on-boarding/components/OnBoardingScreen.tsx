@@ -5,19 +5,19 @@ import styles from "../OnBoarding.module.scss";
 import Button from "@/shared/components/buttons/Button";
 import SkipBtn from "./SkipBtn";
 import ThemeBtn from "@/shared/components/buttons/ThemeBtn";
+import { useTranslations } from "next-intl";
 
 export default function OnBoardingScreen({
   logo_src,
   text,
-  btn_texts,
   next_path,
 }: {
   logo_src: string;
   text: string[];
-  btn_texts: string[];
   next_path: string;
 }) {
   const router = useRouter();
+  const t = useTranslations("onBoarding");
   return (
     <div className={styles.main__con}>
       <div className={styles.theme_btn__con}>
@@ -44,9 +44,9 @@ export default function OnBoardingScreen({
           ))}
         </div>
         <div>
-          <Button text={btn_texts[0]} fnc={() => router.back()} type="button" />
+          <Button text={t("previous_btn")} fnc={() => router.back()} type="button" />
           <Button
-            text={btn_texts[1]}
+            text={t("next_btn")}
             fnc={() => router.push(next_path)}
             type="button"
           />

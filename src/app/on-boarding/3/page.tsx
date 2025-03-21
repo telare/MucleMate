@@ -6,7 +6,6 @@ export default function OnBoardingHomePage3() {
 
   return (
     <OnBoardingScreen
-      btn_texts={["Previous", "Next"]}
       logo_src="/images/on-boarding/Community.png"
       text={[t("title3"), t("title3_2"), t("title3_3")]}
       next_path="/sign-in"
