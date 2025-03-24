@@ -5,17 +5,18 @@
 @use "@shared/styles/Functions.scss" as global_functions;
 
 .main__con {
+  border-radius: 66px;
+  flex-direction: column;
+  position: relative;
+  background-color: variables.$base_background_color__dark;
+  color: variables.$base_color__dark;
   @include global_div__mixins.basic__div(
     $height: global_functions.figma-h-to-percent(800),
     $width: 1032px,
     $width-mobile: 90%,
     $height-mobile: 85%
   );
-  border-radius: 66px;
-  flex-direction: column;
-  position: relative;
-  background-color: variables.$base_background_color__dark;
-  color: variables.$base_color__dark;
+  
   input {
     background-color: variables.$base_input_background_color__light;
     color: variables.$base_input_color;
@@ -28,18 +29,20 @@
     }
   }
   form {
+    flex-direction: column;
     @include global_div__mixins.basic__div(
       $width: 414px,
       $height: auto,
       $width-mobile: 354px,
       $height-mobile: 95%
     );
-    flex-direction: column;
+    
     div:nth-last-child(1) {
-      @include global_div__mixins.basic__div($height: 103px);
       flex-direction: column;
       margin-top: 32px;
       text-align: left;
+      @include global_div__mixins.basic__div($height: 103px);
+      
 
       span {
         margin: 16px 0 0 16px;
@@ -55,6 +58,9 @@
       }
 
       button {
+        // box-shadow: 5px 31px 53px 0px rgba(52, 97, 253, 0.4);
+        background-color: variables.$base_background_color__dark;
+        color: variables.$base_color__dark;
         @include global_btn__mixins.btn(
           $width: 100%,
           $height: 72px,
@@ -62,9 +68,7 @@
           $height-mobile: 60px,
           $margin: 0
         );
-        // box-shadow: 5px 31px 53px 0px rgba(52, 97, 253, 0.4);
-        background-color: variables.$base_background_color__dark;
-        color: variables.$base_color__dark;
+        
         :global(html.light) & {
           background-color: variables.$base_background_color__light;
           color: variables.$base_color__light;
@@ -78,9 +82,10 @@
 }
 
 .title__con {
-  @include global_div__mixins.basic__div($width: 100%, $height: 20%);
   flex-direction: column;
   text-align: center;
+  @include global_div__mixins.basic__div($width: 100%, $height: 25%);
+  
   h3 {
     line-height: 48px;
     font-weight: 600;
@@ -99,49 +104,56 @@
 }
 
 .social__btns {
+  gap: 20px;
+  justify-content: space-between;
+  margin: 19px 0;
+  min-height: 56px;
   @include global_div__mixins.basic__div(
     $width: 100%,
     $height: 56px,
     $height-mobile: 50px
   );
-  gap: 20px;
-  justify-content: space-between;
   button {
-    @include global_btn__mixins.btn($width: 45%, $height: 100%, $margin: 0);
+    margin-top: 19px;
     background-color: variables.$base_background_color__light;
     color: variables.$base_color__light;
+    @include global_btn__mixins.btn($width: 45%, $height: 100%, $margin: 0);
+    
     :global(html.dark) & {
       background-color: variables.$base_background_color__dark;
       color: variables.$base_color__dark;
     }
   }
-  margin-top: 19px;
+  
   @include global_breakpoints__mixins.breakpoint(small) {
     margin-top: 9px;
   }
 }
 
 .or__con {
-  @include global_div__mixins.basic__div($width: 100%, $height: 6%);
   margin: 19px 0 19px 0;
+  @include global_div__mixins.basic__div($width: 100%, $height: 6%);
+  
   @include global_breakpoints__mixins.breakpoint(small) {
     margin: 9px 0;
   }
 }
 
 .input_fields__con {
-  @include global_div__mixins.basic__div($width: 100%, $height: auto);
   flex-direction: column;
   text-align: left;
+  @include global_div__mixins.basic__div($width: 100%, $height: auto);
+  
   input:nth-child(1) {
     margin: 0;
   }
   input {
-    @include global_div__mixins.basic__div($width: 100%, $height: auto);
     max-height: 72px;
     padding: 22px 24px;
     margin: 19px 0 0;
     border-radius: 17px;
+    @include global_div__mixins.basic__div($width: 100%, $height: auto);
+    
     &::placeholder {
       line-height: 29px;
     }

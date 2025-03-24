@@ -4,14 +4,35 @@ import styles from "../Wellcome.module.scss";
 import { useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
+import { Capacitor } from "@capacitor/core";
+import { Device } from "@capacitor/device";
+import { Preferences } from "@capacitor/preferences";
 export default function Wellcome() {
-  const [mounted, setMounted] = useState<boolean>(false);
+  const [userLangDetected, IsUserLangDetected] = useState<boolean>(false);
   const t = useTranslations("wellcome");
   const { theme } = useTheme();
+
   useEffect(() => {
-    setMounted(true);
+    async function getUserDeviceLang(): Promise<string> {
+      const userLangResp = await Device.getLanguageCode();
+      const userLang: string = userLangResp.value;
+      return userLang;
+    }
+
+    async function setLangOnDevice(lang: string) {
+      if (Capacitor.isNativePlatform()) {
+        await Preferences.set({ key: "lang", value: lang });
+      } else {
+        document.cookie = `lang=${lang}`
+      }
+    }
+
+    getUserDeviceLang()
+      .then((userLang) => setLangOnDevice(userLang))
+      .then(() => IsUserLangDetected(true));
   }, []);
-  if (mounted) {
+
+  if (userLangDetected) {
     return (
       <div className={styles.main__con}>
         <div className={styles.main__info}>
@@ -32,7 +53,6 @@ export default function Wellcome() {
               className={styles.logo}
             />
           )}
-
           <div>
             <h3>{t("title1")}</h3>
             <h1>MucleMate</h1>

@@ -5,6 +5,9 @@
 @use "@shared/styles/Variables.scss" as variables;
 
 .button {
+  justify-content: start;
+  position: relative;
+  background-color: variables.$base_background_color__dark;
   @include global__btn_mixins.btn(
     $width: 50px,
     $height: 24px,
@@ -14,18 +17,17 @@
     $width-mobile: 50px,
     $height-mobile: 24px
   );
-  justify-content: start;
-  position: relative;
-  background-color: variables.$base_background_color__dark;
+  
   :global(html.light) & {
     background-color: variables.$base_background_color__dark;
   }
   .ball {
-    @include global__div_mixins.basic__div($width: 45%, $height: 90%);
     border-radius: 50%;
     position: absolute;
     margin-left: 5%;
     margin-right: 5%;
+    @include global__div_mixins.basic__div($width: 45%, $height: 90%);
+    
     :global(html.light) & {
       background-color: variables.$base_background_color__light;
       // animation: active 1s ease-in-out 1 forwards;

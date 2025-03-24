@@ -2,8 +2,9 @@ import "@shared/styles/components-styles/button.scss";
 import Image from "next/image";
 type ButtonProps = {
   style?: string;
-  text: string;
-  iconPath?: string;
+  text?: string;
+  iconPath?: string ;
+  icon?:React.ReactElement;
   type: "submit" | "button";
   children?:React.ReactNode;
   fnc?: () => void;
@@ -11,6 +12,7 @@ type ButtonProps = {
 export default function Button({
   style,
   text,
+  icon,
   iconPath,
   fnc,
   children,
@@ -18,7 +20,9 @@ export default function Button({
 }: ButtonProps) {
   return (
     <button className={style && style} onClick={fnc && fnc} type={type}>
-      {iconPath ? <Image alt="btn_image" src={iconPath} /> : text}
+      {iconPath && <Image alt="btn_image" src={iconPath} />}
+      {icon && icon}
+      {text && text}
       {children && children}
     </button>
   );
