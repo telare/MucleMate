@@ -15,7 +15,7 @@
   $font-size: variables.$base_font_size_btn__desktop,
   $border-radius: variables.$base_border_radius_btn__desktop,
   $margin: 10px,
-  $box-shadow: 0px 15px 20px 0px rgba(52, 97, 253, 0.4)
+  $box-shadow: none,
 ) {
   @extend %btn;
   font-size: $font-size;
