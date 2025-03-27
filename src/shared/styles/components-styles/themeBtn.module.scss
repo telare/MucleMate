@@ -1,38 +1,39 @@
-@use "@shared/styles/mixins/btn__mixins.scss" as global__btn_mixins;
-@use "@shared/styles/mixins/div__mixin.scss" as global__div_mixins;
-@use "@shared/styles/mixins/breakpoints__mixin.scss" as
-  global__breakpoints-mixins;
+@use "@shared/styles/mixins/BtnMixin" as global__btn--mixin;
+@use "@shared/styles/mixins/DivMixin.scss" as global__div--mixin;
+@use "@shared/styles/mixins/BreakpointsMixin.scss" as
+  global__breakpoints--mixin;
 @use "@shared/styles/Variables.scss" as variables;
 
 .button {
+  background-color: variables.$base_background_color__dark;
   justify-content: start;
   position: relative;
-  background-color: variables.$base_background_color__dark;
-  @include global__btn_mixins.btn(
+
+  @include global__btn--mixin.btn(
     $width: 50px,
     $height: 24px,
     $border-radius: 10px,
     $margin: 0,
-    $box-shadow: none,
     $width-mobile: 50px,
     $height-mobile: 24px
   );
-  
-  :global(html.light) & {
-    background-color: variables.$base_background_color__dark;
+
+  :global(html.dark) & {
+    background-color: variables.$base_background_color__light;
   }
+
   .ball {
     border-radius: 50%;
     position: absolute;
     margin-left: 5%;
     margin-right: 5%;
-    @include global__div_mixins.basic__div($width: 45%, $height: 90%);
     
-    :global(html.light) & {
-      background-color: variables.$base_background_color__light;
-      // animation: active 1s ease-in-out 1 forwards;
-      transform: translateX(100%);
-    }
+    @include global__div--mixin.basic__div($width: 45%, $height: 90%);
+
+    background-color: variables.$base_background_color__light;
+    // animation: active 1s ease-in-out 1 forwards;
+    transform: translateX(100%);
+
     :global(html.dark) & {
       background-color: variables.$base_background_color__dark;
       transform: translateX(0%);

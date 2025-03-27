@@ -18,30 +18,18 @@ export default function Wellcome() {
 
   if (mounted) {
     return (
-      <div className={styles.main__con}>
-        <div className={styles.main__info}>
-          {theme === "light" ? (
-            <Image
-              src="/images/Logo.png"
-              alt="logo"
-              width={200}
-              height={200}
-              className={styles.logo}
-            />
-          ) : (
-            <Image
-              src="/images/Logo-dark.png"
-              alt="logo"
-              width={200}
-              height={200}
-              className={styles.logo}
-            />
-          )}
-          <div>
-            <h3>{t("title1")}</h3>
-            <h1>MucleMate</h1>
-            <h3>{t("title2")}</h3>
-          </div>
+      <div className={styles.wellcome}>
+        <Image
+          src={`/images/Logo-${theme === "dark" && "dark"}.png`}
+          alt="logo"
+          width={200}
+          height={200}
+          className={styles.wellcome__logo}
+        />
+        <div>
+          <h3>{t("title1")}</h3>
+          <h1>MucleMate</h1>
+          <h3>{t("title2")}</h3>
         </div>
       </div>
     );

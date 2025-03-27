@@ -1,134 +1,142 @@
-@use "@shared/styles/mixins/div__mixin.scss" as global__div-mixins;
-@use "@shared/styles/mixins/btn__mixins.scss" as global__btn-mixins;
-@use "@shared/styles/mixins/breakpoints__mixin.scss" as
-  global__breakpoints-mixins;
+@use "@shared/styles/mixins/DivMixin.scss" as global__div--mixin;
+@use "@shared/styles/mixins/BtnMixin" as global__btn--mixin;
+@use "@shared/styles/mixins/BreakpointsMixin.scss" as
+  global__breakpoints--mixin;
 @use "@shared/styles/Variables.scss" as variables;
 
-.main__con {
-  @include global__div-mixins.basic__div();
-  & {
-    justify-content: flex-end;
-    position: relative;
-  }
-
-  @include global__breakpoints-mixins.breakpoint(small) {
+.onBoarding {
+  justify-content: flex-end;
+  position: relative;
+  @include global__div--mixin.basic__div();
+  @include global__breakpoints--mixin.breakpoint(small) {
     justify-content: center;
   }
-}
 
-.back__img {
-  width: 100%;
-  z-index: -1;
-  height: 100%;
-}
+  &__backImg {
+    width: 100%;
+    z-index: -1;
+    height: 100%;
+  }
 
-.main__con__inner {
-  background-color: variables.$base_background_color__dark;
-  position: relative;
-  flex-direction: column;
-  border-radius: 5%;
-
-  @include global__div-mixins.basic__div(
-    $width: 45%,
-    $height: 95%,
-    $width-mobile: 90%,
-    $height-mobile: 80%
-  );
-  :global(html.light) & {
+  &__inner {
     background-color: variables.$base_background_color__light;
-  }
+    position: relative;
+    flex-direction: column;
+    border-radius: 5%;
 
-  // border-top-left-radius: 5%;
-  // border-bottom-left-radius: 5%;
-
-  .theme_btn__con {
-    position: absolute;
-    top: 3%;
-    right: 2.5%;
-  }
-
-  .skip__btn {
-    padding: 11px 15px;
-    position: absolute;
-    top: 10%;
-    right: 2%;
-    @include global__btn-mixins.btn(
-      $width: auto,
-      $height: 3%,
-      $width-mobile: auto,
-      $height-mobile: 4%,
-      $box-shadow: 0px 15px 20px 0px rgba(52, 97, 253, 0.4),
-      $margin: 0
+    @include global__div--mixin.basic__div(
+      $width: 45%,
+      $height: 95%,
+      $width-mobile: 90%,
+      $height-mobile: 80%
     );
 
     :global(html.dark) & {
-      box-shadow: 0px 15px 20px 0px rgba(255, 255, 255, 0.4);
-      color: variables.$base_color__light;
-      background-color: variables.$base_background_color__light;
+      background-color: variables.$base_background_color__dark;
     }
-  }
 
-  .logo {
-    width: 120px;
-    height: 130px;
-  }
+    // border-top-left-radius: 5%;
+    // border-bottom-left-radius: 5%;
 
-  .text__con {
-    flex-direction: column;
-    text-align: center;
-    margin: 32px 0 24px 0;
-    font-weight: 700;
-    @include global__div-mixins.basic__div(
-      $width: 540px,
-      $height: 216px,
-      $width-mobile: 100%,
-      $height-mobile: 131px
-    );
-    h3 {
-      line-height: 54px;
+    &__themeBtnCon {
+      position: absolute;
+      top: 3%;
+      right: 2.5%;
     }
-  }
 
-  .btns__con {
-    @include global__div-mixins.basic__div(
-      $width: 539px,
-      $height: 44px,
-      $width-mobile: 300px,
-      $height-mobile: 37px
-    );
-    button {
-      @include global__btn-mixins.btn(
-        $box-shadow: 0px 15px 20px 0px rgba(52, 97, 253, 0.4)
+    &__skipBtn {
+      padding: 11px 15px;
+      position: absolute;
+      top: 10%;
+      right: 2%;
+      box-shadow: 0px 15px 20px 0px rgba(52, 97, 253, 0.4);
+      background-color: variables.$base_background_color__dark;
+      color: variables.$base_color__dark;
+
+      @include global__btn--mixin.btn(
+        $width: auto,
+        $height: 3%,
+        $width-mobile: auto,
+        $height-mobile: 4%,
+        $margin: 0
       );
 
       :global(html.dark) & {
         box-shadow: 0px 15px 20px 0px rgba(255, 255, 255, 0.4);
         background-color: variables.$base_background_color__light;
-        color: variables.$base_background_color__dark;
+        color: variables.$base_color__light;
       }
     }
-  }
 
-  @include global__breakpoints-mixins.breakpoint(small) {
-    position: absolute;
-    border-radius: 40px;
-    .logo {
-      width: 70px;
-      height: 80px;
+    &__logo {
+      width: 120px;
+      height: 130px;
     }
 
-    .theme_btn__con {
-      position: absolute;
-      top: 5%;
-      right: 2.5%;
-    }
-
-    .text__con {
-      margin: 25px 0 25px 0;
+    &__textCon {
+      flex-direction: column;
       text-align: center;
+      margin: 32px 0 24px 0;
+      font-weight: 700;
+
+      @include global__div--mixin.basic__div(
+        $width: 540px,
+        $height: 216px,
+        $width-mobile: 100%,
+        $height-mobile: 131px
+      );
+
       h3 {
-        // font-size: 24px;
-        line-height: 36px;
+        line-height: 54px;
+      }
+    }
+
+    &__btnsCon {
+      @include global__div--mixin.basic__div(
+        $width: 539px,
+        $height: 44px,
+        $width-mobile: 300px,
+        $height-mobile: 37px
+      );
+
+      button {
+        background-color: variables.$base_background_color__dark;
+        color: variables.$base_background_color__light;
+        box-shadow: 0px 15px 20px 0px rgba(52, 97, 253, 0.4);
+
+        @include global__btn--mixin.btn();
+
+        :global(html.dark) & {
+          box-shadow: 0px 15px 20px 0px rgba(255, 255, 255, 0.4);
+          background-color: variables.$base_background_color__light;
+          color: variables.$base_background_color__dark;
+        }
+      }
+    }
+
+    @include global__breakpoints--mixin.breakpoint(small) {
+      position: absolute;
+      border-radius: 40px;
+
+      &__logo {
+        width: 70px;
+        height: 80px;
+      }
+
+      &__themeBtnCon {
+        position: absolute;
+        top: 5%;
+        right: 2.5%;
+      }
+
+      &__textCon {
+        margin: 25px 0 25px 0;
+        text-align: center;
+
+        h3 {
+          // font-size: 24px;
+          line-height: 36px;
+        }
       }
     }
   }

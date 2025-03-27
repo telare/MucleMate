@@ -1,52 +1,51 @@
-@use "@shared/styles/mixins/div__mixin.scss" as global__div-mixins;
-@use "@shared/styles/mixins/breakpoints__mixin.scss" as
-  global__breakpoints-mixins;
-.main__con {
+@use "@shared/styles/mixins/DivMixin.scss" as global__div--mixin;
+@use "@shared/styles/mixins/BreakpointsMixin.scss" as
+  global__breakpoints--mixin;
+.wellcome {
   text-align: center;
   font-weight: bold;
-  @include global__div-mixins.basic__div($width: 100%, $height: 100%);
-}
 
-.back__img {
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-}
+  @include global__div--mixin.basic__div($width: 100%, $height: 100%);
 
-.main__info {
-  @include global__div-mixins.basic__div($width: 50%, $height: 50%);
-  .logo {
+  &__logo {
     animation: logo__animation 2s ease-in-out 1 forwards;
     z-index: 2;
     width: 300px;
     height: 300px;
-    @include global__breakpoints-mixins.breakpoint(small) {
+
+    @include global__breakpoints--mixin.breakpoint(small) {
       width: 100px;
       height: 100px;
       animation-name: native-logo__animation;
     }
   }
+
   & > div {
     flex-direction: column;
     animation: main_text__animation 3s ease-in-out 1 forwards;
-    @include global__div-mixins.basic__div($width: auto, $height: auto);
+
+    @include global__div--mixin.basic__div($width: auto, $height: auto);
+
     h1 {
       line-height: 126px;
       font-size: 84px;
     }
+
     h3 {
       line-height: 72px;
       font-size: 38px;
     }
 
-    @include global__breakpoints-mixins.breakpoint(small) {
+    @include global__breakpoints--mixin.breakpoint(small) {
       // flex-direction: column;
       width: 100%;
       animation-name: native-main_text__animation;
+
       h1 {
         line-height: 51px;
         font-size: 54px;
       }
+
       h3 {
         line-height: 27px;
         font-size: 20px;
@@ -55,7 +54,8 @@
       }
     }
   }
-  @include global__breakpoints-mixins.breakpoint(small) {
+
+  @include global__breakpoints--mixin.breakpoint(small) {
     flex-direction: column;
     width: 90%;
     height: 80%;
@@ -71,7 +71,6 @@
     transform: translateX(-30%);
   }
 }
-
 @keyframes main_text__animation {
   0% {
     opacity: 0;

@@ -1,6 +1,4 @@
 @use "@shared/styles/Variables.scss" as variables;
-@use "@shared/styles/mixins/breakpoints__mixin.scss" as global_breakpoints__mixins;
-@use "@shared/styles/Functions.scss" as global_functions;
 body {
   width: 100vw;
   height: 100vh;
@@ -10,6 +8,7 @@ body {
   box-sizing: border-box;
   background-color: variables.$base_background_color__light;
   color: variables.$base_color__light;
+  
   html.dark & {
     background-color: variables.$base_background_color__dark;
     color: variables.$base_color__dark;

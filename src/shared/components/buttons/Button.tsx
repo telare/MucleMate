@@ -1,4 +1,4 @@
-import "@shared/styles/components-styles/button.scss";
+import "@shared/styles/components-styles/Button.scss";
 import Image from "next/image";
 type ButtonProps = {
   style?: string;
