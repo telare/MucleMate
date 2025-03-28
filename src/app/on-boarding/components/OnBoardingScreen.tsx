@@ -24,29 +24,29 @@ export default function OnBoardingScreen({
         src="/images/wellcome-background-img-3.jpg"
         alt="background"
         fill
-        className={styles.BackImg}
+        className={styles.onBoarding__backImg}
       />
 
       <div className={styles.onBoarding__inner}>
-        <div className={styles.onBoarding__themeBtnCon}>
+        <div className={styles.onBoarding__inner__themeBtnCon}>
           <ThemeBtn />
         </div>
-        <SkipBtn pathToSkip="/sign-in" style={styles.onBoarding__skipBtn} />
+        <SkipBtn pathToSkip="/sign-in" style={styles.onBoarding__inner__skipBtn} />
         <Image
           src={logo_src}
           alt="logo"
           width={100}
           height={100}
-          className={styles.onBoarding__logo}
+          className={styles.onBoarding__inner__logo}
         />
 
-        <div className={styles.onBoarding__textCon}>
+        <div className={styles.onBoarding__inner__textCon}>
           {text.map((_, i) => (
             <h3 key={i}>{_}</h3>
           ))}
         </div>
 
-        <div className={styles.onBoarding__btnsCon}>
+        <div className={styles.onBoarding__inner__btnsCon}>
           <Button
             text={t("previous_btn")}
             fnc={() => router.back()}

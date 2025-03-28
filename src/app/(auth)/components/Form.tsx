@@ -33,24 +33,24 @@ export default function AuthForm({ titleTexts, schema }: AuthFormProps) {
   });
   const fields: string[] = Object.keys(schema._def.shape());
   return (
-    <div className={styles.main__con}>
+    <div className={styles.formCon}>
       <Form action="/home" onSubmit={methods.handleSubmit(submitFnc)}>
         {/* title */}
-        <div className={styles.title__con}>
+        <div className={styles.formCon__titleCon}>
           <h3>{titleTexts[0]}</h3>
           <p>{titleTexts[1]}</p>
         </div>
         {/* Social btns */}
-        <div className={styles.social__btns}>
+        <div className={styles.formCon__socialBtns}>
           <Button fnc={() => {}} text="Twitter" type="button" />
           <Button fnc={() => {}} text="Google" type="button" />
         </div>
-        <div className={styles.or__con}>
+        <div className={styles.formCon__orCon}>
           <p>{t("or")}</p>
         </div>
         {/* inputs */}
         <FormProvider {...methods}>
-          <div className={styles.input_fields__con}>
+          <div className={styles.formCon__inputFieldsCon}>
             {fields.map((field, i) => (
               <FormField key={i} placeholder={t(`form${field}Field`)} type="text" />
             ))}

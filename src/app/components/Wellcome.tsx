@@ -20,7 +20,7 @@ export default function Wellcome() {
     return (
       <div className={styles.wellcome}>
         <Image
-          src={`/images/Logo-${theme === "dark" && "dark"}.png`}
+          src={theme === "dark" ? "/images/Logo-dark.png" : "/images/Logo.png"}
           alt="logo"
           width={200}
           height={200}

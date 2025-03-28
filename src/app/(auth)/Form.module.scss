@@ -4,7 +4,7 @@
 @use "@shared/styles/Variables.scss" as variables;
 @use "@shared/styles/Functions.scss" as global__functions;
 
-.main__con {
+.formCon {
   border-radius: 66px;
   flex-direction: column;
   position: relative;
@@ -36,17 +36,15 @@
 
     @include global__div--mixin.basic__div(
       $width: 414px,
-      $height: auto,
+      $height: 95%,
       $width-mobile: 354px,
-      $height-mobile: 95%
     );
 
     div:nth-last-child(1) {
       flex-direction: column;
       margin-top: 32px;
       text-align: left;
-
-      @include global__div--mixin.basic__div($height: 103px);
+      @include global__div--mixin.basic__div($height: auto);
 
       span {
         margin: 16px 0 0 16px;
@@ -69,9 +67,9 @@
 
         @include global__btn--mixin.btn(
           $width: 100%,
-          $height: 72px,
+          $height: 70px,
           $width-mobile: 100%,
-          $height-mobile: 60px,
+          $height-mobile: 50px,
           $margin: 0
         );
 
@@ -84,114 +82,116 @@
     }
   }
 
+  &__titleCon {
+    flex-direction: column;
+    text-align: center;
+  
+    @include global__div--mixin.basic__div($width: 100%, $height: 25%);
+  
+    h3 {
+      line-height: 48px;
+      font-weight: 600;
+    }
+    
+    p {
+      margin: 19px 0 0;
+      line-height: 26px;
+    }
+  
+    @include global__breakpoints--mixin.breakpoint(small) {
+      p {
+        margin: 9px 0 0;
+        line-height: 26px;
+      }
+    }
+  }
+  
+  &__socialBtns {
+    gap: 20px;
+    justify-content: space-between;
+    margin: 19px 0 0;
+  
+    @include global__div--mixin.basic__div(
+      $width: 100%,
+      $height: 70px,
+      $height-mobile: 50px
+    );
+  
+    //fix bg color, color
+    button {
+      background-color: variables.$base_background_color__light;
+      color: variables.$base_color__light;
+      box-shadow: 0px 15px 20px 0px rgba(255, 255, 255, 0.4);
+  
+      @include global__btn--mixin.btn($width: 45%, $height: 100%, $margin: 0);
+  
+      :global(html.dark) & {
+        box-shadow: 0px 15px 20px 0px rgba(52, 97, 253, 0.4);
+        background-color: variables.$base_background_color__dark;
+        color: variables.$base_color__dark;
+      }
+    }
+  
+    
+  
+    @include global__breakpoints--mixin.breakpoint(small) {
+      margin-top: 9px;
+    }
+  }
+  
+  &__orCon {
+    margin: 19px 0 19px 0;
+  
+    @include global__div--mixin.basic__div($width: 100%, $height: 6%);
+  
+    @include global__breakpoints--mixin.breakpoint(small) {
+      margin: 9px 0;
+    }
+  }
+  
+  &__inputFieldsCon {
+    flex-direction: column;
+    text-align: left;
+  
+    @include global__div--mixin.basic__div($width: 100%, $height: auto);
+  
+    input:nth-child(1) {
+      margin: 0;
+    }
+  
+    input {
+      padding: 22px 24px;
+      margin: 19px 0 0;
+      border-radius: 17px;
+      @include global__div--mixin.basic__div($width: 100%, $height: 70px, $height-mobile:50px);
+  
+      &::placeholder {
+        line-height: 29px;
+      }
+      &:focus {
+        outline: none;
+      }
+      @include global__breakpoints--mixin.breakpoint(small) {
+        margin: 9px 0 0;
+        padding: 11px 12px;
+        max-height: 60px;
+      }
+    }
+  
+    span {
+      width: 100%;
+      margin: 8px 0 0 16px;
+      color: variables.$base_color__dark;
+  
+      :global(html.dark) & {
+        color: variables.$base_color__light;
+      }
+    }
+  }
+
   @include global__breakpoints--mixin.breakpoint(small) {
     border-radius: 30px;
   }
 }
 
-.title__con {
-  flex-direction: column;
-  text-align: center;
 
-  @include global__div--mixin.basic__div($width: 100%, $height: 25%);
-
-  h3 {
-    line-height: 48px;
-    font-weight: 600;
-  }
-  
-  p {
-    margin: 19px 0 0;
-    line-height: 26px;
-  }
-
-  @include global__breakpoints--mixin.breakpoint(small) {
-    p {
-      margin: 9px 0 0;
-      line-height: 26px;
-    }
-  }
-}
-
-.social__btns {
-  gap: 20px;
-  justify-content: space-between;
-  margin: 19px 0 0;
-  min-height: 56px;
-
-  //fix bg color, color
-  button {
-    background-color: variables.$base_background_color__light;
-    color: variables.$base_color__light;
-    box-shadow: 0px 15px 20px 0px rgba(255, 255, 255, 0.4);
-
-    @include global__btn--mixin.btn($width: 45%, $height: 100%, $margin: 0);
-
-    :global(html.dark) & {
-      box-shadow: 0px 15px 20px 0px rgba(52, 97, 253, 0.4);
-      background-color: variables.$base_background_color__dark;
-      color: variables.$base_color__dark;
-    }
-  }
-
-  @include global__div--mixin.basic__div(
-    $width: 100%,
-    $height: 56px,
-    $height-mobile: 50px
-  );
-
-  @include global__breakpoints--mixin.breakpoint(small) {
-    margin-top: 9px;
-  }
-}
-
-.or__con {
-  margin: 19px 0 19px 0;
-
-  @include global__div--mixin.basic__div($width: 100%, $height: 6%);
-
-  @include global__breakpoints--mixin.breakpoint(small) {
-    margin: 9px 0;
-  }
-}
-
-.input_fields__con {
-  flex-direction: column;
-  text-align: left;
-
-  @include global__div--mixin.basic__div($width: 100%, $height: auto);
-
-  input:nth-child(1) {
-    margin: 0;
-  }
-
-  input {
-    max-height: 72px;
-    padding: 22px 24px;
-    margin: 19px 0 0;
-    border-radius: 17px;
-    @include global__div--mixin.basic__div($width: 100%, $height: auto);
-
-    &::placeholder {
-      line-height: 29px;
-    }
-    &:focus {
-      outline: none;
-    }
-    @include global__breakpoints--mixin.breakpoint(small) {
-      margin: 9px 0 0;
-      padding: 11px 12px;
-      max-height: 60px;
-    }
-  }
-
-  span {
-    width: 100%;
-    margin: 8px 0 0 16px;
-    color: variables.$base_color__dark;
-
-    :global(html.dark) & {
-      color: variables.$base_color__light;
-    }
-  }
-}
