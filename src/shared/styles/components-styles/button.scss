@@ -1,5 +1,5 @@
-@use "@shared/styles/mixins/BtnMixin" as global__btn--mixin;
+@use "@shared/styles/mixins/BtnMixin" as global__btnMixin;
 
 button {
-  @include global__btn--mixin.btn();
+  @include global__btnMixin.btn();
 }

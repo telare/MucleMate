@@ -1,11 +1,11 @@
-@use "@shared/styles/mixins/DivMixin.scss" as global__div--mixin;
+@use "@shared/styles/mixins/DivMixin.scss" as global__divMixin;
 @use "@shared/styles/mixins/BreakpointsMixin.scss" as
-  global__breakpoints--mixin;
+  global__breakpointsMixin;
 .wellcome {
   text-align: center;
   font-weight: bold;
 
-  @include global__div--mixin.basic__div($width: 100%, $height: 100%);
+  @include global__divMixin.basic__div($width: 100%, $height: 100%);
 
   &__logo {
     animation: logo__animation 2s ease-in-out 1 forwards;
@@ -13,7 +13,7 @@
     width: 300px;
     height: 300px;
 
-    @include global__breakpoints--mixin.breakpoint(small) {
+    @include global__breakpointsMixin.breakpoint(small) {
       width: 100px;
       height: 100px;
       animation-name: native-logo__animation;
@@ -24,7 +24,7 @@
     flex-direction: column;
     animation: main_text__animation 3s ease-in-out 1 forwards;
 
-    @include global__div--mixin.basic__div($width: auto, $height: auto);
+    @include global__divMixin.basic__div($width: auto, $height: auto);
 
     h1 {
       line-height: 126px;
@@ -36,7 +36,7 @@
       font-size: 38px;
     }
 
-    @include global__breakpoints--mixin.breakpoint(small) {
+    @include global__breakpointsMixin.breakpoint(small) {
       // flex-direction: column;
       width: 100%;
       animation-name: native-main_text__animation;
@@ -55,7 +55,7 @@
     }
   }
 
-  @include global__breakpoints--mixin.breakpoint(small) {
+  @include global__breakpointsMixin.breakpoint(small) {
     flex-direction: column;
     width: 90%;
     height: 80%;

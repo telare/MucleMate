@@ -1,5 +1,5 @@
 @use "@shared/styles/Variables.scss" as variables;
-@use "@shared/styles/mixins/BreakpointsMixin.scss" as global__breakpoints--mixin;
+@use "@shared/styles/mixins/BreakpointsMixin.scss" as global__breakpointsMixin;
 
 %btn{
   display: flex;
@@ -25,7 +25,7 @@
   margin: $margin;
   border-radius: $border-radius;
 
-  @include global__breakpoints--mixin.breakpoint(small) {
+  @include global__breakpointsMixin.breakpoint(small) {
     width: $width-mobile;
     height: $height-mobile;
     font-size: variables.$base_font_size_btn__mobile;

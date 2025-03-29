@@ -6,9 +6,9 @@ export default function AuthLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className={styles.auth_main__con}>
+    <div className={styles.auth}>
       {children}
-      <div className={styles.theme_btn__con}>
+      <div className={styles.auth__themeBtnCon}>
         <ThemeBtn />
       </div>
     </div>

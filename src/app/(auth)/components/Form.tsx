@@ -6,7 +6,7 @@ import Link from "next/link";
 import { z, ZodObject, ZodRawShape } from "zod";
 import { FormProvider, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import FormField from "./FormField";
+import FormField from "../../../shared/components/FormField";
 import { useRouter } from "next/navigation";
 import Form from "next/form";
 import { useTranslations } from "next-intl";
@@ -20,6 +20,7 @@ export default function AuthForm({ titleTexts, schema }: AuthFormProps) {
   const pathname = usePathname();
   const router = useRouter();
   const t = useTranslations("auth");
+
   type Schema = z.infer<typeof schema>;
 
   const submitFnc = async (data: Schema) => {
@@ -52,7 +53,12 @@ export default function AuthForm({ titleTexts, schema }: AuthFormProps) {
         <FormProvider {...methods}>
           <div className={styles.formCon__inputFieldsCon}>
             {fields.map((field, i) => (
-              <FormField key={i} placeholder={t(`form${field}Field`)} type="text" />
+              <FormField
+                key={i}
+                placeholder={t(`form${field}Field`)}
+                registerTitle={field}
+                type="text"
+              />
             ))}
           </div>
         </FormProvider>

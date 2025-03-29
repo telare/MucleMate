@@ -1,5 +1,5 @@
 @use "@shared/styles/mixins/BreakpointsMixin.scss" as
-  global__breakpoints--mixin;
+  global__breakpointsMixin;
 @use "@shared/styles/Variables.scss" as variables;
 
 %div {
@@ -37,7 +37,7 @@
     font-size: variables.$base_font_size_p__desktop;
   }
 
-  @include global__breakpoints--mixin.breakpoint(small) {
+  @include global__breakpointsMixin.breakpoint(small) {
     width: $width-mobile;
     height: $height-mobile;
 

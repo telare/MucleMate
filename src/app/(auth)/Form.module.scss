@@ -1,6 +1,6 @@
-@use "@shared/styles/mixins/BtnMixin" as global__btn--mixin;
-@use "@shared/styles/mixins/DivMixin" as global__div--mixin;
-@use "@shared/styles/mixins/BreakpointsMixin" as global__breakpoints--mixin;
+@use "@shared/styles/mixins/BtnMixin" as global__btnMixin;
+@use "@shared/styles/mixins/DivMixin" as global__divMixin;
+@use "@shared/styles/mixins/BreakpointsMixin" as global__breakpointsMixin;
 @use "@shared/styles/Variables.scss" as variables;
 @use "@shared/styles/Functions.scss" as global__functions;
 
@@ -11,7 +11,7 @@
   background-color: variables.$base_background_color__dark;
   color: variables.$base_color__dark;
 
-  @include global__div--mixin.basic__div(
+  @include global__divMixin.basic__div(
     $height: global__functions.figma-h-to-percent(800),
     $width: 1032px,
     $width-mobile: 90%,
@@ -34,7 +34,7 @@
   form {
     flex-direction: column;
 
-    @include global__div--mixin.basic__div(
+    @include global__divMixin.basic__div(
       $width: 414px,
       $height: 95%,
       $width-mobile: 354px,
@@ -44,7 +44,7 @@
       flex-direction: column;
       margin-top: 32px;
       text-align: left;
-      @include global__div--mixin.basic__div($height: auto);
+      @include global__divMixin.basic__div($height: auto);
 
       span {
         margin: 16px 0 0 16px;
@@ -65,7 +65,7 @@
         color: variables.$base_color__light;
         box-shadow: 0px 15px 20px 0px rgba(255, 255, 255, 0.4);
 
-        @include global__btn--mixin.btn(
+        @include global__btnMixin.btn(
           $width: 100%,
           $height: 70px,
           $width-mobile: 100%,
@@ -86,7 +86,7 @@
     flex-direction: column;
     text-align: center;
   
-    @include global__div--mixin.basic__div($width: 100%, $height: 25%);
+    @include global__divMixin.basic__div($width: 100%, $height: 25%);
   
     h3 {
       line-height: 48px;
@@ -98,7 +98,7 @@
       line-height: 26px;
     }
   
-    @include global__breakpoints--mixin.breakpoint(small) {
+    @include global__breakpointsMixin.breakpoint(small) {
       p {
         margin: 9px 0 0;
         line-height: 26px;
@@ -111,7 +111,7 @@
     justify-content: space-between;
     margin: 19px 0 0;
   
-    @include global__div--mixin.basic__div(
+    @include global__divMixin.basic__div(
       $width: 100%,
       $height: 70px,
       $height-mobile: 50px
@@ -123,7 +123,7 @@
       color: variables.$base_color__light;
       box-shadow: 0px 15px 20px 0px rgba(255, 255, 255, 0.4);
   
-      @include global__btn--mixin.btn($width: 45%, $height: 100%, $margin: 0);
+      @include global__btnMixin.btn($width: 45%, $height: 100%, $margin: 0);
   
       :global(html.dark) & {
         box-shadow: 0px 15px 20px 0px rgba(52, 97, 253, 0.4);
@@ -134,7 +134,7 @@
   
     
   
-    @include global__breakpoints--mixin.breakpoint(small) {
+    @include global__breakpointsMixin.breakpoint(small) {
       margin-top: 9px;
     }
   }
@@ -142,9 +142,9 @@
   &__orCon {
     margin: 19px 0 19px 0;
   
-    @include global__div--mixin.basic__div($width: 100%, $height: 6%);
+    @include global__divMixin.basic__div($width: 100%, $height: 6%);
   
-    @include global__breakpoints--mixin.breakpoint(small) {
+    @include global__breakpointsMixin.breakpoint(small) {
       margin: 9px 0;
     }
   }
@@ -153,7 +153,7 @@
     flex-direction: column;
     text-align: left;
   
-    @include global__div--mixin.basic__div($width: 100%, $height: auto);
+    @include global__divMixin.basic__div($width: 100%, $height: auto);
   
     input:nth-child(1) {
       margin: 0;
@@ -163,7 +163,7 @@
       padding: 22px 24px;
       margin: 19px 0 0;
       border-radius: 17px;
-      @include global__div--mixin.basic__div($width: 100%, $height: 70px, $height-mobile:50px);
+      @include global__divMixin.basic__div($width: 100%, $height: 70px, $height-mobile:50px);
   
       &::placeholder {
         line-height: 29px;
@@ -171,7 +171,7 @@
       &:focus {
         outline: none;
       }
-      @include global__breakpoints--mixin.breakpoint(small) {
+      @include global__breakpointsMixin.breakpoint(small) {
         margin: 9px 0 0;
         padding: 11px 12px;
         max-height: 60px;
@@ -189,7 +189,7 @@
     }
   }
 
-  @include global__breakpoints--mixin.breakpoint(small) {
+  @include global__breakpointsMixin.breakpoint(small) {
     border-radius: 30px;
   }
 }

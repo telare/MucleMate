@@ -1,7 +1,7 @@
-@use "@shared/styles/mixins/BtnMixin" as global__btn--mixin;
-@use "@shared/styles/mixins/DivMixin.scss" as global__div--mixin;
+@use "@shared/styles/mixins/BtnMixin" as global__btnMixin;
+@use "@shared/styles/mixins/DivMixin.scss" as global__divMixin;
 @use "@shared/styles/mixins/BreakpointsMixin.scss" as
-  global__breakpoints--mixin;
+  global__breakpointsMixin;
 @use "@shared/styles/Variables.scss" as variables;
 
 .button {
@@ -9,7 +9,7 @@
   justify-content: start;
   position: relative;
 
-  @include global__btn--mixin.btn(
+  @include global__btnMixin.btn(
     $width: 50px,
     $height: 24px,
     $border-radius: 10px,
@@ -28,11 +28,12 @@
     margin-left: 5%;
     margin-right: 5%;
     
-    @include global__div--mixin.basic__div($width: 45%, $height: 90%);
-
     background-color: variables.$base_background_color__light;
-    // animation: active 1s ease-in-out 1 forwards;
     transform: translateX(100%);
+    
+    @include global__divMixin.basic__div($width: 45%, $height: 90%);
+
+    // animation: active 1s ease-in-out 1 forwards;
 
     :global(html.dark) & {
       background-color: variables.$base_background_color__dark;
