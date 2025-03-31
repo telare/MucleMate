@@ -1,0 +1,36 @@
+{
+  "title1": "What’s Your Gender & goal",
+  "title2": "Your Physical Stats",
+  "subtitle1": "Select options that best fits you",
+  "subtitile2": "Provide some details about your body and activity",
+  
+  "formGenderField": "Choose your gender",
+  "formGenderFieldError": "Gender is required",
+
+  "formGoalField": "Choose your goal",
+  "formGoalFieldError": "Goal is required",
+
+  "formAgeField": "How Old Are You?",
+  "formAgeFieldError": "Age is required",
+  "formAgeFieldInvalidError": "Age must be a valid number",
+  "formAgeFieldMinError": "Age must be at least 10",
+  "formAgeFieldMaxError": "Age must be less than 90",
+
+  "formHeightField": "What Is Your Height?",
+  "formHeightFieldError": "Height is required",
+  "formHeightFieldInvalidError": "Height must be a valid number",
+  "formHeightFieldMinError": "Height must be at least 120 cm",
+  "formHeightFieldMaxError": "Height must be at most 250 cm",
+
+  "formWeightField": "What Is Your Weight?",
+  "formWeightFieldError": "Weight is required",
+  "formWeightFieldInvalidError": "Weight must be a valid number",
+  "formWeightFieldMinError": "Weight must be at least 40 kg",
+  "formWeightFieldMaxError": "Weight must be at most 120 kg",
+
+  "formActivityLevelField": "What Is Your Physical Activity Level?",
+  "formActivityLevelFieldError": "Physical activity level is required",
+  "formActivityLevelFieldInvalidError": "Activity level must be a valid number",
+  "formActivityLevelFieldMinError": "Activity level must be at least 1",
+  "formActivityLevelFieldMaxError": "Activity level must be at most 5"
+}

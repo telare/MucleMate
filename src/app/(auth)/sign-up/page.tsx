@@ -6,9 +6,20 @@ import { useTranslations } from "next-intl";
 export default function SignUpPage() {
   const t = useTranslations("auth");
   const SignUpSchema = z.object({
-    UserName: z.string().min(3, { message: "At least 3 characters long" }),
-    Email: z.string().email({ message: "Invalid email address" }),
-    Password: z.string().min(6, { message: "At least 6 characters long" }),
+    UserName: z
+      .string()
+      .min(3, "At least 3 characters long")
+      .max(10, "Maximum 10 characters long"),
+    Email: z.string().email("Invalid email address"),
+    Password: z
+      .string()
+      .min(6, "At least 6 characters long")
+      .max(16, "Maximum 16 characters long"),
   });
-  return <AuthForm schema={SignUpSchema} titleTexts={[t("titleSignUp"),t("subHeadingSignUp")]}/>;
+  return (
+    <AuthForm
+      schema={SignUpSchema}
+      titleTexts={[t("titleSignUp"), t("subHeadingSignUp")]}
+    />
+  );
 }

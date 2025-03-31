@@ -1,0 +1,36 @@
+{
+  "title1": "Ваша стать та ціль",
+  "title2": "Ваші фізичні дані",
+  "subtitle1": "Виберіть варіанти, які вам найкраще підходять",
+  "subtitle2": "Вкажіть деякі деталі про ваше тіло та активність",
+  
+  "formGenderField": "Оберіть свою стать",
+  "formGenderFieldError": "Стать є обов'язковою",
+
+  "formGoalField": "Оберіть свою мету",
+  "formGoalFieldError": "Мета є обов'язковою",
+
+  "formAgeField": "Скільки вам років?",
+  "formAgeFieldError": "Вік є обов'язковим",
+  "formAgeInvalidError": "Вік має бути числом",
+  "formAgeMinError": "Вік має бути не менше 10 років",
+  "formAgeMaxError": "Вік має бути не більше 90 років",
+
+  "formHeightField": "Який ваш зріст?",
+  "formHeightFieldError": "Зріст є обов'язковим",
+  "formHeightInvalidError": "Зріст має бути числом",
+  "formHeightMinError": "Мінімальний зріст - 120 см",
+  "formHeightMaxError": "Максимальний зріст - 250 см",
+
+  "formWeightField": "Яка ваша вага?",
+  "formWeightFieldError": "Вага є обов'язковою",
+  "formWeightInvalidError": "Вага має бути числом",
+  "formWeightMinError": "Мінімальна вага - 40 кг",
+  "formWeightMaxError": "Максимальна вага - 120 кг",
+
+  "formActivityLevelField": "Який рівень вашої фізичної активності?",
+  "formActivityLevelFieldError": "Рівень фізичної активності є обов'язковим",
+  "formActivityLevelInvalidError": "Рівень активності має бути числом",
+  "formActivityLevelMinError": "Мінімальний рівень активності - 1",
+  "formActivityLevelMaxError": "Максимальний рівень активності - 5"
+}

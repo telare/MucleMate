@@ -27,6 +27,11 @@ export async function getUserLocalServerConfig(): Promise<{
           await import(`../i18n/messages/${userLang}/onBoarding.json`)
         ).default,
         auth: (await import(`../i18n/messages/${userLang}/auth.json`)).default,
+        common: (await import(`../i18n/messages/${userLang}/common.json`))
+          .default,
+        personalization: (
+          await import(`../i18n/messages/${userLang}/personalization.json`)
+        ).default,
       };
       return { locale, messages };
     }
@@ -37,6 +42,11 @@ export async function getUserLocalServerConfig(): Promise<{
         onBoarding: (await import("../i18n/messages/en/onBoarding.json"))
           .default,
         auth: (await import("../i18n/messages/en/auth.json")).default,
+        common: (await import(`../i18n/messages/${userLang}/common.json`))
+          .default,
+        personalization: (
+          await import(`../i18n/messages/${userLang}/personalization.json`)
+        ).default,
       },
     };
   } catch (e) {
@@ -47,6 +57,10 @@ export async function getUserLocalServerConfig(): Promise<{
         onBoarding: (await import("../i18n/messages/en/onBoarding.json"))
           .default,
         auth: (await import("../i18n/messages/en/auth.json")).default,
+        common: (await import("../i18n/messages/en/common.json")).default,
+        personalization: (
+          await import("../i18n/messages/en/personalization.json")
+        ).default,
       },
     };
   }

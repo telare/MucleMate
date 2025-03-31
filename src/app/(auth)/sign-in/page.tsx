@@ -5,8 +5,16 @@ import { useTranslations } from "next-intl";
 export default function SignInPage() {
   const t = useTranslations("auth");
   const SignInSchema = z.object({
-    Email: z.string().email({ message: "Invalid email address" }),
-    Password: z.string().min(6, { message: "At least 6 characters long" }),
+    Email: z.string().email("Invalid email address"),
+    Password: z
+      .string()
+      .min(6, "At least 6 characters long")
+      .max(16, "Maximum 16 characters long"),
   });
-  return <AuthForm schema={SignInSchema} titleTexts={[t("titleSignIn"),t("subHeadingSignIn")]}/>;
+  return (
+    <AuthForm
+      schema={SignInSchema}
+      titleTexts={[t("titleSignIn"), t("subHeadingSignIn")]}
+    />
+  );
 }

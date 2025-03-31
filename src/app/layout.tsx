@@ -4,17 +4,14 @@ import "./Root.scss";
 import { ThemeProvider } from "next-themes";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale } from "next-intl/server";
+import { Layout } from "@/shared/types/types";
 
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "600", "700"],
 });
 
-export default async function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default async function RootLayout({ children }: Layout) {
   const locale = await getLocale();
   return (
     <html lang={locale} suppressHydrationWarning>

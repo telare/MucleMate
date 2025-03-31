@@ -1,6 +1,6 @@
 "use client";
 import Button from "@/shared/components/buttons/Button";
-import styles from "../Form.module.scss";
+import styles from "@shared/styles/components-styles/Form.module.scss";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { z, ZodObject, ZodRawShape } from "zod";
@@ -25,7 +25,7 @@ export default function AuthForm({ titleTexts, schema }: AuthFormProps) {
 
   const submitFnc = async (data: Schema) => {
     const resp = await fetch(`http://localhost:8080/auth/${pathname}`, data);
-    if (resp.status === 201) return router.push("/home");
+    if (resp.status === 201) return router.push("/personalization");
     router.push("/error");
   };
 
@@ -54,6 +54,7 @@ export default function AuthForm({ titleTexts, schema }: AuthFormProps) {
           <div className={styles.formCon__inputFieldsCon}>
             {fields.map((field, i) => (
               <FormField
+                translationContext="auth"
                 key={i}
                 placeholder={t(`form${field}Field`)}
                 registerTitle={field}
