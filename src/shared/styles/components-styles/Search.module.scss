@@ -1,0 +1,31 @@
+@use "@shared/styles/mixins/DivMixin" as global__divMixin;
+@use "@shared/styles/mixins/BtnMixin" as global__btnMixin;
+@use "@shared/styles/Variables.scss" as variables;
+.search {
+  margin-top: 19px;
+  border-radius: 22px;
+  padding: 12px 16px;
+
+  justify-content: space-between;
+
+  background-color: variables.$base_background_color__dark;
+  color: variables.$base_color__dark;
+  :global(html.dark) & {
+    background-color: variables.$base_background_color__light;
+    color: variables.$base_color__light;
+  }
+  
+  @include global__divMixin.basic__div($height: 40px, $width: 50%);
+
+  input {
+    justify-content: start;
+    gap: 10%;
+    @include global__divMixin.basic__div($width: 90%);
+  }
+  input:focus {
+    outline: none;
+  }
+  &__Btn {
+    @include global__btnMixin.btn($width: 10%, $height: 100%, $margin: 0px);
+  }
+}

@@ -8,7 +8,9 @@
   background-color: variables.$base_background_color__dark;
   justify-content: start;
   position: relative;
-
+  :global(html.dark) & {
+    background-color: variables.$base_background_color__light;
+  }
   @include global__btnMixin.btn(
     $width: 50px,
     $height: 24px,
@@ -17,10 +19,6 @@
     $width-mobile: 50px,
     $height-mobile: 24px
   );
-
-  :global(html.dark) & {
-    background-color: variables.$base_background_color__light;
-  }
 
   .ball {
     border-radius: 50%;

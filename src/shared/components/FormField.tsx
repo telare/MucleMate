@@ -1,57 +1,32 @@
+import { errorMessageBuilder } from "@/utils/functions";
 import { useTranslations } from "next-intl";
 import { HTMLInputTypeAttribute } from "react";
-import {
-  FieldError,
-  FieldErrorsImpl,
-  Merge,
-  useFormContext,
-} from "react-hook-form";
+import { useFormContext } from "react-hook-form";
 
 type FormFieldsProps = {
   placeholder: string;
   registerTitle: string;
   translationContext: string;
   type: HTMLInputTypeAttribute;
+  name:string;
+  options?: {
+    value: string;
+    label: string;
+  }[];
+  disabled?: boolean;
 };
 export default function FormField({
   placeholder,
   registerTitle,
   translationContext,
   type,
+  name,
+  options,
+  disabled,
 }: FormFieldsProps) {
-  function errorMessageBuilder(
-    errorType: FieldError | Merge<FieldError, FieldErrorsImpl>,
-    registerTitle: string
-  ): string {
-    switch (errorType.type) {
-      case "invalid_type":
-      case "invalid_string":
-        return t(`form${registerTitle}FieldInvalidError`);
-      case "too_small":
-        return t(`form${registerTitle}FieldMinError`);
-      case "too_big":
-        return t(`form${registerTitle}FieldMaxError`);
-      case "required":
-        return t(`form${registerTitle}FieldRequiredError`);
-      default:
-        return "";
-    }
-  }
   const {
     register,
     formState: { errors },
   } = useFormContext();
   const t = useTranslations(translationContext);
-  return (
-    <>
-      <input
-        placeholder={placeholder}
-        type={type}
-        {...register(registerTitle)}
-      />
-      {errors[registerTitle] && (
-        <span>{errorMessageBuilder(errors[registerTitle], registerTitle)}</span>
-      )}
-    </>
-  );
 }

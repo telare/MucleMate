@@ -1,0 +1,46 @@
+@use "@shared/styles/mixins/DivMixin" as global__divMixin;
+@use "@shared/styles/mixins/BreakpointsMixin" as global__breakpointsMixin;
+@use "@shared/styles/Variables.scss" as variables;
+
+.category {
+  align-items: start;
+  justify-content: start;
+
+  display: grid;
+  grid-template-rows: 20% 80%;
+  grid-template-columns: 100%;
+  grid-template-areas:
+    "title"
+    "content";
+  @include global__divMixin.basic__div();
+
+  &__TitleCon {
+    grid-area: title;
+    justify-content: start;
+    align-items: center;
+    @include global__divMixin.basic__div();
+  }
+  &__ContentWrapper {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    grid-area: content;
+
+    grid-template-areas: "filter carts";
+    @include global__divMixin.basic__div($width: 100%);
+
+    &__FilterCon {
+      grid-area: filter;
+      @include global__divMixin.basic__div($width: 100%);
+    }
+    &__CartsCon {
+      justify-content: center;
+      grid-area: carts;
+      display: grid;
+      row-gap: 5%;
+      column-gap: 2%;
+      grid-template-columns: repeat(4, auto);
+      grid-template-rows: repeat(4, auto);
+      @include global__divMixin.basic__div();
+    }
+  }
+}

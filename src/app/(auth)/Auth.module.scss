@@ -6,9 +6,7 @@
 .auth {
   position: relative;
   flex-direction: column-reverse;
-
   @include global__divMixin.basic__div();
-
   &__themeBtnCon {
     position: absolute;
     top: global__function.figma-h-to-percent($figma-py: 10);

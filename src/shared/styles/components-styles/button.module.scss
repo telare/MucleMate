@@ -1,0 +1,14 @@
+@use "@shared/styles/mixins/BtnMixin" as global__btnMixin;
+@use "@shared/styles/mixins/DivMixin" as global__divMixin;
+
+.button {
+  &__ImgCon{  
+    position:relative; 
+    width:100%; 
+    height:90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  @include global__btnMixin.btn($margin:0);
+}

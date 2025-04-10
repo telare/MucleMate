@@ -1,0 +1,30 @@
+@use "@shared/styles/mixins/DivMixin" as global__divMixin;
+.filter {
+  flex-direction: column;
+  padding: 10% 5%;
+
+  @include global__divMixin.basic__div();
+  &__Item {
+    flex-direction: column;
+    @include global__divMixin.basic__div();
+    &__OptionsCon {
+      flex-direction: column;
+
+      @include global__divMixin.basic__div();
+
+      &__Option {
+        justify-content: start;
+        gap: 5%;
+        @include global__divMixin.basic__div();
+
+        label {
+          display: flex;
+          justify-content: start;
+          gap: 5%;
+          @include global__divMixin.basic__div($height: auto);
+          
+        }
+      }
+    }
+  }
+}

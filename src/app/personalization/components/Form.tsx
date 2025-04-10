@@ -13,14 +13,12 @@ import { HTMLInputTypeAttribute } from "react";
 type PersonalizationFormProps = {
   titleTexts: string[];
   fieldsTypes: HTMLInputTypeAttribute[] | HTMLInputTypeAttribute;
-  customInputs?: React.ReactNode;
   schema: ZodObject<ZodRawShape>;
 };
 
 export default function PersonalizationForm({
   titleTexts,
   fieldsTypes,
-  customInputs,
   schema,
 }: PersonalizationFormProps) {
   const router = useRouter();
@@ -60,7 +58,7 @@ export default function PersonalizationForm({
                 }
               />
             ))}
-            {customInputs}
+            {/* {customInputs} */}
           </div>
         </FormProvider>
         <div className={styles.formCon__btnsCon}>

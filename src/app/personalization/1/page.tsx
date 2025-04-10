@@ -7,31 +7,31 @@ export default function PersonalizatonPage1() {
     Gender: z.string(),
     Goal: z.string(),
   });
-  const inputs: React.ReactNode = (
-    <>
-      <div>
-        <label>
-          <input type="radio" name="GenderOption" value="Male" required />Male
-        </label>
-        <label>
-          <input type="radio" name="GenderOption" value="Female" required />Female
-        </label>
-      </div>
-      <div>
-        <label>
-          <input type="radio" name="GoalOption" value="Loose fat" required />Loose fat
-        </label>
-        <label>
-          <input type="radio" name="GoalOption" value="Gain mucles" required />Gain mucles
-        </label>
-      </div>
-    </>
-  );
+  // const inputs: React.ReactNode = (
+  //   <>
+  //     <div>
+  //       <label>
+  //         <input type="radio" name="GenderOption" value="Male" required />Male
+  //       </label>
+  //       <label>
+  //         <input type="radio" name="GenderOption" value="Female" required />Female
+  //       </label>
+  //     </div>
+  //     <div>
+  //       <label>
+  //         <input type="radio" name="GoalOption" value="Loose fat" required />Loose fat
+  //       </label>
+  //       <label>
+  //         <input type="radio" name="GoalOption" value="Gain mucles" required />Gain mucles
+  //       </label>
+  //     </div>
+  //   </>
+  // );
 
   return (
     <PersonalizationForm
       fieldsTypes={"text"}
-      customInputs={inputs}
+      // customInputs={inputs}
       schema={schema}
       titleTexts={[
         "What’s Your Gender & goal",

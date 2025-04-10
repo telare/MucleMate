@@ -1,0 +1,58 @@
+@use "@shared/styles/mixins/DivMixin" as global__divMixin;
+@use "@shared/styles/mixins/BreakpointsMixin" as global__breakpointsMixin;
+@use "@shared/styles/Variables.scss" as variables;
+
+.cart {
+  border-radius: 17px;
+  background-color: variables.$base_background_color__dark;
+  color: variables.$base_color__dark;
+  :global(html.dark) & {
+    background-color: variables.$base_background_color__light;
+    color: variables.$base_color__light;
+  }
+  flex-direction: column;
+  justify-content: start;
+  @include global__divMixin.basic__div($height: 200px, $width: 220px);
+
+  &:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+    .cart__ImgCon {
+      display: none;
+    }
+
+    .cart__InfoCon {
+      align-items: start;
+      justify-content: start;
+      p {
+        visibility: visible;
+        display: -webkit-box;
+        line-clamp: 3;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        overflow: hidden;
+      }
+      @include global__divMixin.basic__div($height: 100%);
+    }
+  }
+  &__ImgCon {
+    position: relative;
+    border-radius: inherit;
+    @include global__divMixin.basic__div($height: 80%, $width: 100%);
+  }
+  &__InfoCon {
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+    padding-left: 19px;
+    margin-top: 9px;
+
+    p {
+      visibility: hidden;
+    }
+    @include global__divMixin.basic__div($height: 20%);
+    & h3 {
+      font-size: 20px;
+    }
+  }
+}

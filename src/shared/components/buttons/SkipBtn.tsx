@@ -2,7 +2,13 @@
 import Button from "@/shared/components/buttons/Button";
 import { SkipBtnIcon } from "@/utils/icons/Icons";
 import { useRouter } from "next/navigation";
-export default function SkipBtn({ pathToSkip, style }: { pathToSkip: string, style:string }) {
+
+type SkipBtnProps = {
+  pathToSkip: string;
+  style: string;
+};
+
+export default function SkipBtn({ pathToSkip, style }: SkipBtnProps) {
   const router = useRouter();
   return (
     <Button

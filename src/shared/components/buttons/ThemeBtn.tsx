@@ -2,12 +2,13 @@
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import Button from "./Button";
-import styles from "@shared/styles/components-styles/ThemeBtn.module.scss";
+import styles from "@shared/styles/components-styles/themeBtn.module.scss";
 export default function ThemeBtn() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState<boolean>(false);
   useEffect(() => {
     setMounted(true);
+    console.log(styles.button)
   }, []);
   if (mounted) {
     return (
