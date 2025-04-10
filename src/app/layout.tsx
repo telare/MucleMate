@@ -5,6 +5,7 @@ import { ThemeProvider } from "next-themes";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale } from "next-intl/server";
 import { Layout } from "@/shared/types/types";
+import GlobalStoreProvider from "@/providers/GlobalStoreProvider";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -26,7 +27,9 @@ export default async function RootLayout({ children }: Layout) {
           enableSystem
           disableTransitionOnChange
         >
-          <NextIntlClientProvider>{children}</NextIntlClientProvider>
+          <NextIntlClientProvider>
+            <GlobalStoreProvider>{children}</GlobalStoreProvider>
+          </NextIntlClientProvider>
         </ThemeProvider>
       </body>
     </html>

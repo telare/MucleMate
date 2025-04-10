@@ -10,12 +10,14 @@ import {
 type FormFieldsProps = {
   placeholder: string;
   registerTitle: string;
+  label?: string;
   translationContext: string;
   type: HTMLInputTypeAttribute;
 };
 export default function FormField({
   placeholder,
   registerTitle,
+  label,
   translationContext,
   type,
 }: FormFieldsProps) {
@@ -42,6 +44,21 @@ export default function FormField({
     formState: { errors },
   } = useFormContext();
   const t = useTranslations(translationContext);
+  if (label) {
+    return (
+      <>
+        <label>
+          <input type="radio" {...register(registerTitle)} />
+          <p>{label}</p>
+        </label>
+        {errors[registerTitle] && (
+          <span>
+            {errorMessageBuilder(errors[registerTitle], registerTitle)}
+          </span>
+        )}
+      </>
+    );
+  }
   return (
     <>
       <input

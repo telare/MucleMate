@@ -1,6 +1,6 @@
 "use client";
 import styles from "@shared/styles/components-styles/Form.module.scss";
-import { z, ZodObject, ZodRawShape } from "zod";
+import { z, ZodEnum, ZodObject, ZodRawShape } from "zod";
 import { FormProvider, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import FormField from "@shared/components/FormField";
@@ -8,19 +8,14 @@ import { useRouter } from "next/navigation";
 import Form from "next/form";
 import { useTranslations } from "next-intl";
 import Button from "@/shared/components/buttons/Button";
-import { HTMLInputTypeAttribute } from "react";
 
 type PersonalizationFormProps = {
   titleTexts: string[];
-  fieldsTypes: HTMLInputTypeAttribute[] | HTMLInputTypeAttribute;
-  customInputs?: React.ReactNode;
   schema: ZodObject<ZodRawShape>;
 };
 
 export default function PersonalizationForm({
   titleTexts,
-  fieldsTypes,
-  customInputs,
   schema,
 }: PersonalizationFormProps) {
   const router = useRouter();
@@ -29,7 +24,6 @@ export default function PersonalizationForm({
     resolver: zodResolver(schema),
   });
   const fields: string[] = Object.keys(schema._def.shape());
-
   type Schema = z.infer<typeof schema>;
 
   const submitFnc = async (data: Schema) => {
@@ -49,18 +43,21 @@ export default function PersonalizationForm({
         {/* inputs */}
         <FormProvider {...methods}>
           <div className={styles.formCon__inputFieldsCon}>
-            {fields.map((field, i) => (
-              <FormField
-                translationContext="personalization"
-                key={i}
-                placeholder={t(`form${field}Field`)}
-                registerTitle={field}
-                type={
-                  typeof fieldsTypes === "object" ? fieldsTypes[i] : fieldsTypes
-                }
-              />
-            ))}
-            {customInputs}
+            {fields.map((field) => {
+              if (schema.shape[field] instanceof ZodEnum) {
+                const labels: string[] = schema.shape[field]._def.values;
+                return labels.map((label, j) => (
+                  <FormField
+                    translationContext="personalization"
+                    key={j}
+                    placeholder={t(`form${field}FieldOption${j + 1}`)}
+                    registerTitle={field}
+                    label={label}
+                    type={"radio"}
+                  />
+                ));
+              }
+            })}
           </div>
         </FormProvider>
         <div className={styles.formCon__btnsCon}>

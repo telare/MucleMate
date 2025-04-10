@@ -4,11 +4,13 @@
   "subtitle1": "Виберіть варіанти, які вам найкраще підходять",
   "subtitle2": "Вкажіть деякі деталі про ваше тіло та активність",
   
-  "formGenderField": "Оберіть свою стать",
-  "formGenderFieldError": "Стать є обов'язковою",
+  "formGenderFieldOption1": "Чоловік",
+  "formGenderFieldOption2": "Жінка",
+  "formGenderFieldInvalidError": "Стать є обов'язковою",
 
-  "formGoalField": "Оберіть свою мету",
-  "formGoalFieldError": "Мета є обов'язковою",
+  "formGoalFieldOption1": "Втратити жир",
+  "formGoalFieldOption2": "Набрати м'язів",
+  "formGoalFieldInvalidError": "Мета є обов'язковою",
 
   "formAgeField": "Скільки вам років?",
   "formAgeFieldError": "Вік є обов'язковим",

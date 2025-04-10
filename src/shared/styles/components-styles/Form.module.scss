@@ -113,17 +113,14 @@
     justify-content: space-between;
     // margin: 19px 0 19px 0;
     max-height: 70px;
-    @include global__divMixin.basic__div(
-      $width: 100%,
-      $height: auto,
-    );
+    @include global__divMixin.basic__div($width: 100%, $height: auto);
 
     //fix bg color, color
     button {
       background-color: variables.$base_background_color__light;
       color: variables.$base_color__light;
       box-shadow: 0px 15px 20px 0px rgba(255, 255, 255, 0.4);
-      padding:16px;
+      padding: 16px;
       @include global__btnMixin.btn($width: 45%, $height: 100%, $margin: 0);
 
       :global(html.dark) & {
@@ -141,9 +138,9 @@
 
   &__orCon {
     margin: 19px 0 19px 0;
-  
+
     @include global__divMixin.basic__div($width: 100%, $height: 6%);
-  
+
     @include global__breakpointsMixin.breakpoint(small) {
       margin: 9px 0;
     }
@@ -189,6 +186,38 @@
 
       :global(html.dark) & {
         color: variables.$base_color__light;
+      }
+    }
+
+    label {
+      justify-content: flex-start;
+      margin: 0 0 20px;
+      border-radius: 32px;
+      p {
+        margin-left: 8px;
+      }
+      &:has(input:checked) {
+        background-color: #f5f9fe;
+        color: variables.$base_background_color__dark;
+        :global(html.dark) & {
+          background-color: variables.$base_background_color__dark;
+          color: variables.$base_background_color__light;
+        }
+      }
+      @include global__divMixin.basic__div(
+        $width: 100%,
+        $height: 70px,
+        $height-mobile: 50px
+      );
+      input {
+        @include global__divMixin.basic__div(
+          $width: 10%,
+          $height: 20px,
+          $height-mobile: 20px
+        );
+      }
+      @include global__breakpointsMixin.breakpoint(small) {
+        margin: 0 0 10px;
       }
     }
   }

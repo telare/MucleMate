@@ -59,7 +59,6 @@ export default function PersonalizatonPage1() {
 
   return (
     <PersonalizationForm
-      fieldsTypes={"number"}
       schema={schema}
       titleTexts={[
         "Your Physical Stats",
