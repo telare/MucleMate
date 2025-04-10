@@ -8,7 +8,6 @@ export default function ThemeBtn() {
   const [mounted, setMounted] = useState<boolean>(false);
   useEffect(() => {
     setMounted(true);
-    console.log(styles.button)
   }, []);
   if (mounted) {
     return (

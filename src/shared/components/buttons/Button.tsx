@@ -1,6 +1,5 @@
 import Image from "next/image";
 import styles from "@shared/styles/components-styles/button.module.scss";
-import clsx from "clsx";
 type ButtonProps = {
   style?: string;
   text?: string;

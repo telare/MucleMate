@@ -1,6 +1,5 @@
 import Image from "next/image";
 import styles from "./Account.module.scss";
-import FormField from "@/shared/components/FormField";
 export default function AccountPage() {
   const mockData: string[] = [
     "UserName",
@@ -11,17 +10,17 @@ export default function AccountPage() {
     "Goal",
     "Phycial Activity Level",
   ];
-  const mockData2: {
-    [key: string]: string | number;
-  } = {
-    UserName: "User",
-    Email: "test@gmail.com",
-    Age: 0,
-    Weight: 60,
-    Height: 190,
-    Goal: "Loose body fat",
-    PhycialActivityLevel: 5,
-  };
+  // const mockData2: {
+  //   [key: string]: string | number;
+  // } = {
+  //   UserName: "User",
+  //   Email: "test@gmail.com",
+  //   Age: 0,
+  //   Weight: 60,
+  //   Height: 190,
+  //   Goal: "Loose body fat",
+  //   PhycialActivityLevel: 5,
+  // };
   return (
     <div className={styles.account__Content}>
       <div className={styles.account__Content__ImgCon}>

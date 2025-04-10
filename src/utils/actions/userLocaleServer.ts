@@ -53,7 +53,7 @@ export async function getUserLocalServerConfig(): Promise<{
     return {
       locale: "en",
       messages: {
-        wellcome: (await import("../i18n/messages/en/wellcome.json")).default,
+        wellcome: (await import(`../i18n/messages/en/wellcome.jso${e}n`)).default,
         onBoarding: (await import("../i18n/messages/en/onBoarding.json"))
           .default,
         auth: (await import("../i18n/messages/en/auth.json")).default,
