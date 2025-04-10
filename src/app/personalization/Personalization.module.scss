@@ -1,11 +1,11 @@
-@use "@shared/styles/mixins/DivMixin" as global__divMixins;
+@use "@shared/styles/mixins/DivMixin" as global__divMixin;
 @use "@shared/styles/mixins/BreakpointsMixin" as global__breakpointsMixin;
 @use "@shared/styles/Functions.scss" as global__functions;
 .personalization {
   position: relative;
   flex-direction: column-reverse;
 
-  @include global__divMixins.basic__div();
+  @include global__divMixin.basic__div($width: 100vw, $height: 100vh);
 
   &__themeBtnCon {
     position: absolute;
@@ -16,5 +16,5 @@
       top: global__functions.figma-h-to-percent($figma-py: 32);
       right: 24px;
     }
-  }  
+  }
 }

@@ -1,0 +1,125 @@
+@use "@shared/styles/mixins/DivMixin" as global__divMixin;
+@use "@shared/styles/Variables.scss" as variables;
+
+.nav {
+  padding: 33px 37px;
+  justify-content: space-between;
+  border-radius: 22px;
+
+  background-color: variables.$base_background_color__dark;
+  color: variables.$base_color__dark;
+  :global(html.dark) & {
+    background-color: variables.$base_background_color__light;
+    color: variables.$base_color__light;
+  }
+  @include global__divMixin.basic__div($height: 100px);
+  &__LeftCon {
+    gap: 10%;
+    @include global__divMixin.basic__div($width: 20%, $height:100%);
+
+    &__LogoCon {
+      position: relative;
+      @include global__divMixin.basic__div($width: 32px, $height: 32px);
+    }
+    &__GreetingCon {
+      @include global__divMixin.basic__div($width: auto);
+    }
+  }
+
+  &__MainCon {
+    justify-content: flex-end;
+    gap: 5%;
+    @include global__divMixin.basic__div($width: 70%);
+    &__LinksCon {
+      @include global__divMixin.basic__div($width: 70%);
+
+      ul {
+        gap: 10%;
+        justify-content: end;
+        @include global__divMixin.basic__div();
+        li {
+          a {
+            @include global__divMixin.basic__div($width: auto);
+
+            // &--active{
+            //   text-decoration: underline solid variables.$base_background_color__dark;
+            //   :global(html.dark) & {
+            //     text-decoration: underline  variables.$base_background_color__light;
+            //   }
+            // }
+          }
+
+          //dropdown non-visible
+          ul {
+            display: none;
+          }
+
+          &:hover {
+            position: relative;
+            background-color: variables.$base_background_color__light;
+            color: variables.$base_color__light;
+            border-radius: 8px;
+            padding-left: 1%;
+            padding-right: 1%;
+            transition: all 0.3s ease-in-out;
+            :global(html.dark) & {
+              background-color: variables.$base_background_color__dark;
+              color: variables.$base_color__dark;
+            }
+            //dropdown visible
+            ul {
+              position: absolute;
+              left: 30%;
+              z-index: 9999;
+              row-gap: 5%;
+              flex-direction: column;
+              align-items: start;
+              padding: 5%;
+              background-color: variables.$base_background_color__dark;
+              color: variables.$base_color__dark;
+              @include global__divMixin.basic__div(
+                $width: 150px,
+                $height: 150px
+              );
+              :global(html.dark) & {
+                background-color: variables.$base_background_color__light;
+                color: variables.$base_color__light;
+              }
+              //items of dropdown
+              li {
+                border-radius: 8px;
+                @include global__divMixin.basic__div($width: auto);
+                &:hover {
+                  @include global__divMixin.basic__div($width: auto);
+                  background-color: variables.$base_background_color__light;
+                  color: variables.$base_color__light;
+                  :global(html.dark) & {
+                    background-color: variables.$base_background_color__dark;
+                    color: variables.$base_color__dark;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    &__BtnsCon {
+      gap: 5%;
+      justify-content: center;
+
+      &__themeBtnCon {
+        background-color: variables.$base_background_color__light;
+        border-radius: 10px;
+        outline: 2px solid variables.$base_background_color__light;
+        :global(html.dark) & {
+          background-color: variables.$base_background_color__dark;
+          outline-color: variables.$base_background_color__dark;
+        }
+        @include global__divMixin.basic__div($width: auto, $height: auto);
+      }
+
+      @include global__divMixin.basic__div($width: 20%);
+    }
+  }
+}

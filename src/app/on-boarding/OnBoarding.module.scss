@@ -7,7 +7,10 @@
 .onBoarding {
   justify-content: flex-end;
   position: relative;
-  @include global__divMixin.basic__div();
+  @include global__divMixin.basic__div(
+    $width: 100vw,
+    $height: 100vh,
+  );
   @include global__breakpointsMixin.breakpoint(small) {
     justify-content: center;
   }

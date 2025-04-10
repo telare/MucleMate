@@ -57,7 +57,8 @@ export default function PersonalizationForm({
                   />
                 ));
               }
-            })}
+            })
+          }
           </div>
         </FormProvider>
         <div className={styles.formCon__btnsCon}>

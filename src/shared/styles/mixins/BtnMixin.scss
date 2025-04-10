@@ -18,12 +18,13 @@
   $border-radius: variables.$base_border_radius_btn__desktop,
   $margin: 10px,
 ) {
-  @extend %btn;
   font-size: $font-size;
   width: $width;
   height: $height;
   margin: $margin;
   border-radius: $border-radius;
+  @extend %btn;
+  
 
   @include global__breakpointsMixin.breakpoint(small) {
     width: $width-mobile;

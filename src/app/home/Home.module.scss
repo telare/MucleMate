@@ -1,0 +1,37 @@
+@use "@shared/styles/mixins/DivMixin" as global__divMixin;
+@use "@shared/styles/mixins/BreakpointsMixin" as global__breakpointsMixin;
+@use "@shared/styles/Variables.scss" as variables;
+.home {
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  padding: 0.5% 2%;
+  background-color: variables.$base_background_color__light;
+  color: variables.$base_color__light;
+  @include global__divMixin.basic__div();
+
+  :global(html.dark) & {
+    background-color: variables.$base_background_color__dark;
+    color: variables.$base_color__dark;
+  }
+
+  &__Section {
+    margin-top: 19px;
+    flex-direction: column;
+    align-items: start;
+    @include global__divMixin.basic__div($height: auto);
+
+    &__CartsCon {
+      margin-top: 19px;
+      display: grid;
+      align-items: start;
+      justify-content: start;
+      row-gap: 20px;
+      column-gap: 3%;
+      grid-template-columns: repeat(6, auto);
+      grid-template-rows: repeat(2, auto);
+
+      @include global__divMixin.basic__div($height: 450px);
+    }
+  }
+}

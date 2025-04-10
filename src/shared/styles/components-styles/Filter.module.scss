@@ -1,0 +1,105 @@
+@use "@shared/styles/mixins/DivMixin" as global__divMixin;
+@use "@shared/styles/Variables.scss" as variables;
+@use "@shared/styles/mixins/BtnMixin" as global__btnMixin;
+.filter {
+  flex-direction: column;
+  padding: 1.5rem 1rem;
+  gap: 1.25rem;
+  justify-content: flex-start;
+  background-color: variables.$base_background_color__dark;
+  color: variables.$base_color__dark;
+  :global(html.dark) & {
+    background-color: variables.$base_background_color__light;
+    color: variables.$base_color__light;
+  }
+  border-radius: 0.5rem;
+  @include global__divMixin.basic__div($height: auto);
+
+  &__item {
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid variables.$base_background_color__light;
+    :global(html.dark) & {
+      border-bottom-color: variables.$base_background_color__dark;
+    }
+    @include global__divMixin.basic__div($height: auto);
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    h6 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    &__optionsCon {
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 0.5rem;
+      @include global__divMixin.basic__div();
+
+      &__option {
+        justify-content: flex-start;
+        gap: 0.5rem;
+        @include global__divMixin.basic__div($height: auto);
+
+        label {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          gap: 0.5rem;
+          cursor: pointer;
+          user-select: none;
+          @include global__divMixin.basic__div($height: auto, $width: auto);
+
+          input {
+            width: 1rem;
+            height: 1rem;
+            cursor: pointer;
+            accent-color: variables.$base_background_color__light;
+            :global(html.dark) & {
+              accent-color: variables.$base_background_color__dark;
+            }
+
+            &:focus {
+              outline: 2px solid rgba(66, 99, 235, 0.3);
+              :global(html.dark) & {
+                outline-color: variables.$base_background_color__light;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Buttons container
+  &__buttonsCon {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+    @include global__divMixin.basic__div($height: auto);
+    &__btn {
+      background-color: variables.$base_background_color__light;
+      color: variables.$base_color__light;
+      :global(html.dark) & {
+        background-color: variables.$base_background_color__dark;
+        color: variables.$base_color__dark;
+      }
+      font-size: 1rem;
+      font-weight: 600;
+      @include global__btnMixin.btn($width: 30%, $height: 30px);
+    }
+    // @media (max-width: 576px) {
+    //   flex-direction: column;
+    //   width: 100%;
+
+    //   button {
+    //     width: 100%;
+    //   }
+    // }
+  }
+}

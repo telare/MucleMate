@@ -28,10 +28,11 @@
     // line-height: variables.$base_font_size_h3_line_height__desktop;
   }
 
-  p {
+  p,a {
     font-size: variables.$base_font_size_p__desktop;
     // line-height: variables.$base_font_size_p_line_height__desktop;
   }
+  
 
   input {
     font-size: variables.$base_font_size_p__desktop;
@@ -51,7 +52,7 @@
       // line-height: variables.$base_font_size_h3_line_height__mobile;
     }
 
-    p {
+    p,a {
       font-size: variables.$base_font_size_p__mobile;
       // line-height: variables.$base_font_size_p_line_height__mobile;
     }
