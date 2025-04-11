@@ -22,7 +22,7 @@ export default function Button({
     <button className={style} onClick={fnc} type={type}>
       {iconPath && (
         <div className={styles.button__ImgCon}>
-          <Image alt="btn_image" src={iconPath} fill />
+          <img alt="btn_image" src={iconPath}/>
         </div>
       )}
       {icon && <div className={styles.button__ImgCon}>{icon}</div>}

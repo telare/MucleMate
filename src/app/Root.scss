@@ -6,6 +6,7 @@ body {
   box-sizing: border-box;
   background-color: variables.$base_background_color__light;
   color: variables.$base_color__light;
+  overflow-x: hidden;
   
   html.dark & {
     background-color: variables.$base_background_color__dark;

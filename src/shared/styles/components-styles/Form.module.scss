@@ -156,13 +156,13 @@
       margin: 0;
     }
 
-    div label{
-      @include global__divMixin.basic__div($width: 100%, $height: auto);
-      justify-content: start;
-      input{
-        width:10%;
-      }
-    }
+    // div label{
+    //   @include global__divMixin.basic__div($width: 100%, $height: auto);
+    //   justify-content: start;
+    //   input{
+    //     width:10%;
+    //   }
+    // }
 
     input {
       padding: 22px 24px;

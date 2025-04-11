@@ -7,6 +7,7 @@ type FormFieldsProps = {
   placeholder: string;
   registerTitle: string;
   label?: string;
+  disabled?: boolean;
   translationContext: string;
   type: HTMLInputTypeAttribute;
 };
@@ -16,6 +17,7 @@ export default function FormField({
   label,
   translationContext,
   type,
+  disabled,
 }: FormFieldsProps) {
   const {
     register,
@@ -26,7 +28,11 @@ export default function FormField({
     return (
       <>
         <label>
-          <input type="radio" {...register(registerTitle)} />
+          <input
+            type="radio"
+            {...register(registerTitle)}
+            disabled={disabled && disabled}
+          />
           <p>{label}</p>
         </label>
         {errors[registerTitle] && (
@@ -42,6 +48,7 @@ export default function FormField({
       <input
         placeholder={placeholder}
         type={type}
+        disabled={disabled && disabled}
         {...register(registerTitle)}
       />
       {errors[registerTitle] && (
