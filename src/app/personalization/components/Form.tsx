@@ -9,13 +9,13 @@ import Form from "next/form";
 import { useTranslations } from "next-intl";
 import Button from "@/shared/components/buttons/Button";
 
-type PersonalizationFormProps = {
-  titleTexts: string[];
+interface PersonalizationFormProps {
+  titleText: string[];
   schema: ZodObject<ZodRawShape>;
-};
+}
 
 export default function PersonalizationForm({
-  titleTexts,
+  titleText,
   schema,
 }: PersonalizationFormProps) {
   const router = useRouter();
@@ -37,8 +37,8 @@ export default function PersonalizationForm({
       <Form action="" onSubmit={methods.handleSubmit(submitFnc)}>
         {/* title */}
         <div className={styles.formCon__titleCon}>
-          <h3>{titleTexts[0]}</h3>
-          <p>{titleTexts[1]}</p>
+          <h3>{t(titleText[])}</h3>
+          <p>{t(titleText)}</p>
         </div>
         {/* inputs */}
         <FormProvider {...methods}>
@@ -57,8 +57,7 @@ export default function PersonalizationForm({
                   />
                 ));
               }
-            })
-          }
+            })}
           </div>
         </FormProvider>
         <div className={styles.formCon__btnsCon}>

@@ -1,23 +1,30 @@
 "use client";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { useParams, usePathname, useRouter } from "next/navigation";
 import styles from "../OnBoarding.module.scss";
 import Button from "@/shared/components/buttons/Button";
 import SkipBtn from "../../../shared/components/buttons/SkipBtn";
 import ThemeBtn from "@/shared/components/buttons/ThemeBtn";
 import { useTranslations } from "next-intl";
+import { logosSrc, titleText } from "../utils/data";
 
-export default function OnBoardingScreen({
-  logo_src,
-  text,
-  next_path,
-}: {
-  logo_src: string;
-  text: string[];
-  next_path: string;
-}) {
-  const router = useRouter();
+export default function OnBoardingScreen() {
   const t = useTranslations("onBoarding");
+
+  const router = useRouter();
+  const pathname = usePathname();
+  const { section } = useParams();
+  const path = pathname.split("/").slice(0, -1).join("/");
+
+  const index: number = Number(section);
+
+  const nextStep: string =
+    index !== titleText.length ? `/${index + 1}` : "/sign-in";
+
+  if (isNaN(index) || index < 1 || index > titleText.length) {
+    router.replace("/sign-in");
+    return null;
+  }
   return (
     <div className={styles.onBoarding}>
       <Image
@@ -31,9 +38,12 @@ export default function OnBoardingScreen({
         <div className={styles.onBoarding__inner__themeBtnCon}>
           <ThemeBtn />
         </div>
-        <SkipBtn pathToSkip="/sign-in" style={styles.onBoarding__inner__skipBtn} />
+        <SkipBtn
+          pathToSkip="/sign-in"
+          style={styles.onBoarding__inner__skipBtn}
+        />
         <Image
-          src={logo_src}
+          src={logosSrc[index - 1]}
           alt="logo"
           width={100}
           height={100}
@@ -41,8 +51,8 @@ export default function OnBoardingScreen({
         />
 
         <div className={styles.onBoarding__inner__textCon}>
-          {text.map((_, i) => (
-            <h3 key={i}>{_}</h3>
+          {titleText[index - 1].map((_, i) => (
+            <h3 key={i}>{t(_)}</h3>
           ))}
         </div>
 
@@ -54,7 +64,7 @@ export default function OnBoardingScreen({
           />
           <Button
             text={t("next_btn")}
-            fnc={() => router.push(next_path)}
+            fnc={() => router.push(path + nextStep)}
             type="button"
           />
         </div>
