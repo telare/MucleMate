@@ -3,14 +3,16 @@ import { useTranslations } from "next-intl";
 import { HTMLInputTypeAttribute } from "react";
 import { useFormContext } from "react-hook-form";
 
-type FormFieldsProps = {
+interface FormFieldsProps {
+  type: HTMLInputTypeAttribute;
   placeholder: string;
   registerTitle: string;
+  translationContext: string;
+
   label?: string;
   disabled?: boolean;
-  translationContext: string;
-  type: HTMLInputTypeAttribute;
-};
+}
+
 export default function FormField({
   placeholder,
   registerTitle,
@@ -23,39 +25,23 @@ export default function FormField({
     register,
     formState: { errors },
   } = useFormContext();
+
   const t = useTranslations(translationContext);
-  if (label) {
-    return (
-      <>
-        <label>
-          <input
-            type="radio"
-            {...register(registerTitle)}
-            disabled={disabled && disabled}
-          />
-          <p>{label}</p>
-        </label>
-        {errors[registerTitle] && (
-          <span>
-            {t(formErrorMessageBuilder(errors[registerTitle], registerTitle))}
-          </span>
-        )}
-      </>
-    );
-  }
+  const errorMsg = errors[registerTitle]
+    ? t(formErrorMessageBuilder(errors[registerTitle], registerTitle))
+    : null;
   return (
     <>
+      {label && <label htmlFor={registerTitle}>{label}</label>}
       <input
         placeholder={placeholder}
         type={type}
-        disabled={disabled && disabled}
+        aria-invalid={!!errors[registerTitle]}
+        aria-describedby={errors[registerTitle] && `formFieldError${registerTitle}`}
+        disabled={disabled}
         {...register(registerTitle)}
       />
-      {errors[registerTitle] && (
-        <span>
-          t({formErrorMessageBuilder(errors[registerTitle], registerTitle)})
-        </span>
-      )}
+      {errors[registerTitle] && <span id={`formFieldError${registerTitle}`}>{errorMsg}</span>}
     </>
   );
 }

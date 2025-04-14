@@ -37,8 +37,8 @@ export default function PersonalizationForm({
       <Form action="" onSubmit={methods.handleSubmit(submitFnc)}>
         {/* title */}
         <div className={styles.formCon__titleCon}>
-          <h3>{t(titleText[])}</h3>
-          <p>{t(titleText)}</p>
+          <h3>{t(titleText[0])}</h3>
+          <p>{t(titleText[1])}</p>
         </div>
         {/* inputs */}
         <FormProvider {...methods}>

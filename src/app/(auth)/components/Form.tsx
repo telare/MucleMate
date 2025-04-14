@@ -1,13 +1,12 @@
 "use client";
 import Button from "@/shared/components/buttons/Button";
 import styles from "@shared/styles/components-styles/Form.module.scss";
-import { usePathname } from "next/navigation";
+import { usePathname,useRouter } from "next/navigation";
 import Link from "next/link";
 import { z, ZodObject, ZodRawShape } from "zod";
 import { FormProvider, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import FormField from "../../../shared/components/FormField";
-import { useRouter } from "next/navigation";
+import FormField from "@/shared/components/FormField";
 import Form from "next/form";
 import { useTranslations } from "next-intl";
 
@@ -38,8 +37,8 @@ export default function AuthForm({ titleTexts, schema }: AuthFormProps) {
       <Form action="/home" onSubmit={methods.handleSubmit(submitFnc)}>
         {/* title */}
         <div className={styles.formCon__titleCon}>
-          <h3>{titleTexts[0]}</h3>
-          <p>{titleTexts[1]}</p>
+          <h3>{t(titleTexts[0])}</h3>
+          <p>{t(titleTexts[1])}</p>
         </div>
         {/* Social btns */}
         <div className={styles.formCon__socialBtns}>
