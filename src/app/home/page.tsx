@@ -6,6 +6,8 @@ export default function HomePage() {
       {/* info-slider */}
       <Section title="Workouts"/>
       <Section title="Workouts"/>
+      <Section title="Workouts"/>
+      <Section title="Workouts"/>
       {/* footer */}
     </>
   );

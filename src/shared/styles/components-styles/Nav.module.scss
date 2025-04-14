@@ -1,18 +1,22 @@
 @use "@shared/styles/mixins/DivMixin" as global__divMixin;
 @use "@shared/styles/Variables.scss" as variables;
+@use "@shared/styles/mixins/BreakpointsMixin.scss" as global__breakpointsMixin;
 
 .nav {
   padding: 33px 37px;
   justify-content: space-between;
   border-radius: 22px;
-
+  position: sticky;
+  top: 0.5%;
+  z-index: 9999;
   background-color: variables.$base_background_color__dark;
   color: variables.$base_color__dark;
   :global(html.dark) & {
     background-color: variables.$base_background_color__light;
     color: variables.$base_color__light;
   }
-  @include global__divMixin.basic__div($height: 100px);
+  @include global__divMixin.basic__div($height: 100px, $height-mobile: 50px);
+  
   &__LeftCon {
     gap: 10%;
     @include global__divMixin.basic__div($width: 20%, $height: 100%);
@@ -62,7 +66,7 @@
             z-index: -10;
             transform: translateY(-10px);
             opacity: 0;
-            row-gap: 5%;  
+            row-gap: 5%;
             flex-direction: column;
             align-items: start;
             padding: 5%;
@@ -109,9 +113,7 @@
                 color: variables.$base_color__light;
               }
 
-              @include global__divMixin.basic__div(
-                $height: 150px
-              );
+              @include global__divMixin.basic__div($height: 150px);
 
               //items of dropdown
               li {
