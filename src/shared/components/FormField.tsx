@@ -32,16 +32,26 @@ export default function FormField({
     : null;
   return (
     <>
-      {label && <label htmlFor={registerTitle}>{label}</label>}
+      {label && (
+        <label htmlFor={registerTitle}>
+          {label}
+        </label>
+      )}
       <input
+        id={registerTitle}
         placeholder={placeholder}
         type={type}
+        value={label}
         aria-invalid={!!errors[registerTitle]}
-        aria-describedby={errors[registerTitle] && `formFieldError${registerTitle}`}
+        aria-describedby={
+          errors[registerTitle] && `formFieldError${registerTitle}`
+        }
         disabled={disabled}
         {...register(registerTitle)}
       />
-      {errors[registerTitle] && <span id={`formFieldError${registerTitle}`}>{errorMsg}</span>}
+      {errors[registerTitle] && (
+        <span id={`formFieldError${registerTitle}`}>{errorMsg}</span>
+      )}
     </>
   );
 }

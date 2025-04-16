@@ -21,7 +21,7 @@
     align-items: start;
     @include global__divMixin.basic__div($height: auto);
 
-    &__CartsCon {
+    &__CardsCon {
       margin-top: 19px;
       display: grid;
       align-items: start;

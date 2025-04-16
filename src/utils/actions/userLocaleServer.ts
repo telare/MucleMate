@@ -32,6 +32,9 @@ export async function getUserLocalServerConfig(): Promise<{
         personalization: (
           await import(`../i18n/messages/${userLang}/personalization.json`)
         ).default,
+        categoryFilter: (
+          await import(`../i18n/messages/${userLang}/categoryFilter.json`)
+        ).default,
       };
       return { locale, messages };
     }
@@ -47,6 +50,9 @@ export async function getUserLocalServerConfig(): Promise<{
         personalization: (
           await import(`../i18n/messages/${userLang}/personalization.json`)
         ).default,
+        categoryFilter: (
+          await import(`../i18n/messages/${userLang}/categoryFilter.json`)
+        ).default,
       },
     };
   } catch (e) {
@@ -60,6 +66,9 @@ export async function getUserLocalServerConfig(): Promise<{
         common: (await import("../i18n/messages/en/common.json")).default,
         personalization: (
           await import("../i18n/messages/en/personalization.json")
+        ).default,
+        categoryFilter: (
+          await import("../i18n/messages/en/categoryFilter.json")
         ).default,
       },
     };

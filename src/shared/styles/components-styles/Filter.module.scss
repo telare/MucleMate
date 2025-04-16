@@ -42,7 +42,8 @@
       @include global__divMixin.basic__div();
 
       &__option {
-        justify-content: flex-start;
+        justify-content: flex-end;
+        flex-direction: row-reverse;
         gap: 0.5rem;
         @include global__divMixin.basic__div($height: auto);
 

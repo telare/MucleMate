@@ -2,7 +2,7 @@
 @use "@shared/styles/mixins/BreakpointsMixin" as global__breakpointsMixin;
 @use "@shared/styles/Variables.scss" as variables;
 
-.cart {
+.card {
   border-radius: 1rem;
   background-color: variables.$base_background_color__dark;
   color: variables.$base_color__dark;
@@ -26,12 +26,12 @@
     transform: scale(1.05);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 
-    .cart__imgCon {
+    .card__imgCon {
       height: 0;
       opacity: 0;
     }
 
-    .cart__infoCon {
+    .card__infoCon {
       align-items: flex-start;
       justify-content: flex-start;
       height: 100%;
@@ -43,6 +43,7 @@
         display: -webkit-box;
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 4;
+        line-clamp: 4;
         hyphens: auto;
         overflow: hidden;
         opacity: 1;
