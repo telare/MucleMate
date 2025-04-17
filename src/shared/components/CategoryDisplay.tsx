@@ -11,7 +11,9 @@ export default function CategoryDisplay() {
   // push this filter options into a body API / query params
   const [filterOptions, setFilterOptions] = useState<FieldValues | undefined>();
 
-  const [renderContentAPI, setRenderContentAPI] = useState<CardProps[]>([
+  const [renderContentAPI, setRenderContentAPI] = useState<
+    Omit<CardProps, "linkPrefix">[]
+  >([
     {
       id: 1,
       description: "",
@@ -46,7 +48,7 @@ export default function CategoryDisplay() {
         <div className={styles.category__ContentWrapper__FilterCon}>
           <Filter categories={filterData} setFilterOptions={setFilterOptions} />
         </div>
-        <FilterResultContentCarts renderContent={renderContentAPI} />
+        <FilterResultContentCarts renderContent={renderContentAPI} cardLinkPrefix={section as string}/>
       </div>
     </div>
   );

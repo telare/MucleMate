@@ -4,7 +4,7 @@ import styles from "./Account.module.scss";
 export default function AccountPageLayout({ children }: Layout) {
   return (
     <div className={styles.account}>
-      <Nav userName="User" />
+      <Nav/>
       {children}
     </div>
   );

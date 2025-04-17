@@ -1,6 +1,6 @@
-import { z } from "zod";
+import { z, ZodObject, ZodRawShape } from "zod";
 
-export const schemas = [
+export const PersonalizationSchemas: ZodObject<ZodRawShape>[] = [
   z.object({
     Gender: z.enum(["Male", "Female"]),
     Goal: z.enum(["Loose body fat", "Gain mucles"]),
@@ -59,7 +59,6 @@ export const schemas = [
       ),
   }),
 ];
-
 export const titles: string[][] = [
   ["title1", "subtitle1"],
   ["title2", "subtitle2"],
