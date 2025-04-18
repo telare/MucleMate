@@ -43,33 +43,13 @@
 
       &__option {
         justify-content: flex-end;
-        flex-direction: row-reverse;
         gap: 0.5rem;
         @include global__divMixin.basic__div($height: auto);
-
-        label {
-          display: flex;
-          align-items: center;
-          justify-content: flex-start;
-          gap: 0.5rem;
-          cursor: pointer;
-          user-select: none;
-          @include global__divMixin.basic__div($height: auto, $width: auto);
-
-          input {
-            width: 1rem;
-            height: 1rem;
-            cursor: pointer;
-            accent-color: variables.$base_background_color__light;
-            :global(html.dark) & {
-              accent-color: variables.$base_background_color__dark;
-            }
-
-            &:focus {
-              outline: 2px solid rgba(66, 99, 235, 0.3);
-              :global(html.dark) & {
-                outline-color: variables.$base_background_color__light;
-              }
+        div {
+          div:has(input[type="checkbox"]) {
+            justify-content: space-between;
+            input {
+              width: auto;
             }
           }
         }
@@ -77,7 +57,6 @@
     }
   }
 
-  // Buttons container
   &__buttonsCon {
     display: flex;
     gap: 1rem;
@@ -94,13 +73,5 @@
       font-weight: 600;
       @include global__btnMixin.btn($width: 30%, $height: 30px);
     }
-    // @media (max-width: 576px) {
-    //   flex-direction: column;
-    //   width: 100%;
-
-    //   button {
-    //     width: 100%;
-    //   }
-    // }
   }
 }

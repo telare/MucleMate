@@ -12,12 +12,12 @@
     background-color: variables.$base_background_color__light;
   }
   @include global__btnMixin.btn(
-    $width: 50px,
-    $height: 24px,
-    $border-radius: 10px,
+    // $width: 50px,
+    // $height: 24px,
+    // $border-radius: 10px,
     $margin: 0,
-    $width-mobile: 50px,
-    $height-mobile: 24px
+    // $width-mobile: 50px,
+    // $height-mobile: 24px
   );
 
   .ball {

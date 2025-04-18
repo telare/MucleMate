@@ -10,7 +10,7 @@ export default function Section({ title }: SectionProps) {
     <section className={styles.home__Section}>
       <h3>{title}</h3>
       <div className={styles.home__Section__CardsCon}>
-        {Array(12).fill(0,0,12).map((_, index) => (
+        {Array(14).fill(0,0,14).map((_, index) => (
           <Card
             id={index}
             key={index}

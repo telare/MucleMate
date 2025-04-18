@@ -1,5 +1,5 @@
 "use client";
-import styles from "@shared/styles/components-styles/Form.module.scss";
+import styles from "../Personalization.module.scss";
 import { z, ZodEnum, ZodObject, ZodRawShape } from "zod";
 import { FormProvider, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -36,14 +36,14 @@ export default function PersonalizationForm({
     <div className={styles.formCon}>
       <Form action="" onSubmit={methods.handleSubmit(submitFnc)}>
         {/* title */}
-        <div className={styles.formCon__titleCon}>
+        <div className={styles.titleCon}>
           <h3>{t(titleText[0])}</h3>
           <p>{t(titleText[1])}</p>
         </div>
         {/* inputs */}
         <FormProvider {...methods}>
-          <div className={styles.formCon__inputFieldsCon}>
-            {fields.map((field) => {
+          <div className={styles.inputFieldsCon}>
+            {fields.map((field, i) => {
               if (schema.shape[field] instanceof ZodEnum) {
                 const labels: string[] = schema.shape[field]._def.values;
                 return labels.map((label, j) => (
@@ -56,11 +56,22 @@ export default function PersonalizationForm({
                     type={"radio"}
                   />
                 ));
+              } else {
+                return (
+                  <FormField
+                    translationContext="personalization"
+                    key={i}
+                    placeholder={t(`form${field}FieldOption${i + 1}`)}
+                    registerTitle={field}
+                    label={field}
+                    type="text"
+                  />
+                );
               }
             })}
           </div>
         </FormProvider>
-        <div className={styles.formCon__btnsCon}>
+        <div className={styles.btnsCon}>
           <Button type="submit" text="Submit" />
         </div>
       </Form>

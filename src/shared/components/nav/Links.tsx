@@ -5,8 +5,7 @@ export default function NavLinks() {
   const linksKeys = Object.keys(links);
   const linksValues = Object.values(links);
   return (
-    <div className={styles.nav__MainCon__LinksCon}>
-      <ul>
+      <ul className={styles.nav__MainCon__LinksCon}>
         {linksKeys.map((linkKey, i) => (
           <li key={i}>
             <Link
@@ -30,6 +29,5 @@ export default function NavLinks() {
           </li>
         ))}
       </ul>
-    </div>
   );
 }

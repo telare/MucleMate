@@ -1,6 +1,8 @@
 @use "@shared/styles/mixins/DivMixin" as global__divMixin;
+@use "@shared/styles/mixins/BtnMixin" as global__btnMixin;
 @use "@shared/styles/mixins/BreakpointsMixin" as global__breakpointsMixin;
 @use "@shared/styles/Functions.scss" as global__functions;
+@use "@shared/styles/Variables.scss" as variables;
 .personalization {
   position: relative;
   flex-direction: column-reverse;
@@ -15,6 +17,151 @@
     @include global__breakpointsMixin.breakpoint(small) {
       top: global__functions.figma-h-to-percent($figma-py: 32);
       right: 24px;
+    }
+  }
+
+  .formCon {
+    border-radius: 66px;
+    flex-direction: column;
+    position: relative;
+    background-color: variables.$base_background_color__dark;
+    color: variables.$base_color__dark;
+    padding: 5%;
+    max-height: global__functions.figma-h-to-percent(800);
+    @include global__divMixin.basic__div(
+      $height: auto,
+      $width: 1032px,
+      $width-mobile: 90%,
+      $height-mobile: 85%
+    );
+
+    :global(html.dark) & {
+      background-color: variables.$base_background_color__light;
+      color: variables.$base_color__light;
+    }
+
+    form {
+      flex-direction: column;
+
+      .titleCon {
+        flex-direction: column;
+        text-align: center;
+        margin: 19px 0;
+        max-height: 30%;
+        @include global__divMixin.basic__div($width: 100%, $height: auto);
+
+        h3 {
+          line-height: 48px;
+          font-weight: 600;
+        }
+
+        p {
+          margin: 19px 0 0;
+          line-height: 26px;
+        }
+
+        @include global__breakpointsMixin.breakpoint(small) {
+          p {
+            margin: 9px 0 0;
+            line-height: 26px;
+          }
+        }
+      }
+
+      .socialBtns {
+        gap: 20px;
+        justify-content: space-between;
+        // margin: 19px 0 19px 0;
+        max-height: 70px;
+        @include global__divMixin.basic__div($width: 100%, $height: auto);
+
+        //fix bg color, color
+        button {
+          background-color: variables.$base_background_color__light;
+          color: variables.$base_color__light;
+          box-shadow: 0px 15px 20px 0px rgba(255, 255, 255, 0.4);
+          padding: 16px;
+          @include global__btnMixin.btn($width: 45%, $height: 100%, $margin: 0);
+
+          :global(html.dark) & {
+            box-shadow: 0px 15px 20px 0px rgba(52, 97, 253, 0.4);
+            background-color: variables.$base_background_color__dark;
+            color: variables.$base_color__dark;
+          }
+        }
+
+        @include global__breakpointsMixin.breakpoint(small) {
+          // margin: 9px 0;
+          max-height: 50px;
+        }
+      }
+
+      .orCon {
+        margin: 19px 0 19px 0;
+
+        @include global__divMixin.basic__div($width: 100%, $height: 6%);
+
+        @include global__breakpointsMixin.breakpoint(small) {
+          margin: 9px 0;
+        }
+      }
+
+      .inputFieldsCon {
+        flex-direction: column;
+        gap: 19px;
+        text-align: left;
+
+        @include global__divMixin.basic__div($width: 100%, $height: auto);
+
+        input:nth-child(1) {
+          margin: 0;
+        }
+        input {
+          width: auto;
+        }
+        div {
+          flex-direction: column;
+          div:has(input[type="radio"]) {
+            flex-direction: row-reverse;
+          }
+        }
+      }
+
+      .btnsCon {
+        flex-direction: column;
+        margin-top: 32px;
+        text-align: left;
+        @include global__divMixin.basic__div($height: auto);
+
+        button {
+          background-color: variables.$base_background_color__light;
+          color: variables.$base_color__light;
+          box-shadow: 0px 15px 20px 0px rgba(255, 255, 255, 0.4);
+
+          @include global__btnMixin.btn(
+            $width: 100%,
+            $height: 70px,
+            $width-mobile: 100%,
+            $height-mobile: 50px,
+            $margin: 0
+          );
+
+          :global(html.dark) & {
+            box-shadow: 0px 15px 20px 0px rgba(52, 97, 253, 0.4);
+            background-color: variables.$base_background_color__dark;
+            color: variables.$base_color__dark;
+          }
+        }
+      }
+
+      @include global__divMixin.basic__div(
+        $width: 414px,
+        $height: 95%,
+        $width-mobile: 354px
+      );
+      @include global__breakpointsMixin.breakpoint(small) {
+        border-radius: 30px;
+      }
     }
   }
 }

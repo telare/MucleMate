@@ -1,7 +1,7 @@
 "use client";
 import Button from "@/shared/components/buttons/Button";
-import styles from "@shared/styles/components-styles/Form.module.scss";
-import { usePathname,useRouter } from "next/navigation";
+import styles from "../Auth.module.scss";
+import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 import { z, ZodObject, ZodRawShape } from "zod";
 import { FormProvider, useForm } from "react-hook-form";
@@ -36,21 +36,21 @@ export default function AuthForm({ titleTexts, schema }: AuthFormProps) {
     <div className={styles.formCon}>
       <Form action="/home" onSubmit={methods.handleSubmit(submitFnc)}>
         {/* title */}
-        <div className={styles.formCon__titleCon}>
+        <div className={styles.titleCon}>
           <h3>{t(titleTexts[0])}</h3>
           <p>{t(titleTexts[1])}</p>
         </div>
         {/* Social btns */}
-        <div className={styles.formCon__socialBtns}>
+        <div className={styles.socialBtns}>
           <Button fnc={() => {}} text="Twitter" type="button" />
           <Button fnc={() => {}} text="Google" type="button" />
         </div>
-        <div className={styles.formCon__orCon}>
+        <div className={styles.orCon}>
           <p>{t("or")}</p>
         </div>
         {/* inputs */}
         <FormProvider {...methods}>
-          <div className={styles.formCon__inputFieldsCon}>
+          <div className={styles.inputFieldsCon}>
             {fields.map((field, i) => (
               <FormField
                 translationContext="auth"
@@ -62,7 +62,7 @@ export default function AuthForm({ titleTexts, schema }: AuthFormProps) {
             ))}
           </div>
         </FormProvider>
-        <div>
+        <div className={styles.dontHaveAccountCon}>
           <Button fnc={() => {}} text="Submit" type="submit" />
           <span>
             {pathname === "/sign-in" ? (

@@ -12,10 +12,6 @@ export default function FilterCategory({ title, options }: FilterCategory) {
       <div className={styles.filter__item__optionsCon}>
         {options.map((opt, i) => (
           <div className={styles.filter__item__optionsCon__option} key={i}>
-            {/* <label>
-                <input type="checkbox"/>
-                {opt}
-              </label> */}
             <FormField
               placeholder=""
               registerTitle={title}

@@ -1,8 +1,9 @@
 import styles from "@shared/styles/components-styles/Nav.module.scss";
-import NavControls from "./nav/Controls";
-import NavLogoBtn from "./nav/btns/LogoBtn";
-import NavGreeting from "./nav/Greeting";
-import NavLinks from "./nav/Links";
+import NavControls from "./Controls";
+import NavLogoBtn from "./btns/LogoBtn";
+import NavGreeting from "./Greeting";
+import NavLinks from "./Links";
+import HamburgerMenu from "./HamburgerMenu";
 
 export default function Nav() {
   return (
@@ -15,9 +16,10 @@ export default function Nav() {
       </div>
 
       <div className={styles.nav__MainCon}>
-        <NavLinks/>
+        <NavLinks />
         <NavControls />
       </div>
+      <HamburgerMenu />
     </nav>
   );
 }

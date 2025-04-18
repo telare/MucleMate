@@ -23,15 +23,11 @@
 
     &__CardsCon {
       margin-top: 19px;
-      display: grid;
-      align-items: start;
-      justify-content: start;
       row-gap: 20px;
-      column-gap: 3%;
-      grid-template-columns: repeat(6, auto);
-      grid-template-rows: repeat(2, auto);
+      column-gap: 1%;
+      flex-wrap: wrap;
 
-      @include global__divMixin.basic__div($height: 450px);
+      @include global__divMixin.basic__div();
     }
   }
 }
