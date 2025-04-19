@@ -4,7 +4,7 @@ import UserProfileBtn from "./btns/UserProfileBtn";
 export default function NavControls() {
   return (
     <div className={styles.nav__MainCon__BtnsCon}>
-      <div id="themeBtn">
+      <div className={styles.nav__MainCon__BtnsCon__Btn}>
         <ThemeBtn />
       </div>
       <UserProfileBtn />

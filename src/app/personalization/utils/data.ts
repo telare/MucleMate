@@ -60,6 +60,6 @@ export const PersonalizationSchemas: ZodObject<ZodRawShape>[] = [
   }),
 ];
 export const titles: string[][] = [
-  ["title1", "subtitle1"],
-  ["title2", "subtitle2"],
+  ["title1", "subTitle1"],
+  ["title2", "subTitle2"],
 ];

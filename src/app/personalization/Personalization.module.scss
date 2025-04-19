@@ -75,19 +75,18 @@
         max-height: 70px;
         @include global__divMixin.basic__div($width: 100%, $height: auto);
 
-        //fix bg color, color
         button {
-          background-color: variables.$base_background_color__light;
-          color: variables.$base_color__light;
           box-shadow: 0px 15px 20px 0px rgba(255, 255, 255, 0.4);
           padding: 16px;
-          @include global__btnMixin.btn($width: 45%, $height: 100%, $margin: 0);
-
+          width: 45%;
+          background-color: variables.$base_background_color__light;
+          color: variables.$base_color__light;
           :global(html.dark) & {
             box-shadow: 0px 15px 20px 0px rgba(52, 97, 253, 0.4);
             background-color: variables.$base_background_color__dark;
             color: variables.$base_color__dark;
           }
+
         }
 
         @include global__breakpointsMixin.breakpoint(small) {
@@ -134,22 +133,18 @@
         @include global__divMixin.basic__div($height: auto);
 
         button {
+          box-shadow: 0px 15px 20px 0px rgba(255, 255, 255, 0.4);
+          height: 70px;
           background-color: variables.$base_background_color__light;
           color: variables.$base_color__light;
-          box-shadow: 0px 15px 20px 0px rgba(255, 255, 255, 0.4);
-
-          @include global__btnMixin.btn(
-            $width: 100%,
-            $height: 70px,
-            $width-mobile: 100%,
-            $height-mobile: 50px,
-            $margin: 0
-          );
-
           :global(html.dark) & {
             box-shadow: 0px 15px 20px 0px rgba(52, 97, 253, 0.4);
             background-color: variables.$base_background_color__dark;
             color: variables.$base_color__dark;
+          }
+          
+          @include global__breakpointsMixin.breakpoint(small) {
+            height: 50px;
           }
         }
       }

@@ -24,7 +24,6 @@ export default function CartDetailPage() {
           className={styles.cardDetailPage__imageContainer__image}
         />
       </div>
-
       {/* Main content */}
       <div className={styles.cardDetailPage__content}>
         <div className={styles.cardDetailPage__content__header}>

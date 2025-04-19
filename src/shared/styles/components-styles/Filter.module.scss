@@ -71,7 +71,7 @@
       }
       font-size: 1rem;
       font-weight: 600;
-      @include global__btnMixin.btn($width: 30%, $height: 30px);
+      @include global__btnMixin.btn($width: 30%);
     }
   }
 }

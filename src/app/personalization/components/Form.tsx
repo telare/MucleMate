@@ -72,7 +72,7 @@ export default function PersonalizationForm({
           </div>
         </FormProvider>
         <div className={styles.btnsCon}>
-          <Button type="submit" text="Submit" />
+          <Button type="submit" translation={{context:"common", key:"submitBtn"}}/>
         </div>
       </Form>
     </div>

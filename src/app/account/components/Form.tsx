@@ -30,23 +30,6 @@ export default function Form() {
     <FormProvider {...methods}>
       <form className={styles.formContainer}>
         <div className={styles.sectionsWrapper}>
-          {/* <div className={styles.sectionGroup}>
-            <h1 className={styles.sectionTitle}>General Information</h1>
-            <div className={styles.fieldsGroup}>
-              {userDataFields.general.map((field, i) => (
-                <div className={styles.formField} key={i}>
-                  <label htmlFor={field}>{field}</label>
-                  <FormField
-                    placeholder={field}
-                    registerTitle={field}
-                    type="text"
-                    disabled={!editMode}
-                    translationContext="personalization"
-                  />
-                </div>
-              ))}
-            </div>
-          </div> */}
           <div className={styles.sectionGroup}>
             <h1>General Information</h1>
             <div className={styles.fieldsGroup}>

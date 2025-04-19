@@ -1,5 +1,4 @@
 "use client";
-import Button from "@/shared/components/buttons/Button";
 import styles from "../Auth.module.scss";
 import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
@@ -9,6 +8,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import FormField from "@/shared/components/FormField";
 import Form from "next/form";
 import { useTranslations } from "next-intl";
+import Button from "@/shared/components/buttons/Button";
 
 type AuthFormProps = {
   titleTexts: string[];
@@ -42,9 +42,11 @@ export default function AuthForm({ titleTexts, schema }: AuthFormProps) {
         </div>
         {/* Social btns */}
         <div className={styles.socialBtns}>
-          <Button fnc={() => {}} text="Twitter" type="button" />
-          <Button fnc={() => {}} text="Google" type="button" />
+          <Button translation={{ context: "common", key: "socialBtnTwitter" }} />
+          <Button translation={{ context: "common", key: "socialBtnGoogle" }} />
         </div>
+
+        {/* replace to hr */}
         <div className={styles.orCon}>
           <p>{t("or")}</p>
         </div>
@@ -63,7 +65,7 @@ export default function AuthForm({ titleTexts, schema }: AuthFormProps) {
           </div>
         </FormProvider>
         <div className={styles.dontHaveAccountCon}>
-          <Button fnc={() => {}} text="Submit" type="submit" />
+          <Button type="submit" translation={{ context: "common", key: "submitBtn" }} />
           <span>
             {pathname === "/sign-in" ? (
               <p>

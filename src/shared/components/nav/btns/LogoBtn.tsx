@@ -1,6 +1,6 @@
 "use client";
 import { useTheme } from "next-themes";
-import Button from "../../buttons/Button";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -13,13 +13,17 @@ export default function NavLogoBtn() {
   }, []);
   if (isMounted) {
     return (
-      <Button
-        iconPath={`/images/Logo${theme === "dark" ? "" : "-dark"}.png`}
-        type="button"
-        fnc={() => {
+      <button
+        onClick={() => {
           router.push("/home");
         }}
-      />
+      >
+        <Image
+          alt="Account Link Btn Logo"
+          src={`/images/Logo${theme === "dark" ? "" : "-dark"}.png`}
+          fill
+        />
+      </button>
     );
   }
   return null;

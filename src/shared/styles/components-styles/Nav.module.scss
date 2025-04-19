@@ -150,7 +150,18 @@
     &__BtnsCon {
       gap: 5%;
       justify-content: center;
-
+      &__Btn {
+        button {
+          border-width: 2px;
+          border-style: solid;
+          border-color: variables.$base_background_color__light;
+          justify-content: start;
+          :global(html.dark) & {
+            border-color: variables.$base_background_color__dark;
+          }
+        }
+        @include global__divMixin.basic__div();
+      }
       @include global__divMixin.basic__div($width: 20%, $width-mobile: 100%);
       @include global__breakpointsMixin.breakpoint(small) {
         flex-direction: column;

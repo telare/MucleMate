@@ -9,14 +9,20 @@ export default function FilterBtns() {
     <div className={styles.filter__buttonsCon}>
       <Button
         type="submit"
-        text="Submit"
-        style={styles.filter__buttonsCon__btn}
+        translation={{
+          context: "common",
+          key: "submitBtn",
+        }}
+        className={styles.filter__buttonsCon__btn}
       />
       <Button
         type="reset"
-        text="Reset"
-        style={styles.filter__buttonsCon__btn}
-        fnc={()=>reset()}
+        translation={{
+          context: "common",
+          key: "cancelBtn",
+        }}
+        className={styles.filter__buttonsCon__btn}
+        onClick={() => reset()}
       />
     </div>
   );

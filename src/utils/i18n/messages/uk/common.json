@@ -1,6 +1,12 @@
 {
-  "skip_btn": "Пропустити",
-  "next_btn": "Далі",
-  "previous_btn": "Назад",
-  "submitButton": "Підтверидити"
+  "socialBtnTwitter": "Twitter",
+  "socialBtnGoogle": "Google",
+
+  "skipBtn": "Пропустити",
+  "nextBtn": "Далі",
+  "previousBtn": "Назад",
+
+  "editBtn": "Редагувати",
+  "submitBtn": "Підтверидити",
+  "cancelBtn": "Скасувати"
 }

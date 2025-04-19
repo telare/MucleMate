@@ -14,8 +14,12 @@
     background-color: variables.$base_background_color__light;
     color: variables.$base_color__light;
   }
-  
-  @include global__divMixin.basic__div($height: 40px, $width: 30%, $width-mobile:70%);
+
+  @include global__divMixin.basic__div(
+    $height: 40px,
+    $width: 30%,
+    $width-mobile: 70%
+  );
 
   input {
     justify-content: start;
@@ -25,7 +29,10 @@
   input:focus {
     outline: none;
   }
-  &__Btn {
-    @include global__btnMixin.btn($width: 10%, $height: 100%, $margin: 0px);
+  &__BtnCon {
+    button{
+      background-color: inherit;
+    }
+    @include global__divMixin.basic__div($width: 10%);
   }
 }

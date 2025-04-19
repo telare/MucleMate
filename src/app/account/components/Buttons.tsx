@@ -15,12 +15,26 @@ export default function AccountFormButtons({
     <>
       {editMode ? (
         <>
-          <Button type="button" text="Submit" />
-          <Button type="button" text="Cancel" fnc={() => reset()} />
+          <Button
+            type="button"
+            translation={{ context: "common", key: "submitBtn" }}
+          />
+          <Button
+            type="button"
+            translation={{ context: "common", key: "cancelBtn" }}
+            onClick={() => {
+              reset();
+              setEditMode(false);
+            }}
+          />
         </>
       ) : (
         <>
-          <Button type="button" text="Edit" fnc={() => setEditMode(true)} />
+          <Button
+            type="button"
+            translation={{ context: "common", key: "editBtn" }}
+            onClick={() => setEditMode(true)}
+          />
         </>
       )}
     </>

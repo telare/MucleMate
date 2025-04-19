@@ -1,24 +1,15 @@
 @use "@shared/styles/mixins/BtnMixin" as global__btnMixin;
 @use "@shared/styles/mixins/DivMixin.scss" as global__divMixin;
-@use "@shared/styles/mixins/BreakpointsMixin.scss" as
-  global__breakpointsMixin;
+@use "@shared/styles/mixins/BreakpointsMixin.scss" as global__breakpointsMixin;
 @use "@shared/styles/Variables.scss" as variables;
 
-.button {
+.buttonWrapper {
   background-color: variables.$base_background_color__dark;
   justify-content: start;
   position: relative;
   :global(html.dark) & {
     background-color: variables.$base_background_color__light;
   }
-  @include global__btnMixin.btn(
-    // $width: 50px,
-    // $height: 24px,
-    // $border-radius: 10px,
-    $margin: 0,
-    // $width-mobile: 50px,
-    // $height-mobile: 24px
-  );
 
   .ball {
     border-radius: 50%;
@@ -35,8 +26,6 @@
     @include global__divMixin.basic__div($width: 45%, $height: 90%);
 
     // animation: active 1s ease-in-out 1 forwards;
-
-    
   }
 }
 // @keyframes active {

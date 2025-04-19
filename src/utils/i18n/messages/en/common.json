@@ -1,6 +1,12 @@
 {
-  "skip_btn": "Skip",
-  "next_btn": "Next",
-  "previous_btn": "Previous",
-  "submitButton": "Submit"
+  "socialBtnTwitter":"Twitter",
+  "socialBtnGoogle":"Google",
+
+  "skipBtn": "Skip",
+  "nextBtn": "Next",
+  "previousBtn": "Previous",
+  
+  "editBtn":"Edit",
+  "submitBtn": "Submit",
+  "cancelBtn": "Cancel"
 }

@@ -1,7 +1,7 @@
 @use "@shared/styles/Variables.scss" as variables;
 @use "@shared/styles/mixins/BreakpointsMixin.scss" as global__breakpointsMixin;
 
-%btn{
+%btn {
   display: flex;
   text-align: center;
   justify-content: center;
@@ -16,15 +16,21 @@
   $height-mobile: $height,
   $font-size: variables.$base_font_size_btn__desktop,
   $border-radius: variables.$base_border_radius_btn__desktop,
-  $margin: 10px,
 ) {
+  // background-color: variables.$base_background_color__light;
+  // color: variables.$base_color__light;
+  // :global(html.dark) & {
+  //   background-color: variables.$base_background_color__dark;
+  //   color: variables.$base_color__dark;
+  // }
+
   font-size: $font-size;
   width: $width;
   height: $height;
-  margin: $margin;
   border-radius: $border-radius;
-  @extend %btn;
+
   
+  @extend %btn;
 
   @include global__breakpointsMixin.breakpoint(small) {
     width: $width-mobile;
@@ -33,4 +39,3 @@
     border-radius: variables.$base_border_radius_btn__mobile;
   }
 }
-

@@ -1,16 +1,12 @@
 @use "@shared/styles/mixins/DivMixin.scss" as global__divMixin;
 @use "@shared/styles/mixins/BtnMixin" as global__btnMixin;
-@use "@shared/styles/mixins/BreakpointsMixin.scss" as
-  global__breakpointsMixin;
+@use "@shared/styles/mixins/BreakpointsMixin.scss" as global__breakpointsMixin;
 @use "@shared/styles/Variables.scss" as variables;
 
 .onBoarding {
   justify-content: flex-end;
   position: relative;
-  @include global__divMixin.basic__div(
-    $width: 100vw,
-    $height: 100vh,
-  );
+  @include global__divMixin.basic__div($width: 100vw, $height: 100vh);
   @include global__breakpointsMixin.breakpoint(small) {
     justify-content: center;
   }
@@ -45,30 +41,26 @@
       position: absolute;
       top: 3%;
       right: 2.5%;
+      @include global__divMixin.basic__div($width: 50px, $height: 24px);
     }
 
-    &__skipBtn {
-      padding: 11px 15px;
+    &__skipBtnCon {
       position: absolute;
       top: 10%;
       right: 2%;
-      box-shadow: 0px 15px 20px 0px rgba(52, 97, 253, 0.4);
-      background-color: variables.$base_background_color__dark;
-      color: variables.$base_color__dark;
+      button {
+        box-shadow: 0px 15px 20px 0px rgba(52, 97, 253, 0.4);
+        background-color: variables.$base_background_color__dark;
+        color: variables.$base_color__dark;
 
-      @include global__btnMixin.btn(
-        $width: auto,
-        $height: 3%,
-        $width-mobile: auto,
-        $height-mobile: 4%,
-        $margin: 0
-      );
-
-      :global(html.dark) & {
-        box-shadow: 0px 15px 20px 0px rgba(255, 255, 255, 0.4);
-        background-color: variables.$base_background_color__light;
-        color: variables.$base_color__light;
+        :global(html.dark) & {
+          box-shadow: 0px 15px 20px 0px rgba(255, 255, 255, 0.4);
+          background-color: variables.$base_background_color__light;
+          color: variables.$base_color__light;
+        }
       }
+
+      @include global__divMixin.basic__div($width: 50px, $height: 24px);
     }
 
     &__logo {
@@ -95,26 +87,26 @@
     }
 
     &__btnsCon {
+      justify-content: space-around;
+      button {
+        width: 40%;
+        background-color: variables.$base_background_color__dark;
+        color: variables.$base_color__dark;
+
+        box-shadow: 0px 15px 20px 0px rgba(52, 97, 253, 0.4);
+        :global(html.dark) & {
+          box-shadow: 0px 15px 20px 0px rgba(255, 255, 255, 0.4);
+          background-color: variables.$base_background_color__light;
+          color: variables.$base_color__light;
+        }
+      }
+
       @include global__divMixin.basic__div(
         $width: 539px,
         $height: 44px,
         $width-mobile: 300px,
         $height-mobile: 37px
       );
-
-      button {
-        background-color: variables.$base_background_color__dark;
-        color: variables.$base_background_color__light;
-        box-shadow: 0px 15px 20px 0px rgba(52, 97, 253, 0.4);
-
-        @include global__btnMixin.btn();
-
-        :global(html.dark) & {
-          box-shadow: 0px 15px 20px 0px rgba(255, 255, 255, 0.4);
-          background-color: variables.$base_background_color__light;
-          color: variables.$base_background_color__dark;
-        }
-      }
     }
 
     @include global__breakpointsMixin.breakpoint(small) {

@@ -2,11 +2,11 @@
 import Image from "next/image";
 import { useParams, usePathname, useRouter } from "next/navigation";
 import styles from "../OnBoarding.module.scss";
-import Button from "@/shared/components/buttons/Button";
 import SkipBtn from "../../../shared/components/buttons/SkipBtn";
 import ThemeBtn from "@/shared/components/buttons/ThemeBtn";
 import { useTranslations } from "next-intl";
 import { logosSrc, titleText } from "../utils/data";
+import Button from "@/shared/components/buttons/Button";
 
 export default function OnBoardingScreen() {
   const t = useTranslations("onBoarding");
@@ -38,10 +38,10 @@ export default function OnBoardingScreen() {
         <div className={styles.onBoarding__inner__themeBtnCon}>
           <ThemeBtn />
         </div>
-        <SkipBtn
-          pathToSkip="/sign-in"
-          style={styles.onBoarding__inner__skipBtn}
-        />
+        <div className={styles.onBoarding__inner__skipBtnCon}>
+          <SkipBtn pathToSkip="/sign-in" />
+        </div>
+
         <Image
           src={logosSrc[index - 1]}
           alt="logo"
@@ -58,14 +58,18 @@ export default function OnBoardingScreen() {
 
         <div className={styles.onBoarding__inner__btnsCon}>
           <Button
-            text={t("previous_btn")}
-            fnc={() => router.back()}
-            type="button"
+            onClick={() => router.back()}
+            translation={{
+              context: "common",
+              key: "previousBtn",
+            }}
           />
           <Button
-            text={t("next_btn")}
-            fnc={() => router.push(path + nextStep)}
-            type="button"
+            onClick={() => router.push(path + nextStep)}
+            translation={{
+              context: "common",
+              key: "nextBtn",
+            }}
           />
         </div>
       </div>
