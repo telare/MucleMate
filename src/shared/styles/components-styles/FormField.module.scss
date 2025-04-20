@@ -8,7 +8,7 @@
   flex-direction: column;
   @include global__divMixin.basic__div();
 
-  &__FieldCon {
+  .fieldCon {
     justify-content: start;
 
     @include global__divMixin.basic__div();

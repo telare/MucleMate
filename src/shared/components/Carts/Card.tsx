@@ -18,19 +18,19 @@ export default function Card({
   linkPrefix,
 }: CardProps) {
   return (
-    <Link href={`${linkPrefix}/${id}`} className={styles.card}>
-      <div className={styles.card__imgCon}>
+    <Link href={`/card-details/${linkPrefix}/${id}`} className={styles.card}>
+      <div className={styles.imgContainer}>
         <Image
           alt={`${title} preview`}
           src={imgSrc}
           fill
           priority
-          className={styles.card__imgCon__image}
+          className={styles.image}
         />
       </div>
-      <div className={styles.card__infoCon}>
-        <h4 className={styles.card__infoCon__title}>{title}</h4>
-        <p className={styles.card__infoCon__description}>{description}</p>
+      <div className={styles.infoContainer}>
+        <h4 className={styles.title}>{title}</h4>
+        <p className={styles.description}>{description}</p>
       </div>
     </Link>
   );

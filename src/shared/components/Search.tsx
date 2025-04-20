@@ -5,7 +5,7 @@ export default function Search() {
   return (
     <div className={styles.search}>
       <input type="text" placeholder="Pull-ups, diet ..." />
-      <div className={styles.search__BtnCon}>
+      <div className={styles.btnCon}>
         <Button type="submit" icon={SearchBtnIcon}/>
       </div>
     </div>

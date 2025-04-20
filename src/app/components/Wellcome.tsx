@@ -24,7 +24,7 @@ export default function Wellcome() {
           alt="logo"
           width={200}
           height={200}
-          className={styles.wellcome__logo}
+          className={styles.logo}
         />
         <div>
           <h3>{t("title1")}</h3>

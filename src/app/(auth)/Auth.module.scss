@@ -4,11 +4,11 @@
 @use "@shared/styles/Functions.scss" as global__functions;
 @use "@shared/styles/Variables.scss" as variables;
 
-.auth {
+.authWrapper {
   position: relative;
   flex-direction: column-reverse;
   @include global__divMixin.basic__div($width: 100vw, $height: 100vh);
-  &__themeBtnCon {
+  .themeBtnContainer {
     position: absolute;
     top: global__functions.figma-h-to-percent($figma-py: 10);
     right: 10px;
@@ -22,7 +22,7 @@
     }
   }
 
-  .formCon {
+  .formContainer {
     border-radius: 66px;
     flex-direction: column;
     position: relative;
@@ -45,7 +45,7 @@
     form {
       flex-direction: column;
 
-      .titleCon {
+      .titleContainer {
         flex-direction: column;
         text-align: center;
         margin: 19px 0;
@@ -98,7 +98,7 @@
         }
       }
 
-      .orCon {
+      .orContainer {
         margin: 19px 0 19px 0;
 
         @include global__divMixin.basic__div($width: 100%, $height: 6%);
@@ -108,7 +108,7 @@
         }
       }
 
-      .inputFieldsCon {
+      .inputFieldsContainer {
         flex-direction: column;
         gap: 19px;
         text-align: left;
@@ -121,7 +121,7 @@
       }
 
       // don't have an account div
-      .dontHaveAccountCon {
+      .dontHaveAccountContainer {
         flex-direction: column;
         margin-top: 32px;
         text-align: left;

@@ -26,18 +26,18 @@
     transform: scale(1.05);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 
-    .card__imgCon {
+    .imgContainer {
       height: 0;
       opacity: 0;
     }
 
-    .card__infoCon {
+    .infoContainer {
       align-items: flex-start;
       justify-content: flex-start;
       height: 100%;
       padding: 1rem;
 
-      &__description {
+      .description {
         visibility: visible;
         font-size: 1rem;
         display: -webkit-box;
@@ -51,7 +51,7 @@
     }
   }
 
-  &__imgCon {
+  .imgContainer {
     position: relative;
     border-radius: inherit;
     border-bottom-left-radius: 0;
@@ -63,13 +63,13 @@
 
     @include global__divMixin.basic__div($height: 70%, $width: 100%);
 
-    &__image {
+    .image {
       object-fit: cover;
       object-position: center;
     }
   }
 
-  &__infoCon {
+  .infoContainer {
     justify-content: flex-start;
     align-items: flex-start;
     flex-direction: column;
@@ -80,14 +80,14 @@
 
     @include global__divMixin.basic__div($height: 30%);
 
-    &__title {
+    .title {
       font-size: 2.5rem;
       font-weight: 600;
       margin-bottom: 1rem;
       line-height: 1.2;
     }
 
-    &__description {
+    .description {
       visibility: hidden;
       opacity: 0;
       font-size: 0.3rem;

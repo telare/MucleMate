@@ -12,26 +12,33 @@
     "title"
     "content";
   @include global__divMixin.basic__div($height: 900px);
-  &__TitleCon {
+  .titleContainer {
     grid-area: title;
     justify-content: start;
     align-items: center;
     @include global__divMixin.basic__div();
   }
-  &__ContentWrapper {
+  .contentWrapper {
     display: grid;
     column-gap: 10%;
     grid-template-columns: 20% 70%;
+    grid-template-rows: 10% 80%;
     grid-area: content;
-    grid-template-areas: "filter carts";
+    grid-template-areas:
+      "controls  controls"
+      "filter    carts";
     @include global__divMixin.basic__div();
-
-    &__FilterCon {
+    .controlsBar {
+      grid-area: controls;
+      justify-content: end;
+      @include global__divMixin.basic__div($height: auto);
+    }
+    .filterContainer {
       grid-area: filter;
       align-items: start;
       @include global__divMixin.basic__div();
     }
-    &__CartsCon {
+    .cartsContainer {
       grid-area: carts;
       row-gap: 5%;
       column-gap: 2%;

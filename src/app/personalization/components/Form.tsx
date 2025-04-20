@@ -33,16 +33,16 @@ export default function PersonalizationForm({
   };
 
   return (
-    <div className={styles.formCon}>
+    <div className={styles.formContainer}>
       <Form action="" onSubmit={methods.handleSubmit(submitFnc)}>
         {/* title */}
-        <div className={styles.titleCon}>
+        <div className={styles.titleContainer}>
           <h3>{t(titleText[0])}</h3>
           <p>{t(titleText[1])}</p>
         </div>
         {/* inputs */}
         <FormProvider {...methods}>
-          <div className={styles.inputFieldsCon}>
+          <div className={styles.inputFieldsContainer}>
             {fields.map((field, i) => {
               if (schema.shape[field] instanceof ZodEnum) {
                 const labels: string[] = schema.shape[field]._def.values;
@@ -71,7 +71,7 @@ export default function PersonalizationForm({
             })}
           </div>
         </FormProvider>
-        <div className={styles.btnsCon}>
+        <div className={styles.btnsContainer}>
           <Button type="submit" translation={{context:"common", key:"submitBtn"}}/>
         </div>
       </Form>

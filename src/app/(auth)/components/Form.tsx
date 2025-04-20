@@ -33,10 +33,10 @@ export default function AuthForm({ titleTexts, schema }: AuthFormProps) {
   });
   const fields: string[] = Object.keys(schema._def.shape());
   return (
-    <div className={styles.formCon}>
+    <div className={styles.formContainer}>
       <Form action="/home" onSubmit={methods.handleSubmit(submitFnc)}>
         {/* title */}
-        <div className={styles.titleCon}>
+        <div className={styles.titleContainer}>
           <h3>{t(titleTexts[0])}</h3>
           <p>{t(titleTexts[1])}</p>
         </div>
@@ -47,15 +47,15 @@ export default function AuthForm({ titleTexts, schema }: AuthFormProps) {
         </div>
 
         {/* replace to hr */}
-        <div className={styles.orCon}>
+        <div className={styles.orContainer}>
           <p>{t("or")}</p>
         </div>
         {/* inputs */}
         <FormProvider {...methods}>
-          <div className={styles.inputFieldsCon}>
+          <div className={styles.inputFieldsContainer}>
             {fields.map((field, i) => (
               <FormField
-                translationContext="auth"
+                translationContainertext="auth"
                 key={i}
                 placeholder={t(`form${field}Field`)}
                 registerTitle={field}
@@ -64,7 +64,7 @@ export default function AuthForm({ titleTexts, schema }: AuthFormProps) {
             ))}
           </div>
         </FormProvider>
-        <div className={styles.dontHaveAccountCon}>
+        <div className={styles.dontHaveAccountContainer}>
           <Button type="submit" translation={{ context: "common", key: "submitBtn" }} />
           <span>
             {pathname === "/sign-in" ? (

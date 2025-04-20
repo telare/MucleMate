@@ -12,7 +12,7 @@
     color: variables.$base_color__dark;
   }
   @include global__divMixin.basic__div();
-  &__imageContainer {
+  .imageContainer {
     position: relative;
     border-radius: 22px;
     overflow: hidden;
@@ -20,7 +20,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transform: scale(1);
     transition: transform 0.3s ease-in-out;
-    &__image {
+    .image {
       object-fit: cover;
       object-position: center;
     }
@@ -31,26 +31,26 @@
     @include global__divMixin.basic__div($height: 30%);
   }
 
-  &__content {
+  .content {
     flex-direction: column;
     gap: 1.5rem;
 
-    &__header {
+    .header {
       flex-direction: column;
       gap: 1rem;
-      &__title {
+      .title {
         font-size: 2rem;
         font-weight: 700;
         margin: 0;
         width: 100%;
       }
 
-      // &__tags {
+      // .tags {
       //   display: flex;
       //   flex-wrap: wrap;
       //   gap: 0.5rem;
 
-      //   &__tag {
+      //   .tag {
       //     background-color: #f0f0f0;
       //     padding: 0.25rem 0.75rem;
       //     border-radius: 50px;
@@ -59,7 +59,7 @@
       //   }
       // }
 
-      &__description {
+      .description {
         font-size: 1rem;
         line-height: 1.6;
         margin: 0;
@@ -71,11 +71,11 @@
   }
 
   // @media (min-width: 768px) {
-  //   &__content {
+  //   .content {
   //     flex-direction: row;
   //     align-items: flex-start;
 
-  //     &__header {
+  //     .header {
   //       flex: 1;
   //     }
   //   }

@@ -3,9 +3,9 @@ import styles from "./Auth.module.scss";
 import { Layout } from "@/shared/types/types";
 export default function AuthLayout({ children }: Layout) {
   return (
-    <div className={styles.auth}>
+    <div className={styles.authWrapper}>
       {children}
-      <div className={styles.auth__themeBtnCon}>
+      <div className={styles.themeBtnContainer}>
         <ThemeBtn />
       </div>
     </div>

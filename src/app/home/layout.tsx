@@ -5,7 +5,7 @@ import Search from "@/shared/components/Search";
 export default function HomeLayout({ children }: Layout) {
   return (
     <div className={styles.home}>
-      <Nav userName="User" />
+      <Nav />
       <Search />
       {children}
     </div>

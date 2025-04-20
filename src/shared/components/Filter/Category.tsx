@@ -7,11 +7,11 @@ interface FilterCategory {
 }
 export default function FilterCategory({ title, options }: FilterCategory) {
   return (
-    <div className={styles.filter__item}>
+    <div className={styles.item}>
       <h6>{title}</h6>
-      <div className={styles.filter__item__optionsCon}>
+      <div className={styles.optionsCon}>
         {options.map((opt, i) => (
-          <div className={styles.filter__item__optionsCon__option} key={i}>
+          <div className={styles.option} key={i}>
             <FormField
               placeholder=""
               registerTitle={title}

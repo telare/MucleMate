@@ -11,13 +11,13 @@
     justify-content: center;
   }
 
-  &__backImg {
+  .backImg {
     width: 100%;
     z-index: -1;
     height: 100%;
   }
 
-  &__inner {
+  .inner {
     background-color: variables.$base_background_color__light;
     position: relative;
     flex-direction: column;
@@ -37,14 +37,14 @@
     // border-top-left-radius: 5%;
     // border-bottom-left-radius: 5%;
 
-    &__themeBtnCon {
+    .themeBtnContainer {
       position: absolute;
       top: 3%;
       right: 2.5%;
       @include global__divMixin.basic__div($width: 50px, $height: 24px);
     }
 
-    &__skipBtnCon {
+    .skipBtnContainer {
       position: absolute;
       top: 10%;
       right: 2%;
@@ -63,12 +63,12 @@
       @include global__divMixin.basic__div($width: 50px, $height: 24px);
     }
 
-    &__logo {
+    .logo {
       width: 120px;
       height: 130px;
     }
 
-    &__textCon {
+    .textContainer {
       flex-direction: column;
       text-align: center;
       margin: 32px 0 24px 0;
@@ -86,7 +86,7 @@
       }
     }
 
-    &__btnsCon {
+    .btnsContainer {
       justify-content: space-around;
       button {
         width: 40%;
@@ -118,13 +118,13 @@
         height: 80px;
       }
 
-      &__themeBtnCon {
+      &__themeBtnContainer {
         position: absolute;
         top: 5%;
         right: 2.5%;
       }
 
-      &__textCon {
+      &__textContainer {
         margin: 25px 0 25px 0;
         text-align: center;
 

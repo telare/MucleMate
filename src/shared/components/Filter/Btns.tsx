@@ -6,14 +6,14 @@ import styles from "@shared/styles/components-styles/Filter.module.scss";
 export default function FilterBtns() {
   const { reset } = useFormContext();
   return (
-    <div className={styles.filter__buttonsCon}>
+    <div className={styles.buttonsCon}>
       <Button
         type="submit"
         translation={{
           context: "common",
           key: "submitBtn",
         }}
-        className={styles.filter__buttonsCon__btn}
+        className={styles.btn}
       />
       <Button
         type="reset"
@@ -21,7 +21,7 @@ export default function FilterBtns() {
           context: "common",
           key: "cancelBtn",
         }}
-        className={styles.filter__buttonsCon__btn}
+        className={styles.btn}
         onClick={() => reset()}
       />
     </div>

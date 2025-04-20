@@ -32,7 +32,7 @@ export default function FormField({
     : null;
   return (
     <div className={styles.mainCon}>
-      <div className={styles.mainCon__FieldCon}>
+      <div className={styles.fieldCon}>
         {label && <label htmlFor={registerTitle}>{label}</label>}
         <input
           id={registerTitle}

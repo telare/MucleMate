@@ -7,7 +7,7 @@
 
   @include global__divMixin.basic__div($width: 100vw, $height: 100vh);
 
-  &__logo {
+  .logo {
     animation: logo__animation 2s ease-in-out 1 forwards;
     z-index: 2;
     width: 300px;

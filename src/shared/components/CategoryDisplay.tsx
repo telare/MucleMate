@@ -1,16 +1,17 @@
 "use client";
 import styles from "@shared/styles/components-styles/CategoryDisplay.module.scss";
 import Filter from "./Filter/Filter";
-import FilterResultContentCarts from "./Filter/FilterResultContentCarts";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { CardProps } from "./Carts/Card";
 import { FieldValues } from "react-hook-form";
+import FilterResultContentCarts from "./Filter/FilterResultContentCarts";
+import SortBtn from "./SortBtn";
 
 export default function CategoryDisplay() {
   // push this filter options into a body API / query params
   const [filterOptions, setFilterOptions] = useState<FieldValues | undefined>();
-
+  const [activeSortmode, setActiveSortMode] = useState<string>("newest");
   const [renderContentAPI, setRenderContentAPI] = useState<
     Omit<CardProps, "linkPrefix">[]
   >([
@@ -41,14 +42,29 @@ export default function CategoryDisplay() {
 
   return (
     <div className={styles.category}>
-      <div className={styles.category__TitleCon}>
+      <div className={styles.titleContainer}>
         <h1>{(section as string).toUpperCase().split("-").join(" ")}</h1>
       </div>
-      <div className={styles.category__ContentWrapper}>
-        <div className={styles.category__ContentWrapper__FilterCon}>
+
+      <div className={styles.contentWrapper}>
+
+        {/* inside standalone component */}
+        <div className={styles.controlsBar}>
+          <SortBtn
+            setActiveSortMode={setActiveSortMode}
+            activeSortMode={activeSortmode}
+          />
+          {/* <Filter categories={filterData} setFilterOptions={setFilterOptions} /> */}
+        </div>
+
+
+        <div className={styles.filterContainer}>
           <Filter categories={filterData} setFilterOptions={setFilterOptions} />
         </div>
-        <FilterResultContentCarts renderContent={renderContentAPI} cardLinkPrefix={section as string}/>
+        <FilterResultContentCarts
+          renderContent={renderContentAPI}
+          cardLinkPrefix={section as string}
+        />
       </div>
     </div>
   );

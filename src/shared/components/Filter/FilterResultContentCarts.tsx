@@ -8,7 +8,7 @@ interface FilterResultsContentCards {
 
 export default function FilterResultContentCarts({renderContent,cardLinkPrefix}: FilterResultsContentCards) {
   return (
-    <div className={styles.category__ContentWrapper__CartsCon}>
+    <div className={styles.cartsContainer}>
       {Array(11)
         .fill(0)
         .map((_, index) => (

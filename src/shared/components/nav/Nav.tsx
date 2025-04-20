@@ -8,15 +8,15 @@ import HamburgerMenu from "./HamburgerMenu";
 export default function Nav() {
   return (
     <nav className={styles.nav}>
-      <div className={styles.nav__LeftCon}>
-        <div className={styles.nav__LeftCon__LogoCon}>
+      <div className={styles.leftContainer}>
+        <div className={styles.logoContainer}>
           <NavLogoBtn />
         </div>
         <NavGreeting />
       </div>
 
-      <div className={styles.nav__MainCon}>
-        <NavLinks />
+      <div className={styles.mainContainer}>
+        <NavLinks isMobile={false} />
         <NavControls />
       </div>
       <HamburgerMenu />

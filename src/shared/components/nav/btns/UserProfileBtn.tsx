@@ -6,7 +6,7 @@ export default function UserProfileBtn() {
   const router = useRouter();
   return (
     <button
-      className={styles.nav__MainCon__BtnsCon__Btn}
+      className={styles.btn}
       onClick={() => {
         router.push("/account");
       }}

@@ -1,6 +1,8 @@
 @use "@shared/styles/mixins/DivMixin" as global__divMixin;
 @use "@shared/styles/Variables.scss" as variables;
 @use "@shared/styles/mixins/BtnMixin" as global__btnMixin;
+@use "@shared/styles/mixins/BreakpointsMixin" as global__breakpointsMixin;
+
 .filter {
   flex-direction: column;
   padding: 1.5rem 1rem;
@@ -15,7 +17,7 @@
   border-radius: 0.5rem;
   @include global__divMixin.basic__div($height: auto);
 
-  &__item {
+  .item {
     flex-direction: column;
     justify-content: flex-start;
     padding-bottom: 1rem;
@@ -35,13 +37,13 @@
       margin-bottom: 0.75rem;
     }
 
-    &__optionsCon {
+    .optionsCon {
       flex-direction: column;
       justify-content: flex-start;
       gap: 0.5rem;
       @include global__divMixin.basic__div();
 
-      &__option {
+      .option {
         justify-content: flex-end;
         gap: 0.5rem;
         @include global__divMixin.basic__div($height: auto);
@@ -57,12 +59,12 @@
     }
   }
 
-  &__buttonsCon {
+  .buttonsCon {
     display: flex;
     gap: 1rem;
     margin-top: 0.5rem;
     @include global__divMixin.basic__div($height: auto);
-    &__btn {
+    .btn {
       background-color: variables.$base_background_color__light;
       color: variables.$base_color__light;
       :global(html.dark) & {
@@ -73,5 +75,9 @@
       font-weight: 600;
       @include global__btnMixin.btn($width: 30%);
     }
+  }
+
+  @include global__breakpointsMixin.breakpoint(small) {
+    
   }
 }

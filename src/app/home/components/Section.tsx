@@ -7,16 +7,16 @@ interface SectionProps  {
 
 export default function Section({ title }: SectionProps) {
   return (
-    <section className={styles.home__Section}>
+    <section className={styles.section}>
       <h3>{title}</h3>
-      <div className={styles.home__Section__CardsCon}>
+      <div className={styles.cardsContainer}>
         {Array(14).fill(0,0,14).map((_, index) => (
           <Card
             id={index}
             key={index}
             imgSrc="./images/TestCardImg.png"
             title="plank"
-            description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste ratione perferendis animi laboriosam placeat consectetur aperiam temporibus est ullam provident, accusantium dolorum, expedita dolore eaque aliquam a adipisci. Consectetur, consequuntur."
+            description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste ratione perferendis animi laboriosam placeat consectetur aperiam temporibus est ullam provident, accusantium dolorum, expedita dolore eaque aliquam a adipisci. Containersectetur, consequuntur."
             linkPrefix={title.toLowerCase()}
           />
         ))}
