@@ -15,7 +15,11 @@
     background-color: variables.$base_background_color__light;
     color: variables.$base_color__light;
   }
-  @include global__divMixin.basic__div($height: 100px, $height-mobile: 50px, $width: 100%);
+  @include global__divMixin.basic__div(
+    $height: 100px,
+    $height-mobile: 50px,
+    $width: 100%
+  );
 
   .leftContainer {
     gap: 10%;
@@ -53,7 +57,7 @@
       li {
         transition: all 0.3s ease-in-out;
         border-radius: 8px;
-        @include global__divMixin.basic__div();
+        @include global__divMixin.basic__div($width: auto);
         position: relative;
         a {
           @include global__divMixin.basic__div($width: auto);
@@ -72,15 +76,15 @@
           top: calc(100% + 10px);
           left: 0;
           z-index: -10;
-          transform: translateY(-10px);
           opacity: 0;
           row-gap: 5%;
           flex-direction: column;
           align-items: start;
           padding: 5%;
           pointer-events: none;
+          pointer-events: none;
           transition: all 0.3s ease-in-out;
-          @include global__divMixin.basic__div();
+          @include global__divMixin.basic__div($width: calc(100% + 50px),$height:auto );
           li {
             @include global__divMixin.basic__div($width: auto);
           }
@@ -105,13 +109,12 @@
             z-index: 9999;
             row-gap: 5%;
             flex-direction: column;
+            transform: translateY(-10px);
             align-items: stretch;
             padding: 5%;
             opacity: 1;
             pointer-events: all;
-            transition:
-              height 0.3s ease-in-out,
-              opacity 0.5s ease-in-out;
+            transition: all 0.3s ease-in-out;
 
             background-color: variables.$base_background_color__dark;
             color: variables.$base_color__dark;
@@ -121,7 +124,11 @@
               color: variables.$base_color__light;
             }
 
-            @include global__divMixin.basic__div($height: 150px);
+            @include global__divMixin.basic__div(
+              // $width: calc(100% + 50px),
+              $width:auto,
+              $height: auto
+            );
 
             //items of dropdown
             li {
@@ -129,12 +136,14 @@
               justify-content: start;
               transform: translateX(0);
               transition: transform 0.3s ease-in-out;
-              @include global__divMixin.basic__div($width: 100%);
+              line-break: anywhere;
+              @include global__divMixin.basic__div($width: auto);
 
               &:hover {
-                transform: translateX(5%);
+                transform: translateX(2%);
+                justify-content: center;
+
                 transition: transform 0.3s ease-in-out;
-                @include global__divMixin.basic__div();
                 background-color: variables.$base_background_color__light;
                 color: variables.$base_color__light;
                 :global(html.dark) & {
@@ -150,18 +159,17 @@
     .btnsContainer {
       gap: 5%;
       justify-content: center;
-      .btn {
-        button {
-          border-width: 2px;
-          border-style: solid;
-          border-color: variables.$base_background_color__light;
-          justify-content: start;
-          :global(html.dark) & {
-            border-color: variables.$base_background_color__dark;
-          }
+
+      button:nth-child(1) {
+        border-width: 2px;
+        border-style: solid;
+        border-color: variables.$base_background_color__light;
+        justify-content: start;
+        :global(html.dark) & {
+          border-color: variables.$base_background_color__dark;
         }
-        @include global__divMixin.basic__div();
       }
+
       @include global__divMixin.basic__div($width: 20%, $width-mobile: 100%);
       @include global__breakpointsMixin.breakpoint(small) {
         flex-direction: column;
@@ -197,6 +205,20 @@
         @include global__divMixin.basic__div($height: auto);
       }
       .btnsContainer {
+          gap: 5%;
+          justify-content: center;
+    
+          button:nth-child(1) {
+            border-width: 2px;
+            border-style: solid;
+            border-color: variables.$base_background_color__light;
+            justify-content: start;
+            :global(html.dark) & {
+              border-color: variables.$base_background_color__dark;
+            }
+            @include global__divMixin.basic__div($width: 30%,$height:30%);
+          }
+    
         flex-direction: column;
         @include global__divMixin.basic__div($height: auto);
       }

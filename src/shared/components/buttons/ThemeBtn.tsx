@@ -13,7 +13,7 @@ export default function ThemeBtn() {
     return (
       <Button
         onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-        className={styles.buttonWrapper}
+        className={styles.themeButtonWrapper}
       >
         <div className={styles.ball}></div>
       </Button>

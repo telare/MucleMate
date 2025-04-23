@@ -10,6 +10,12 @@
   @include global__breakpointsMixin.breakpoint(small) {
     justify-content: center;
   }
+  
+  @at-root {
+    body {
+      padding: 0 !important;
+    }
+  }
 
   .backImg {
     width: 100%;

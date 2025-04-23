@@ -55,7 +55,7 @@ export default function AuthForm({ titleTexts, schema }: AuthFormProps) {
           <div className={styles.inputFieldsContainer}>
             {fields.map((field, i) => (
               <FormField
-                translationContainertext="auth"
+                translationContext="auth"
                 key={i}
                 placeholder={t(`form${field}Field`)}
                 registerTitle={field}

@@ -39,24 +39,26 @@ export default function CategoryDisplay() {
     // fetch data from API and upd filterOptions state and then upd setRenderContentAPI state
     // console.log("filterOptions",filterOptions);
   }, [filterOptions]);
-
+  const title: string =
+    typeof section === "string"
+      ? (section as string).toUpperCase().split("-").join(" ")
+      : "";
   return (
     <div className={styles.category}>
       <div className={styles.titleContainer}>
-        <h1>{(section as string).toUpperCase().split("-").join(" ")}</h1>
+        <h1>{title}</h1>
       </div>
 
       <div className={styles.contentWrapper}>
-
         {/* inside standalone component */}
         <div className={styles.controlsBar}>
+          {/* <Filter categories={filterData} setFilterOptions={setFilterOptions} /> */}
+
           <SortBtn
             setActiveSortMode={setActiveSortMode}
             activeSortMode={activeSortmode}
           />
-          {/* <Filter categories={filterData} setFilterOptions={setFilterOptions} /> */}
         </div>
-
 
         <div className={styles.filterContainer}>
           <Filter categories={filterData} setFilterOptions={setFilterOptions} />

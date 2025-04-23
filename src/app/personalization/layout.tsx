@@ -5,7 +5,7 @@ export default function PersonalizationPageLayout({ children }: Layout) {
   return (
     <div className={styles.personalization}>
       {children}
-      <div className={styles.personalization__themeBtnCon}>
+      <div className={styles.themeBtnContainer}>
         <ThemeBtn />
       </div>
     </div>

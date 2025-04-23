@@ -13,6 +13,7 @@
     position: absolute;
     top: global__functions.figma-h-to-percent($figma-py: 10);
     right: 10px;
+    @include global__divMixin.basic__div($width: 50px, $height: 24px);
 
     @include global__breakpointsMixin.breakpoint(small) {
       top: global__functions.figma-h-to-percent($figma-py: 32);
@@ -86,7 +87,6 @@
             background-color: variables.$base_background_color__dark;
             color: variables.$base_color__dark;
           }
-
         }
 
         @include global__breakpointsMixin.breakpoint(small) {
@@ -118,10 +118,12 @@
         input {
           width: auto;
         }
+
         div {
           flex-direction: column;
           div:has(input[type="radio"]) {
             flex-direction: row-reverse;
+            gap: 1rem;
           }
         }
       }
@@ -142,7 +144,7 @@
             background-color: variables.$base_background_color__dark;
             color: variables.$base_color__dark;
           }
-          
+
           @include global__breakpointsMixin.breakpoint(small) {
             height: 50px;
           }

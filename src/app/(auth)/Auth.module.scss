@@ -14,7 +14,7 @@
     right: 10px;
 
     /////////////// 
-    @include global__divMixin.basic__div($width: 50px, $height: 30px);
+    @include global__divMixin.basic__div($width: 50px, $height: 24px);
 
     @include global__breakpointsMixin.breakpoint(small) {
       top: global__functions.figma-h-to-percent($figma-py: 32);

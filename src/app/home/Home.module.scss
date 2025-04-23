@@ -5,7 +5,7 @@
   flex-direction: column;
   justify-content: start;
   align-items: center;
-  padding: 0.5% 2%;
+  
   background-color: variables.$base_background_color__light;
   color: variables.$base_color__light;
   @include global__divMixin.basic__div();

@@ -4,7 +4,6 @@
 .wellcome {
   text-align: center;
   font-weight: bold;
-
   @include global__divMixin.basic__div($width: 100vw, $height: 100vh);
 
   .logo {
@@ -57,8 +56,6 @@
 
   @include global__breakpointsMixin.breakpoint(small) {
     flex-direction: column;
-    width: 90%;
-    height: 80%;
   }
 }
 

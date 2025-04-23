@@ -3,81 +3,111 @@
 @use "@shared/styles/mixins/BtnMixin" as global__btnMixin;
 @use "@shared/styles/mixins/BreakpointsMixin" as global__breakpointsMixin;
 
-.filter {
-  flex-direction: column;
-  padding: 1.5rem 1rem;
-  gap: 1.25rem;
-  justify-content: flex-start;
-  background-color: variables.$base_background_color__dark;
-  color: variables.$base_color__dark;
-  :global(html.dark) & {
-    background-color: variables.$base_background_color__light;
-    color: variables.$base_color__light;
-  }
-  border-radius: 0.5rem;
-  @include global__divMixin.basic__div($height: auto);
+.filterWrapper {
+  align-items: start;
+  justify-content: start;
+  @include global__divMixin.basic__div();
 
-  .item {
-    flex-direction: column;
-    justify-content: flex-start;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid variables.$base_background_color__light;
+  .btnWrapper {
+    display: none;
+    position: absolute;
+    bottom: 100%;
+    border-radius: 0.5rem;
+    padding:  0.5rem;
+    border-width: 2px;
+    border-style: solid;
+    border-color: variables.$base_background_color__dark;
+
     :global(html.dark) & {
-      border-bottom-color: variables.$base_background_color__dark;
+      border-color: variables.$base_background_color__light;
     }
+    @include global__divMixin.basic__div(auto);
+
+    @include global__breakpointsMixin.breakpoint(small) {
+      display: flex;
+    }
+  }
+  .filter {
+    z-index: 1000;
+    flex-direction: column;
+    padding: 1.5rem 1rem;
+    gap: 1.25rem;
+    align-items: start;
+    justify-content: flex-start;
+    background-color: variables.$base_background_color__dark;
+    color: variables.$base_color__dark;
+    :global(html.dark) & {
+      background-color: variables.$base_background_color__light;
+      color: variables.$base_color__light;
+    }
+    border-radius: 0.5rem;
     @include global__divMixin.basic__div($height: auto);
-
-    &:last-child {
-      border-bottom: none;
-    }
-
-    h6 {
-      font-size: 1rem;
-      font-weight: 600;
-      margin-bottom: 0.75rem;
-    }
-
-    .optionsCon {
+    .item {
       flex-direction: column;
       justify-content: flex-start;
-      gap: 0.5rem;
-      @include global__divMixin.basic__div();
+      padding-bottom: 1rem;
+      border-bottom: 1px solid variables.$base_background_color__light;
+      :global(html.dark) & {
+        border-bottom-color: variables.$base_background_color__dark;
+      }
+      @include global__divMixin.basic__div($height: auto);
 
-      .option {
-        justify-content: flex-end;
+      &:last-child {
+        border-bottom: none;
+      }
+
+      h6 {
+        font-size: 1rem;
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+      }
+
+      .optionsCon {
+        flex-direction: column;
+        justify-content: flex-start;
         gap: 0.5rem;
-        @include global__divMixin.basic__div($height: auto);
-        div {
-          div:has(input[type="checkbox"]) {
-            justify-content: space-between;
-            input {
-              width: auto;
+        @include global__divMixin.basic__div();
+
+        .option {
+          justify-content: flex-end;
+          gap: 0.5rem;
+          @include global__divMixin.basic__div($height: auto);
+          div {
+            div:has(input[type="checkbox"]) {
+              justify-content: space-between;
+              input {
+                width: auto;
+              }
             }
           }
         }
       }
     }
-  }
 
-  .buttonsCon {
-    display: flex;
-    gap: 1rem;
-    margin-top: 0.5rem;
-    @include global__divMixin.basic__div($height: auto);
-    .btn {
-      background-color: variables.$base_background_color__light;
-      color: variables.$base_color__light;
-      :global(html.dark) & {
-        background-color: variables.$base_background_color__dark;
-        color: variables.$base_color__dark;
+    .buttonsCon {
+      display: flex;
+      gap: 1rem;
+      margin-top: 0.5rem;
+      @include global__divMixin.basic__div($height: auto);
+      .btn {
+        padding:  0.2rem 0.5rem;
+
+        background-color: variables.$base_background_color__light;
+        color: variables.$base_color__light;
+        :global(html.dark) & {
+          background-color: variables.$base_background_color__dark;
+          color: variables.$base_color__dark;
+        }
+        font-size: 1rem;
+        font-weight: 600;
+        @include global__btnMixin.btn($width: auto);
       }
-      font-size: 1rem;
-      font-weight: 600;
-      @include global__btnMixin.btn($width: 30%);
     }
   }
-
   @include global__breakpointsMixin.breakpoint(small) {
-    
+    position: absolute;
+    top: 100%;
   }
+}
+@include global__breakpointsMixin.breakpoint(small) {
 }

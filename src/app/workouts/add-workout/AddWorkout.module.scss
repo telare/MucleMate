@@ -1,0 +1,112 @@
+@use "@shared/styles/mixins/DivMixin" as global__divMixin;
+@use "@shared/styles/mixins/BreakpointsMixin" as global__breakpointsMixin;
+@use "@shared/styles/Variables.scss" as variables;
+@use "@shared/styles/mixins/BtnMixin" as global__btnMixin;
+
+.addWorkout {
+  margin-top: 2rem;
+  gap: 2rem;
+  @include global__divMixin.basic__div($height: auto);
+  @include global__breakpointsMixin.breakpoint(small) {
+    flex-direction: column;
+  }
+
+  .dashboard {
+    flex-direction: column;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: variables.$base_background_color__dark;
+    color: variables.$base_color__dark;
+    :global(html.dark) & {
+      background-color: variables.$base_background_color__light;
+      color: variables.$base_color__light;
+    }
+
+    @include global__divMixin.basic__div($height: auto);
+    .item {
+      border-radius: 0.5rem;
+      padding: 0.5rem;
+      column-gap: 1rem;
+      justify-content: space-between;
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+      @include global__divMixin.basic__div($height: auto);
+      background-color: variables.$base_background_color__light;
+      color: variables.$base_color__light;
+      :global(html.dark) & {
+        background-color: variables.$base_background_color__dark;
+        color: variables.$base_color__dark;
+      }
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+      }
+      .info {
+        align-items: start;
+        flex-direction: column;
+        @include global__divMixin.basic__div($height: auto);
+      }
+    }
+  }
+
+  .form {
+    flex-direction: column;
+    border-radius: 0.5rem;
+
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    gap: 2rem;
+
+    background-color: variables.$base_background_color__dark;
+    color: variables.$base_color__dark;
+    :global(html.dark) & {
+      background-color: variables.$base_background_color__light;
+      color: variables.$base_color__light;
+    }
+    @include global__divMixin.basic__div($height: 80%);
+    .mainContentWrapper {
+      gap: 2rem;
+      @include global__divMixin.basic__div();
+      @include global__breakpointsMixin.breakpoint(small) {
+        flex-direction: column;
+      }
+      .fieldsContainer {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        flex-direction: column;
+
+        gap: 1rem;
+        @include global__divMixin.basic__div();
+      }
+
+      .timeInfoContainer {
+        @include global__divMixin.basic__div();
+        .calendar {
+          border-radius: 0.5rem;
+          border: 2px solid;
+        }
+      }
+    }
+  }
+
+  .buttonsWrapper {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    @include global__divMixin.basic__div($height: auto);
+    gap: 1rem;
+    margin-top: 0.5rem;
+    button {
+      background-color: variables.$base_background_color__light;
+      color: variables.$base_color__light;
+      :global(html.dark) & {
+        background-color: variables.$base_background_color__dark;
+        color: variables.$base_color__dark;
+      }
+      font-size: 1rem;
+      font-weight: 600;
+      @include global__btnMixin.btn($width: 10rem);
+    }
+  }
+}

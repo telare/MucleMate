@@ -4,7 +4,7 @@ import { z, ZodEnum, ZodObject, ZodRawShape } from "zod";
 import { FormProvider, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import FormField from "@shared/components/FormField";
-import { useRouter } from "next/navigation";
+import {  useRouter } from "next/navigation";
 import Form from "next/form";
 import { useTranslations } from "next-intl";
 import Button from "@/shared/components/buttons/Button";
@@ -61,9 +61,8 @@ export default function PersonalizationForm({
                   <FormField
                     translationContext="personalization"
                     key={i}
-                    placeholder={t(`form${field}FieldOption${i + 1}`)}
+                    placeholder={t(`form${field}Field`)}
                     registerTitle={field}
-                    label={field}
                     type="text"
                   />
                 );
@@ -72,7 +71,10 @@ export default function PersonalizationForm({
           </div>
         </FormProvider>
         <div className={styles.btnsContainer}>
-          <Button type="submit" translation={{context:"common", key:"submitBtn"}}/>
+          <Button
+            type="submit"
+            translation={{ context: "common", key: "submitBtn" }}
+          />
         </div>
       </Form>
     </div>

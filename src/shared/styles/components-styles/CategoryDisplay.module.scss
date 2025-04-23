@@ -12,11 +12,15 @@
     "title"
     "content";
   @include global__divMixin.basic__div($height: 900px);
+  @include global__breakpointsMixin.breakpoint(small) {
+    grid-template-rows: 10% 90%;
+  }
   .titleContainer {
     grid-area: title;
     justify-content: start;
     align-items: center;
     @include global__divMixin.basic__div();
+   
   }
   .contentWrapper {
     display: grid;
@@ -31,6 +35,7 @@
     .controlsBar {
       grid-area: controls;
       justify-content: end;
+      position: relative;
       @include global__divMixin.basic__div($height: auto);
     }
     .filterContainer {
@@ -45,6 +50,18 @@
       flex-wrap: wrap;
       justify-content: start;
       @include global__divMixin.basic__div();
+    }
+    @include global__breakpointsMixin.breakpoint(small) {
+      grid-template-areas:
+      "controls  controls"
+      "carts    carts";
+      .filterContainer{
+        display: none;
+      }
+      .cartsContainer{
+        justify-content: center;
+      }
+      
     }
   }
 }

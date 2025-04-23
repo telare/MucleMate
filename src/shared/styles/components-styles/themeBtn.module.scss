@@ -3,10 +3,12 @@
 @use "@shared/styles/mixins/BreakpointsMixin.scss" as global__breakpointsMixin;
 @use "@shared/styles/Variables.scss" as variables;
 
-.buttonWrapper {
-  background-color: variables.$base_background_color__dark;
-  justify-content: start;
+.themeButtonWrapper {
+  justify-content: start !important;
   position: relative;
+  width: 60px !important;
+
+  background-color: variables.$base_background_color__dark;
   :global(html.dark) & {
     background-color: variables.$base_background_color__light;
   }
@@ -16,31 +18,14 @@
     position: absolute;
     margin-left: 5%;
     margin-right: 5%;
-    background-color: variables.$base_background_color__light;
     transform: translateX(100%);
+
+    background-color: variables.$base_background_color__light;
     :global(html.dark) & {
       background-color: variables.$base_background_color__dark;
       transform: translateX(0%);
-      // animation: anim 1s ease-in-out 1;
     }
-    @include global__divMixin.basic__div($width: 45%, $height: 90%);
 
-    // animation: active 1s ease-in-out 1 forwards;
+    @include global__divMixin.basic__div($width: 45%, $height: 90%);
   }
 }
-// @keyframes active {
-//   from {
-//     transform: translateX(0%);
-//   }
-//   to {
-//     transform: translateX(100%);
-//   }
-// }
-// @keyframes anim {
-//   from {
-//     transform: translateX(100%);
-//   }
-//   to {
-//     transform: translateX(0%);
-//   }
-// }

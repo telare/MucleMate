@@ -16,61 +16,22 @@ export async function getUserLocalServerConfig(): Promise<{
   locale: string;
   messages: Record<string, Messages>;
 }> {
-  try {
-    const userLang = await detectUserServerLang();
-    if (userLang) {
-      const locale = userLang;
-      const messages = {
-        wellcome: (await import(`../i18n/messages/${userLang}/wellcome.json`))
-          .default,
-        onBoarding: (
-          await import(`../i18n/messages/${userLang}/onBoarding.json`)
-        ).default,
-        auth: (await import(`../i18n/messages/${userLang}/auth.json`)).default,
-        common: (await import(`../i18n/messages/${userLang}/common.json`))
-          .default,
-        personalization: (
-          await import(`../i18n/messages/${userLang}/personalization.json`)
-        ).default,
-        categoryFilter: (
-          await import(`../i18n/messages/${userLang}/categoryFilter.json`)
-        ).default,
-      };
-      return { locale, messages };
-    }
-    return {
-      locale: "en",
-      messages: {
-        wellcome: (await import("../i18n/messages/en/wellcome.json")).default,
-        onBoarding: (await import("../i18n/messages/en/onBoarding.json"))
-          .default,
-        auth: (await import("../i18n/messages/en/auth.json")).default,
-        common: (await import(`../i18n/messages/${userLang}/common.json`))
-          .default,
-        personalization: (
-          await import(`../i18n/messages/${userLang}/personalization.json`)
-        ).default,
-        categoryFilter: (
-          await import(`../i18n/messages/${userLang}/categoryFilter.json`)
-        ).default,
-      },
-    };
-  } catch (e) {
-    return {
-      locale: "en",
-      messages: {
-        wellcome: (await import(`../i18n/messages/en/wellcome.jso${e}n`)).default,
-        onBoarding: (await import("../i18n/messages/en/onBoarding.json"))
-          .default,
-        auth: (await import("../i18n/messages/en/auth.json")).default,
-        common: (await import("../i18n/messages/en/common.json")).default,
-        personalization: (
-          await import("../i18n/messages/en/personalization.json")
-        ).default,
-        categoryFilter: (
-          await import("../i18n/messages/en/categoryFilter.json")
-        ).default,
-      },
-    };
-  }
+  const userLang = await detectUserServerLang();
+  const locale = userLang || "en-US";
+  const messages = {
+    wellcome: (await import(`../i18n/messages/${locale}/wellcome.json`))
+      .default,
+    auth: (await import(`../i18n/messages/${locale}/auth.json`)).default,
+    onBoarding: (await import(`../i18n/messages/${locale}/onBoarding.json`))
+      .default,
+    personalization: (
+      await import(`../i18n/messages/${locale}/personalization.json`)
+    ).default,
+    categoryFilter: (
+      await import(`../i18n/messages/${locale}/categoryFilter.json`)
+    ).default,
+    common: (await import(`../i18n/messages/${locale}/common.json`)).default,
+  };
+
+  return { locale, messages };
 }

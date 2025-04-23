@@ -30,19 +30,19 @@ export default function NavLinks({ isMobile }: NavLinksProps) {
                 {linkKey}
               </Link>
 
-              {linksValues[i] && openIndex === i && nestedLinksOpen && (
-                <ul>
-                  {linksValues[i].map((linkValue, j) => (
-                    <li key={j}>
-                      <Link
-                        href={`/${linkKey.toLowerCase()}/${linkValue.toLowerCase().split(" ").join("-")}`}
-                      >
-                        {linkValue}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              )}
+              {linksValues[i].subLinks &&
+                openIndex === i &&
+                nestedLinksOpen && (
+                  <ul>
+                    {linksValues[i].subLinks.map((link, j) => (
+                      <li key={j}>
+                        <Link href={`/${linkKey.toLowerCase()}/${link.link}`}>
+                          {link.title}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                )}
             </button>
           ) : (
             <>
@@ -52,14 +52,12 @@ export default function NavLinks({ isMobile }: NavLinksProps) {
                 {linkKey}
               </Link>
 
-              {linksValues[i] && (
+              {linksValues[i].subLinks && (
                 <ul>
-                  {linksValues[i].map((linkValue, j) => (
+                  {linksValues[i].subLinks.map((link, j) => (
                     <li key={j}>
-                      <Link
-                        href={`/${linkKey.toLowerCase()}/${linkValue.toLowerCase().split(" ").join("-")}`}
-                      >
-                        {linkValue}
+                      <Link href={`/${linkKey.toLowerCase()}/${link.link}`}>
+                        {link.title}
                       </Link>
                     </li>
                   ))}

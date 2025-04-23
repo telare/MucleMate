@@ -6,9 +6,6 @@ import { useEffect } from "react";
 
 export default function CartDetailPage() {
   const { type, id } = useParams();
-  useEffect(() => {
-    console.log(type, id);
-  }, []);
   const mockData = {
     imgSrc: "/images/wellcome-background-img-2.png",
     title: "Title",

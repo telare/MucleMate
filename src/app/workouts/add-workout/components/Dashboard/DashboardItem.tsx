@@ -1,9 +1,12 @@
+import styles from "../../AddWorkout.module.scss";
+
 type DashboardItemProps = {
   title: string;
-  totalSets: number;
-  repsPerSet: number;
-  weightPerSet: number[];
+  totalSets: string;
+  repsPerSet: string;
+  weightPerSet: string;
 };
+
 export default function DashboardItem({
   title,
   totalSets,
@@ -11,14 +14,11 @@ export default function DashboardItem({
   weightPerSet,
 }: DashboardItemProps) {
   return (
-    <div>
+    <div className={styles.item}>
       <h1>{title}</h1>
-      {/* info for exercise */}
-      <div>
-        <h3>
-          {totalSets} x {repsPerSet}
-        </h3>
-        <h3>{weightPerSet.join(", ")}</h3>
+      <div className={styles.info}>
+        {totalSets} sets × {repsPerSet} reps
+        {weightPerSet ? ` • ${weightPerSet}kg` : ""}
       </div>
     </div>
   );

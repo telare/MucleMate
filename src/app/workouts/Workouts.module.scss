@@ -1,7 +1,6 @@
 @use "@shared/styles/mixins/DivMixin" as global__divMixin;
 .workouts {
   flex-direction: column;
-  padding: 0.5% 2%;
 
   @include global__divMixin.basic__div();
 }
