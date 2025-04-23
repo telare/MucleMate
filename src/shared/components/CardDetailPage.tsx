@@ -16,8 +16,7 @@ export default function CartDetailPage() {
     //fetching data & upd internal state for displaying a data based on params
   }, []);
   return (
-    <div className={styles.cardDetailPage}>
-      {/* Centered image/carousel */}
+    <div className={styles.contentWrapper}>
       <div className={styles.imageContainer}>
         <Image
           src={mockData.imgSrc}
@@ -26,8 +25,7 @@ export default function CartDetailPage() {
           className={styles.image}
         />
       </div>
-      {/* Main content */}
-      <div className={styles.content}>
+      <div className={styles.decriptionWrapper}>
         <div className={styles.header}>
           <h1 className={styles.title}>{mockData.title}</h1>
 

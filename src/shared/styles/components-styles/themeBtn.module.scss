@@ -6,7 +6,6 @@
 .themeButtonWrapper {
   justify-content: start !important;
   position: relative;
-  width: 60px !important;
 
   background-color: variables.$base_background_color__dark;
   :global(html.dark) & {

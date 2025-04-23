@@ -1,61 +1,91 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { RootState } from "../store";
 
 type Gender = "male" | "female";
 type UserGoal = "Loose body fat" | "Gain mucles";
-type UserMetrics = {
-  gender: Gender;
-  goal: UserGoal;
-  age: number;
-  height: number;
-  weight: number;
-  physicalActivityLevel: number;
-};
-type User = {
-  name: string;
-  email: string;
+type PhysicalActivityLevel = 1 | 2 | 3 | 4 | 5;
+
+export type User = {
+  generalInfo: {
+    name: string;
+    email: string;
+    gender: Gender;
+    goal: UserGoal;
+  };
+
+  metrics: {
+    age: number;
+    height: number;
+    weight: number;
+    physicalActivityLevel: PhysicalActivityLevel;
+  };
 };
 
-const initialState: User & UserMetrics = {
-  name: "",
-  email: "",
-  gender: "male",
-  goal: "Gain mucles",
-  age: 0,
-  height: 0,
-  weight: 0,
-  physicalActivityLevel: 1,
+export type UserGeneralInfoKeys = keyof User["generalInfo"];
+export type UserMetricsInfoKeys = keyof User["metrics"];
+
+const initialState: User = {
+  generalInfo: {
+    name: "user",
+    email: "user@example.com",
+    gender: "male",
+    goal: "Gain mucles",
+  },
+  metrics: {
+    age: 20,
+    height: 190,
+    weight: 100,
+    physicalActivityLevel: 5,
+  },
 };
 export const UserSlice = createSlice({
   name: "User",
   initialState,
   reducers: {
     setName: (state, action: PayloadAction<string>) => {
-      state.name = action.payload;
+      state.generalInfo.name = action.payload;
     },
     setEmail: (state, action: PayloadAction<string>) => {
-      state.email = action.payload;
+      state.generalInfo.email = action.payload;
     },
     setGender: (state, action: PayloadAction<Gender>) => {
-      state.gender = action.payload;
+      state.generalInfo.gender = action.payload;
     },
     setGoal: (state, action: PayloadAction<UserGoal>) => {
-      state.goal = action.payload;
+      state.generalInfo.goal = action.payload;
     },
     setAge: (state, action: PayloadAction<number>) => {
-      state.age = action.payload;
+      state.metrics.age = action.payload;
     },
     setHeight: (state, action: PayloadAction<number>) => {
-      state.height = action.payload;
+      state.metrics.height = action.payload;
     },
     setWeight: (state, action: PayloadAction<number>) => {
-      state.weight = action.payload;
+      state.metrics.weight = action.payload;
     },
-    setPhysicalActivityLevel: (state, action: PayloadAction<number>) => {
-      state.physicalActivityLevel = action.payload;
+    setPhysicalActivityLevel: (
+      state,
+      action: PayloadAction<PhysicalActivityLevel>
+    ) => {
+      state.metrics.physicalActivityLevel = action.payload;
     },
     resetUser: () => initialState,
   },
 });
+
+const getAll = (state: RootState) => {
+  return state.user;
+};
+
+const getGeneralInfo = (state: RootState) => {
+  return state.user.generalInfo;
+};
+
+const getMetricsInfo = (state: RootState) => {
+  return state.user.metrics;
+};
+
+export { getAll, getGeneralInfo, getMetricsInfo };
 
 export const {
   setName,

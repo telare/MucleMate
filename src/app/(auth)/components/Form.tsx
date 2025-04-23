@@ -1,6 +1,6 @@
 "use client";
 import styles from "../Auth.module.scss";
-import { usePathname, useRouter } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import { z, ZodObject, ZodRawShape } from "zod";
 import { FormProvider, useForm } from "react-hook-form";
@@ -9,6 +9,7 @@ import FormField from "@/shared/components/FormField";
 import Form from "next/form";
 import { useTranslations } from "next-intl";
 import Button from "@/shared/components/buttons/Button";
+import { useAppDispatch } from "@/lib/hooks";
 
 type AuthFormProps = {
   titleTexts: string[];
@@ -16,18 +17,26 @@ type AuthFormProps = {
 };
 
 export default function AuthForm({ titleTexts, schema }: AuthFormProps) {
-  const pathname = usePathname();
+  const { section } = useParams();
   const router = useRouter();
   const t = useTranslations("auth");
-
+  const dispatch = useAppDispatch();
   type Schema = z.infer<typeof schema>;
 
   const submitFnc = async (data: Schema) => {
-    const resp = await fetch(`http://localhost:8080/auth/${pathname}`, data);
-    if (resp.status === 201) return router.push("/personalization");
+    const resp = await fetch(`http://localhost:8080/auth/${section}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ data }),
+    });
+
+    if (resp.status === 201) {
+      return router.push("/personalization");
+    }
     router.push("/error");
   };
-
   const methods = useForm<Schema>({
     resolver: zodResolver(schema),
   });
@@ -42,7 +51,9 @@ export default function AuthForm({ titleTexts, schema }: AuthFormProps) {
         </div>
         {/* Social btns */}
         <div className={styles.socialBtns}>
-          <Button translation={{ context: "common", key: "socialBtnTwitter" }} />
+          <Button
+            translation={{ context: "common", key: "socialBtnTwitter" }}
+          />
           <Button translation={{ context: "common", key: "socialBtnGoogle" }} />
         </div>
 
@@ -65,9 +76,12 @@ export default function AuthForm({ titleTexts, schema }: AuthFormProps) {
           </div>
         </FormProvider>
         <div className={styles.dontHaveAccountContainer}>
-          <Button type="submit" translation={{ context: "common", key: "submitBtn" }} />
+          <Button
+            type="submit"
+            translation={{ context: "common", key: "submitBtn" }}
+          />
           <span>
-            {pathname === "/sign-in" ? (
+            {section === "sign-in" ? (
               <p>
                 {t("withoutAccount")}{" "}
                 <Link href="/sign-up">{t("titleSignUp")}</Link>

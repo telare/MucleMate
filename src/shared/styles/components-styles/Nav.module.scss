@@ -84,7 +84,10 @@
           pointer-events: none;
           pointer-events: none;
           transition: all 0.3s ease-in-out;
-          @include global__divMixin.basic__div($width: calc(100% + 50px),$height:auto );
+          @include global__divMixin.basic__div(
+            $width: calc(100% + 50px),
+            $height: auto
+          );
           li {
             @include global__divMixin.basic__div($width: auto);
           }
@@ -124,11 +127,7 @@
               color: variables.$base_color__light;
             }
 
-            @include global__divMixin.basic__div(
-              // $width: calc(100% + 50px),
-              $width:auto,
-              $height: auto
-            );
+            @include global__divMixin.basic__div($width: 15rem, $height: auto);
 
             //items of dropdown
             li {
@@ -137,12 +136,15 @@
               transform: translateX(0);
               transition: transform 0.3s ease-in-out;
               line-break: anywhere;
+
               @include global__divMixin.basic__div($width: auto);
 
               &:hover {
                 transform: translateX(2%);
                 justify-content: center;
-
+                a {
+                  width: 100%;
+                }
                 transition: transform 0.3s ease-in-out;
                 background-color: variables.$base_background_color__light;
                 color: variables.$base_color__light;
@@ -157,10 +159,9 @@
       }
     }
     .btnsContainer {
-      gap: 5%;
-      justify-content: center;
-
-      button:nth-child(1) {
+      gap: 10%;
+      justify-content: space-around;
+      button {
         border-width: 2px;
         border-style: solid;
         border-color: variables.$base_background_color__light;
@@ -168,6 +169,8 @@
         :global(html.dark) & {
           border-color: variables.$base_background_color__dark;
         }
+        justify-content: center;
+        @include global__divMixin.basic__div($width: 70px, $height: 100%);
       }
 
       @include global__divMixin.basic__div($width: 20%, $width-mobile: 100%);
@@ -204,23 +207,15 @@
         row-gap: 24px;
         @include global__divMixin.basic__div($height: auto);
       }
-      .btnsContainer {
-          gap: 5%;
-          justify-content: center;
-    
-          button:nth-child(1) {
-            border-width: 2px;
-            border-style: solid;
-            border-color: variables.$base_background_color__light;
-            justify-content: start;
-            :global(html.dark) & {
-              border-color: variables.$base_background_color__dark;
-            }
-            @include global__divMixin.basic__div($width: 30%,$height:30%);
-          }
-    
-        flex-direction: column;
-        @include global__divMixin.basic__div($height: auto);
+      .btnsContainer{
+
+        button {
+        }
+
+        @include global__divMixin.basic__div($width: 20%, $width-mobile: 100%);
+        @include global__breakpointsMixin.breakpoint(small) {
+          flex-direction: column;
+        }
       }
     }
   }

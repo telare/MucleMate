@@ -4,10 +4,11 @@ import { z, ZodEnum, ZodObject, ZodRawShape } from "zod";
 import { FormProvider, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import FormField from "@shared/components/FormField";
-import {  useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import Form from "next/form";
 import { useTranslations } from "next-intl";
 import Button from "@/shared/components/buttons/Button";
+import { useAppDispatch } from "@/lib/hooks";
 
 interface PersonalizationFormProps {
   titleText: string[];
@@ -28,20 +29,22 @@ export default function PersonalizationForm({
 
   const submitFnc = async (data: Schema) => {
     const resp = await fetch("http://localhost:8080/personalization", data);
-    if (resp.status === 201) return router.push("/home");
+    if (resp.status === 201) {
+      router.push("/home");
+    }
     router.push("/error");
   };
 
   return (
     <div className={styles.formContainer}>
-      <Form action="" onSubmit={methods.handleSubmit(submitFnc)}>
-        {/* title */}
-        <div className={styles.titleContainer}>
-          <h3>{t(titleText[0])}</h3>
-          <p>{t(titleText[1])}</p>
-        </div>
-        {/* inputs */}
-        <FormProvider {...methods}>
+      <FormProvider {...methods}>
+        <Form action="" onSubmit={methods.handleSubmit(submitFnc)}>
+          {/* title */}
+          <div className={styles.titleContainer}>
+            <h3>{t(titleText[0])}</h3>
+            <p>{t(titleText[1])}</p>
+          </div>
+          {/* inputs */}
           <div className={styles.inputFieldsContainer}>
             {fields.map((field, i) => {
               if (schema.shape[field] instanceof ZodEnum) {
@@ -63,20 +66,20 @@ export default function PersonalizationForm({
                     key={i}
                     placeholder={t(`form${field}Field`)}
                     registerTitle={field}
-                    type="text"
+                    type="number"
                   />
                 );
               }
             })}
           </div>
-        </FormProvider>
-        <div className={styles.btnsContainer}>
-          <Button
-            type="submit"
-            translation={{ context: "common", key: "submitBtn" }}
-          />
-        </div>
-      </Form>
+          <div className={styles.btnsContainer}>
+            <Button
+              type="submit"
+              translation={{ context: "common", key: "submitBtn" }}
+            />
+          </div>
+        </Form>
+      </FormProvider>
     </div>
   );
 }

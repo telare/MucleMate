@@ -4,80 +4,73 @@
 
 .cardDetailPage {
   flex-direction: column;
-  margin-top: 19px;
-  width: clamp(300px, 90%, 1200px) !important;
-  gap: 2rem;
   color: variables.$base_color__light;
   :global(html.dark) & {
     color: variables.$base_color__dark;
   }
   @include global__divMixin.basic__div();
-  .imageContainer {
-    position: relative;
-    border-radius: 22px;
-    overflow: hidden;
-    min-height: 400px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transform: scale(1);
-    transition: transform 0.3s ease-in-out;
-    .image {
-      object-fit: cover;
-      object-position: center;
-    }
-    &:hover {
-      transform: scale(1.03);
-      transition: transform 0.3s ease-in-out;
-    }
-    @include global__divMixin.basic__div($height: 30%);
-  }
-
-  .content {
+  .contentWrapper {
+    margin-top: 19px;
+    gap: 2rem;
     flex-direction: column;
-    gap: 1.5rem;
-
-    .header {
-      flex-direction: column;
-      gap: 1rem;
-      .title {
-        font-size: 2rem;
-        font-weight: 700;
-        margin: 0;
-        width: 100%;
+    @include global__divMixin.basic__div();
+    width: clamp(300px, 90%, 1200px);
+    .imageContainer {
+      position: relative;
+      border-radius: 22px;
+      overflow: hidden;
+      min-height: 400px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transform: scale(1);
+      transition: transform 0.3s ease-in-out;
+      .image {
+        object-fit: cover;
+        object-position: center;
       }
+      &:hover {
+        transform: scale(1.03);
+        transition: transform 0.3s ease-in-out;
+      }
+      @include global__divMixin.basic__div($height: 30%);
+    }
 
-      // .tags {
-      //   display: flex;
-      //   flex-wrap: wrap;
-      //   gap: 0.5rem;
+    .decriptionWrapper {
+      flex-direction: column;
+      gap: 1.5rem;
 
-      //   .tag {
-      //     background-color: #f0f0f0;
-      //     padding: 0.25rem 0.75rem;
-      //     border-radius: 50px;
-      //     font-size: 0.875rem;
-      //     color: #666;
-      //   }
-      // }
+      .header {
+        flex-direction: column;
+        gap: 1rem;
+        .title {
+          font-size: 2rem;
+          font-weight: 700;
+          margin: 0;
+          width: 100%;
+        }
 
-      .description {
-        font-size: 1rem;
-        line-height: 1.6;
-        margin: 0;
-        opacity: 0.8;
+        // .tags {
+        //   display: flex;
+        //   flex-wrap: wrap;
+        //   gap: 0.5rem;
+
+        //   .tag {
+        //     background-color: #f0f0f0;
+        //     padding: 0.25rem 0.75rem;
+        //     border-radius: 50px;
+        //     font-size: 0.875rem;
+        //     color: #666;
+        //   }
+        // }
+
+        .description {
+          font-size: 1rem;
+          line-height: 1.6;
+          margin: 0;
+          opacity: 0.8;
+        }
+        @include global__divMixin.basic__div();
       }
       @include global__divMixin.basic__div();
     }
-    @include global__divMixin.basic__div();
   }
-
-  // @media (min-width: 768px) {
-  //   .content {
-  //     flex-direction: row;
-  //     align-items: flex-start;
-
-  //     .header {
-  //       flex: 1;
-  //     }
-  //   }
-  // }
 }

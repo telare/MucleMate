@@ -1,6 +1,6 @@
 import { formErrorMessageBuilder } from "@/utils/functions";
 import { useTranslations } from "next-intl";
-import { HTMLInputTypeAttribute } from "react";
+import { HTMLInputTypeAttribute, InputHTMLAttributes } from "react";
 import { useFormContext } from "react-hook-form";
 import styles from "@shared/styles/components-styles/FormField.module.scss";
 interface FormFieldsProps {
@@ -9,6 +9,7 @@ interface FormFieldsProps {
   registerTitle: string;
   translationContext: string;
 
+  value?: string | number;
   label?: string;
   disabled?: boolean;
 }
@@ -17,10 +18,12 @@ export default function FormField({
   placeholder,
   registerTitle,
   label,
+  value,
   translationContext,
   type,
   disabled,
-}: FormFieldsProps) {
+  ...rest
+}: FormFieldsProps & InputHTMLAttributes<HTMLInputElement>) {
   const {
     register,
     formState: { errors },
@@ -38,13 +41,14 @@ export default function FormField({
           id={registerTitle}
           placeholder={placeholder}
           type={type}
-          value={label}
+          defaultValue={value ? value : label}
           aria-invalid={!!errors[registerTitle]}
           aria-describedby={
             errors[registerTitle] && `formFieldError${registerTitle}`
           }
           disabled={disabled}
           {...register(registerTitle)}
+          {...rest}
         />
       </div>
       {errors[registerTitle] && (

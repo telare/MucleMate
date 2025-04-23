@@ -7,6 +7,8 @@ export function formErrorMessageBuilder(
   switch (errorType.type) {
     case "invalid_type":
     case "invalid_string":
+    case "invalid_enum_value":
+    case "custom":
       return `form${registerTitle}FieldInvalidError`;
     case "too_small":
       return `form${registerTitle}FieldMinError`;

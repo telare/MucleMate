@@ -33,9 +33,13 @@
     @include global__divMixin.basic__div(
       $height: auto,
       $width: 1032px,
-      $width-mobile: 90%,
+      $width-mobile:100%,
       $height-mobile: 85%
     );
+    @include global__breakpointsMixin.breakpoint(small) {
+      border-radius: 36px;
+
+    }
 
     :global(html.dark) & {
       background-color: variables.$base_background_color__light;
@@ -161,7 +165,7 @@
       @include global__divMixin.basic__div(
         $width: 414px,
         $height: 95%,
-        $width-mobile: 354px
+        $width-mobile: 100%
       );
       @include global__breakpointsMixin.breakpoint(small) {
         border-radius: 30px;
