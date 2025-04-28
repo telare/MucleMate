@@ -3,6 +3,7 @@ import { useTheme } from "next-themes";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import Button from "@shared/components/buttons/Button";
 
 export default function NavLogoBtn() {
   const router = useRouter();
@@ -13,7 +14,8 @@ export default function NavLogoBtn() {
   }, []);
   if (isMounted) {
     return (
-      <button
+      <Button
+        type="button"
         onClick={() => {
           router.push("/home");
         }}
@@ -23,7 +25,7 @@ export default function NavLogoBtn() {
           src={`/images/Logo${theme === "dark" ? "" : "-dark"}.png`}
           fill
         />
-      </button>
+      </Button>
     );
   }
   return null;

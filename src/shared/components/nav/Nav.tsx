@@ -12,7 +12,9 @@ export default function Nav() {
         <div className={styles.logoContainer}>
           <NavLogoBtn />
         </div>
-        <NavGreeting />
+        <div className={styles.greetingContainer}>
+          <NavGreeting />
+        </div>
       </div>
 
       <div className={styles.mainContainer}>

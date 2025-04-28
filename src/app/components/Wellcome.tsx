@@ -33,11 +33,6 @@ export default function Wellcome() {
         </div>
       </div>
     );
-  } else {
-    return (
-      <div>
-        <h1>Loading...</h1>
-      </div>
-    );
   }
+  return null;
 }

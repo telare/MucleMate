@@ -8,8 +8,8 @@
 //   border-radius: 66px;
 //   flex-direction: column;
 //   position: relative;
-//   background-color: variables.$base_background_color__dark;
-//   color: variables.$base_color__dark;
+//   background-color: variables.$baseBackgroundColorDark;
+//   color: variables.$baseColorDark;
 //   padding: 5%;
 //   max-height: global__functions.figma-h-to-percent(800);
 //   @include global__divMixin.basic__div(
@@ -20,15 +20,15 @@
 //   );
 
 //   input {
-//     background-color: variables.$base_input_background_color__light;
-//     color: variables.$base_input_color;
+//     background-color: variables.$baseInputBackgroundColorLight;
+//     color: variables.$baseInputColor;
 //   }
 
 //   :global(html.dark) & {
-//     background-color: variables.$base_background_color__light;
-//     color: variables.$base_color__light;
+//     background-color: variables.$baseBackgroundColorLight;
+//     color: variables.$baseColorLight;
 //     input {
-//       background-color: variables.$base_input_background_color__dark;
+//       background-color: variables.$baseInputBackgroundColorDark;
 //     }
 //   }
 
@@ -50,10 +50,10 @@
 //       span {
 //         margin: 16px 0 0 16px;
 //         width: 100%;
-//         color: variables.$base_color__dark;
+//         color: variables.$baseColorDark;
 
 //         :global(html.dark) & {
-//           color: variables.$base_color__light;
+//           color: variables.$baseColorLight;
 //         }
 
 //         a {
@@ -62,8 +62,8 @@
 //       }
 
 //       button {
-//         background-color: variables.$base_background_color__light;
-//         color: variables.$base_color__light;
+//         background-color: variables.$baseBackgroundColorLight;
+//         color: variables.$baseColorLight;
 //         box-shadow: 0px 15px 20px 0px rgba(255, 255, 255, 0.4);
 
 //         @include global__btnMixin.btn(
@@ -76,8 +76,8 @@
 
 //         :global(html.dark) & {
 //           box-shadow: 0px 15px 20px 0px rgba(52, 97, 253, 0.4);
-//           background-color: variables.$base_background_color__dark;
-//           color: variables.$base_color__dark;
+//           background-color: variables.$baseBackgroundColorDark;
+//           color: variables.$baseColorDark;
 //         }
 //       }
 //     }
@@ -117,16 +117,16 @@
 
 //     //fix bg color, color
 //     button {
-//       background-color: variables.$base_background_color__light;
-//       color: variables.$base_color__light;
+//       background-color: variables.$baseBackgroundColorLight;
+//       color: variables.$baseColorLight;
 //       box-shadow: 0px 15px 20px 0px rgba(255, 255, 255, 0.4);
 //       padding: 16px;
 //       @include global__btnMixin.btn($width: 45%, $height: 100%, $margin: 0);
 
 //       :global(html.dark) & {
 //         box-shadow: 0px 15px 20px 0px rgba(52, 97, 253, 0.4);
-//         background-color: variables.$base_background_color__dark;
-//         color: variables.$base_color__dark;
+//         background-color: variables.$baseBackgroundColorDark;
+//         color: variables.$baseColorDark;
 //       }
 //     }
 
@@ -182,10 +182,10 @@
 //     span {
 //       width: 100%;
 //       margin: 8px 0 0 16px;
-//       color: variables.$base_color__dark;
+//       color: variables.$baseColorDark;
 
 //       :global(html.dark) & {
-//         color: variables.$base_color__light;
+//         color: variables.$baseColorLight;
 //       }
 //     }
 
@@ -198,10 +198,10 @@
 //       }
 //       &:has(input:checked) {
 //         background-color: #f5f9fe;
-//         color: variables.$base_background_color__dark;
+//         color: variables.$baseBackgroundColorDark;
 //         :global(html.dark) & {
-//           background-color: variables.$base_background_color__dark;
-//           color: variables.$base_background_color__light;
+//           background-color: variables.$baseBackgroundColorDark;
+//           color: variables.$baseBackgroundColorLight;
 //         }
 //       }
 //       @include global__divMixin.basic__div(

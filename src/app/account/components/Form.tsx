@@ -13,7 +13,7 @@ import {
   UserGeneralInfoKeys,
   UserMetricsInfoKeys,
 } from "@/lib/features/userSlice";
-import { data } from "@/app/(auth)/utils/data";
+import { data } from "@/app/auth/utils/data";
 
 const generalFieldsConfig = [
   {

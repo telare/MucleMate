@@ -5,15 +5,15 @@ import { useRouter } from "next/navigation";
 import Button from "@/shared/components/buttons/Button";
 
 type SkipBtnProps = {
-  pathToSkip: string;
+  skipDestination: string;
 };
 
-export default function SkipBtn({ pathToSkip }: SkipBtnProps) {
+export default function SkipBtn({ skipDestination }: SkipBtnProps) {
   const router = useRouter();
   return (
     <Button
       className={styles.skipBtn}
-      onClick={() => router.push(pathToSkip)}
+      onClick={() => router.push(skipDestination)}
       icon={SkipBtnIcon}
     />
   );

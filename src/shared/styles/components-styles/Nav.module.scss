@@ -5,71 +5,54 @@
 .nav {
   padding: 33px 37px;
   justify-content: space-between;
-  border-radius: 22px;
+  border-radius: 1.375rem;
   position: sticky;
   top: 0.5%;
   z-index: 9999;
-  background-color: variables.$base_background_color__dark;
-  color: variables.$base_color__dark;
+
+  background-color: variables.$baseBackgroundColorDark;
+  color: variables.$baseColorDark;
   :global(html.dark) & {
-    background-color: variables.$base_background_color__light;
-    color: variables.$base_color__light;
+    background-color: variables.$baseBackgroundColorLight;
+    color: variables.$baseColorLight;
   }
-  @include global__divMixin.basic__div(
-    $height: 100px,
-    $height-mobile: 50px,
-    $width: 100%
-  );
 
   .leftContainer {
-    gap: 10%;
-    @include global__divMixin.basic__div($width: 20%, $height: 100%);
+    justify-content: space-evenly;
 
-    @include global__breakpointsMixin.breakpoint(small) {
-      width: 40%;
-      // fix
-      height: auto;
-    }
-
+    @include global__divMixin.basic__div(
+      $width: 10%,
+      $height: 100%,
+      $width-mobile: 120px,
+      $height-mobile: auto
+    );
     .logoContainer {
       position: relative;
-      @include global__divMixin.basic__div($width: 32px, $height: 32px);
+      @include global__divMixin.basic__div($width: 40px, $height-mobile: 42px);
     }
     .greetingContainer {
-      @include global__divMixin.basic__div($width: auto);
+      @include global__divMixin.basic__div($width-mobile: auto);
     }
   }
 
   .mainContainer {
     justify-content: flex-end;
     gap: 5%;
-    @include global__divMixin.basic__div($width: 70%);
-    .linksContainer {
-      @include global__divMixin.basic__div($width: 70%);
 
-      @include global__breakpointsMixin.breakpoint(small) {
-        flex-direction: column;
-      }
+    .linksContainer {
+      position: relative;
       gap: 10%;
       justify-content: end;
-      @include global__divMixin.basic__div();
-      position: relative;
+
       li {
         transition: all 0.3s ease-in-out;
         border-radius: 8px;
-        @include global__divMixin.basic__div($width: auto);
         position: relative;
+
         a {
+          justify-content: center;
           @include global__divMixin.basic__div($width: auto);
-
-          // &--active{
-          //   text-decoration: underline solid variables.$base_background_color__dark;
-          //   :global(html.dark) & {
-          //     text-decoration: underline  variables.$base_background_color__light;
-          //   }
-          // }
         }
-
         //dropdown non-visible
         ul {
           position: absolute;
@@ -92,18 +75,17 @@
             @include global__divMixin.basic__div($width: auto);
           }
         }
-
         &:hover {
           position: relative;
-          background-color: variables.$base_background_color__light;
-          color: variables.$base_color__light;
+          background-color: variables.$baseBackgroundColorLight;
+          color: variables.$baseColorLight;
           border-radius: 8px;
           padding-left: 1%;
           padding-right: 1%;
           transition: all 0.3s ease-in-out;
           :global(html.dark) & {
-            background-color: variables.$base_background_color__dark;
-            color: variables.$base_color__dark;
+            background-color: variables.$baseBackgroundColorDark;
+            color: variables.$baseColorDark;
           }
           //dropdown visible
           ul {
@@ -119,12 +101,12 @@
             pointer-events: all;
             transition: all 0.3s ease-in-out;
 
-            background-color: variables.$base_background_color__dark;
-            color: variables.$base_color__dark;
+            background-color: variables.$baseBackgroundColorDark;
+            color: variables.$baseColorDark;
 
             :global(html.dark) & {
-              background-color: variables.$base_background_color__light;
-              color: variables.$base_color__light;
+              background-color: variables.$baseBackgroundColorLight;
+              color: variables.$baseColorLight;
             }
 
             @include global__divMixin.basic__div($width: 15rem, $height: auto);
@@ -146,79 +128,127 @@
                   width: 100%;
                 }
                 transition: transform 0.3s ease-in-out;
-                background-color: variables.$base_background_color__light;
-                color: variables.$base_color__light;
+                background-color: variables.$baseBackgroundColorLight;
+                color: variables.$baseColorLight;
                 :global(html.dark) & {
-                  background-color: variables.$base_background_color__dark;
-                  color: variables.$base_color__dark;
+                  background-color: variables.$baseBackgroundColorDark;
+                  color: variables.$baseColorDark;
                 }
               }
             }
           }
         }
+
+        @include global__divMixin.basic__div($width: auto);
       }
+
+      .activeLink {
+        a {
+          text-decoration: underline solid 0.1rem;
+          text-underline-offset: 0.2rem;
+          text-decoration-color: variables.$baseBackgroundColorLight;
+
+          :global(html.dark) & {
+            text-decoration-color: variables.$baseBackgroundColorDark;
+          }
+        }
+      }
+
+      @include global__divMixin.basic__div($width: 70%);
     }
+
     .btnsContainer {
       gap: 10%;
       justify-content: space-around;
       button {
         border-width: 2px;
         border-style: solid;
-        border-color: variables.$base_background_color__light;
+        border-color: variables.$baseBackgroundColorLight;
         justify-content: start;
         :global(html.dark) & {
-          border-color: variables.$base_background_color__dark;
+          border-color: variables.$baseBackgroundColorDark;
         }
         justify-content: center;
-        @include global__divMixin.basic__div($width: 70px, $height: 100%);
+
+        @include global__divMixin.basic__div(
+          $width: 70px,
+          $height: 100%,
+          $width-mobile: 100%,
+          $height-mobile: 70
+        );
       }
 
-      @include global__divMixin.basic__div($width: 20%, $width-mobile: 100%);
-      @include global__breakpointsMixin.breakpoint(small) {
-        flex-direction: column;
-      }
+      @include global__divMixin.basic__div($width: 20%);
     }
+
+    @include global__divMixin.basic__div($width: 70%);
   }
 
   .hamburger {
     display: none;
     flex-direction: column;
-    // position: relative;
-    // fix why work only with auto !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    position: relative;
     @include global__divMixin.basic__div($width: auto, $height: auto);
-    .contentWrapper {
-      flex-direction: column;
-      position: absolute;
-      z-index: 9999;
-      right: 0;
-      top: 100%;
-      gap: 19px;
-      justify-content: start;
-      background-color: variables.$base_background_color__dark;
 
-      @include global__divMixin.basic__div($width: 100%, $height: auto);
-
-      :global(html.dark) & {
-        background-color: variables.$base_background_color__light;
-      }
-
-      .linksContainer {
+    &Active {
+      .content {
+        border-radius: 1.375rem;
+        position: absolute;
+        padding: 1rem 0;
+        top: 105%;
+        right: 0;
+        gap: 1.5rem;
         flex-direction: column;
-        row-gap: 24px;
-        @include global__divMixin.basic__div($height: auto);
-      }
-      .btnsContainer{
 
-        button {
+        background-color: variables.$baseBackgroundColorDark;
+        color: variables.$baseColorDark;
+
+        :global(html.dark) & {
+          background-color: variables.$baseBackgroundColorLight;
+          color: variables.$baseColorLight;
         }
 
-        @include global__divMixin.basic__div($width: 20%, $width-mobile: 100%);
-        @include global__breakpointsMixin.breakpoint(small) {
+        @include global__divMixin.basic__div(
+          $width-mobile: 100%,
+          $height-mobile: auto
+        );
+
+        .linksContainer {
           flex-direction: column;
+          row-gap: 24px;
+          width: 100%;
+          @include global__divMixin.basic__div(
+            $width-mobile: 100%,
+            $height-mobile: auto
+          );
+        }
+
+        .btnsContainer {
+          flex-direction: column;
+          gap: 2%;
+          button {
+            width: 70px;
+            border-width: 2px;
+            border-style: solid;
+            border-color: variables.$baseBackgroundColorLight;
+            :global(html.dark) & {
+              border-color: variables.$baseBackgroundColorDark;
+            }
+          }
+          @include global__divMixin.basic__div(
+            $width-mobile: 100%,
+            $height-mobile: 4.5rem
+          );
         }
       }
     }
   }
+
+  @include global__divMixin.basic__div(
+    $height: 100px,
+    $height-mobile: 50px,
+    $width: 100%
+  );
 
   @include global__breakpointsMixin.breakpoint(small) {
     .mainContainer {

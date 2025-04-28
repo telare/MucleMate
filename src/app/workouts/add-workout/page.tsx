@@ -8,15 +8,16 @@ export default function AddWorkoutPage() {
   const [workoutInfo, setWorkoutInfo] = useState<Exercise[]>([
     {
       title: "Exercise title",
-      reps: "total",
-      set: "total",
-      weight: "total",
+      reps: 12,
+      set: 1,
+      weight: 100,
+      date: new Date(),
     },
   ]);
   return (
     <>
-      <Dashboard workoutInfo={workoutInfo} />
-      <Form setWorkoutInfo={() => setWorkoutInfo} />
+      <Dashboard workoutInfo={workoutInfo} setWorkoutInfo={setWorkoutInfo}/>
+      <Form setExercises={setWorkoutInfo} />
     </>
   );
 }

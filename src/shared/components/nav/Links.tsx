@@ -3,11 +3,13 @@ import styles from "@shared/styles/components-styles/Nav.module.scss";
 import Link from "next/link";
 import { links } from "@/app/home/utils/data";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 
 interface NavLinksProps {
   isMobile: boolean;
 }
 export default function NavLinks({ isMobile }: NavLinksProps) {
+  const pathname = usePathname();
   const [openIndex, setOpenIndex] = useState<number>(0);
   const [nestedLinksOpen, setNestedLinksOpen] = useState<boolean>(false);
   const linksKeys = Object.keys(links);
@@ -15,7 +17,14 @@ export default function NavLinks({ isMobile }: NavLinksProps) {
   return (
     <ul className={styles.linksContainer}>
       {linksKeys.map((linkKey, i) => (
-        <li key={i}>
+        <li
+          key={i}
+          className={
+            pathname === `/${linkKey.toLocaleLowerCase()}`
+              ? styles.activeLink
+              : undefined
+          }
+        >
           {isMobile ? (
             <button
               onClick={() => {
@@ -47,7 +56,9 @@ export default function NavLinks({ isMobile }: NavLinksProps) {
           ) : (
             <>
               <Link
-                href={`/${linkKey.slice(0, 1).toLowerCase()}${linkKey.slice(1)}`}
+                href={`/${linkKey.slice(0, 1).toLowerCase()}${linkKey.slice(
+                  1
+                )}`}
               >
                 {linkKey}
               </Link>

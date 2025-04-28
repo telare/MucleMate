@@ -1,4 +1,4 @@
-import Card from "@/shared/components/Carts/Card";
+import Card from "@/shared/components/Cards/Card";
 import styles from "../Home.module.scss";
 
 interface SectionProps  {

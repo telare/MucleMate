@@ -30,7 +30,7 @@
     grid-area: content;
     grid-template-areas:
       "controls  controls"
-      "filter    carts";
+      "filter    Cards";
     @include global__divMixin.basic__div();
     .controlsBar {
       grid-area: controls;
@@ -43,8 +43,8 @@
       align-items: start;
       @include global__divMixin.basic__div();
     }
-    .cartsContainer {
-      grid-area: carts;
+    .CardsContainer {
+      grid-area: Cards;
       row-gap: 5%;
       column-gap: 2%;
       flex-wrap: wrap;
@@ -54,11 +54,11 @@
     @include global__breakpointsMixin.breakpoint(small) {
       grid-template-areas:
       "controls  controls"
-      "carts    carts";
+      "Cards    Cards";
       .filterContainer{
         display: none;
       }
-      .cartsContainer{
+      .CardsContainer{
         justify-content: center;
       }
       

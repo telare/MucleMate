@@ -1,31 +1,48 @@
 "use client";
-import Button from "@/shared/components/buttons/Button";
 import styles from "../../AddWorkout.module.scss";
 import FormField from "@/shared/components/FormField";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { FormProvider, useForm } from "react-hook-form";
+import { Controller, FormProvider, useForm } from "react-hook-form";
 import { z } from "zod";
-import { Exercise, formFieldsRegisterTitles } from "../../utils/utils";
+import { Exercise, formFieldsConfig } from "../../utils/utils";
 import Buttons from "./Buttons";
 import { Calendar } from "@/components/ui/calendar";
-import { useState } from "react";
+import { Dispatch, SetStateAction } from "react";
 
 interface FormProps {
-  setWorkoutInfo: (exercise: Exercise) => void;
+  setExercises: Dispatch<SetStateAction<Exercise[]>>;
 }
 
-export default function Form({ setWorkoutInfo }: FormProps) {
-  const [date, setDate] = useState<Date | undefined>(new Date());
-
-  const schema = z.object({});
+export default function Form({ setExercises }: FormProps) {
+  const schema = z.object({
+    title: z.string().min(1),
+    set: z
+      .string()
+      .transform((v) => Number(v))
+      .pipe(z.number().min(1)),
+    reps: z
+      .string()
+      .transform((v) => Number(v))
+      .pipe(z.number().min(1)),
+    weight: z
+      .string()
+      .transform((v) => Number(v))
+      .pipe(z.number().min(1)),
+    date: z.date(),
+  });
 
   type ExerciseSchema = z.infer<typeof schema>;
 
   const methods = useForm<ExerciseSchema>({
     resolver: zodResolver(schema),
+    defaultValues: {
+      date: new Date(),
+    },
   });
 
-  function submitExerciseData() {}
+  function submitExerciseData(data: Exercise) {
+    setExercises((prev: Exercise[]) => [...prev, data]);
+  }
 
   return (
     <FormProvider {...methods}>
@@ -33,31 +50,37 @@ export default function Form({ setWorkoutInfo }: FormProps) {
         onSubmit={methods.handleSubmit(submitExerciseData)}
         className={styles.form}
       >
-        <h1>Add an exercise</h1>
+        <h2>Add an exercise</h2>
         <div className={styles.mainContentWrapper}>
           <div className={styles.fieldsContainer}>
-            {formFieldsRegisterTitles.map((title, i) => (
+            {formFieldsConfig.map((field, i) => (
               <FormField
-                type="text"
+                type={field.type}
                 key={i}
-                registerTitle={title}
-                placeholder={`Enter ${title}`}
+                label={`Enter ${field.name}`}
+                registerTitle={field.name}
+                placeholder={`Enter ${field.name}`}
                 translationContext="addWorkout"
               />
             ))}
           </div>
-          {/* date and time div */}
+
           <div className={styles.timeInfoContainer}>
-            <Calendar
-              mode="single"
-              selected={date}
-              onSelect={setDate}
-              className={styles.calendar}
+            <Controller
+              control={methods.control}
+              name="date"
+              render={({ field }) => (
+                <Calendar
+                  mode="single"
+                  selected={field.value}
+                  onSelect={field.onChange}
+                  className={styles.calendar}
+                />
+              )}
             />
           </div>
         </div>
         <div className={styles.buttonsWrapper}>
-          {/* setWorkoutInfo to BTNS */}
           <Buttons />
         </div>
       </form>

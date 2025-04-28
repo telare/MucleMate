@@ -8,5 +8,6 @@
 
   "editBtn": "Редагувати",
   "submitBtn": "Підтверидити",
-  "cancelBtn": "Скасувати"
+  "cancelBtn": "Скасувати",
+  "tryAgainBtn":"Спробувати ще раз"
 }

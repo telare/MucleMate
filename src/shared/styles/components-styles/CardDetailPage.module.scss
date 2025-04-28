@@ -4,9 +4,9 @@
 
 .cardDetailPage {
   flex-direction: column;
-  color: variables.$base_color__light;
+  color: variables.$baseColorLight;
   :global(html.dark) & {
-    color: variables.$base_color__dark;
+    color: variables.$baseColorDark;
   }
   @include global__divMixin.basic__div();
   .contentWrapper {

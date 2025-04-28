@@ -30,6 +30,9 @@ export async function getUserLocalServerConfig(): Promise<{
     categoryFilter: (
       await import(`../i18n/messages/${locale}/categoryFilter.json`)
     ).default,
+    addWorkout: (
+      await import(`../i18n/messages/${locale}/addWorkout.json`)
+    ).default,
     common: (await import(`../i18n/messages/${locale}/common.json`)).default,
   };
 

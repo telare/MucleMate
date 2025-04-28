@@ -17,6 +17,6 @@ export function formErrorMessageBuilder(
     case "required":
       return `form${registerTitle}FieldRequiredError`;
     default:
-      return "";
+      return `form${registerTitle}FieldInvalidError`;
   }
 }

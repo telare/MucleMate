@@ -16,10 +16,10 @@
     padding:  0.5rem;
     border-width: 2px;
     border-style: solid;
-    border-color: variables.$base_background_color__dark;
+    border-color: variables.$baseBackgroundColorDark;
 
     :global(html.dark) & {
-      border-color: variables.$base_background_color__light;
+      border-color: variables.$baseBackgroundColorLight;
     }
     @include global__divMixin.basic__div(auto);
 
@@ -34,11 +34,11 @@
     gap: 1.25rem;
     align-items: start;
     justify-content: flex-start;
-    background-color: variables.$base_background_color__dark;
-    color: variables.$base_color__dark;
+    background-color: variables.$baseBackgroundColorDark;
+    color: variables.$baseColorDark;
     :global(html.dark) & {
-      background-color: variables.$base_background_color__light;
-      color: variables.$base_color__light;
+      background-color: variables.$baseBackgroundColorLight;
+      color: variables.$baseColorLight;
     }
     border-radius: 0.5rem;
     @include global__divMixin.basic__div($height: auto);
@@ -46,9 +46,9 @@
       flex-direction: column;
       justify-content: flex-start;
       padding-bottom: 1rem;
-      border-bottom: 1px solid variables.$base_background_color__light;
+      border-bottom: 1px solid variables.$baseBackgroundColorLight;
       :global(html.dark) & {
-        border-bottom-color: variables.$base_background_color__dark;
+        border-bottom-color: variables.$baseBackgroundColorDark;
       }
       @include global__divMixin.basic__div($height: auto);
 
@@ -75,6 +75,7 @@
           div {
             div:has(input[type="checkbox"]) {
               justify-content: space-between;
+              flex-direction: row;
               input {
                 width: auto;
               }
@@ -92,11 +93,11 @@
       .btn {
         padding:  0.2rem 0.5rem;
 
-        background-color: variables.$base_background_color__light;
-        color: variables.$base_color__light;
+        background-color: variables.$baseBackgroundColorLight;
+        color: variables.$baseColorLight;
         :global(html.dark) & {
-          background-color: variables.$base_background_color__dark;
-          color: variables.$base_color__dark;
+          background-color: variables.$baseBackgroundColorDark;
+          color: variables.$baseColorDark;
         }
         font-size: 1rem;
         font-weight: 600;

@@ -53,10 +53,12 @@ export default function PersonalizationForm({
                   <FormField
                     translationContext="personalization"
                     key={j}
+                    value={label}
                     placeholder={t(`form${field}FieldOption${j + 1}`)}
                     registerTitle={field}
                     label={label}
                     type={"radio"}
+                    defaultChecked={j % 2 === 0 && true}
                   />
                 ));
               } else {

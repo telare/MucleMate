@@ -1,44 +1,41 @@
-$base_accent_color: yellow;
-$base_input_color:#1877F2;
+$baseAccentColor: yellow;
+$baseInputColor:#1877F2;
 
 /*theme colors*/
-$base_background_color__light: white;
-$base_color__light: #1877F2;
+$baseBackgroundColorLight: white;
+$baseColorLight: #1877F2;
 
-$base_background_color__dark: #1877F2;
-$base_color__dark: white;
+$baseBackgroundColorDark: #1877F2;
+$baseColorDark: white;
 
-$base_input_background_color__dark: #f5f9fe;
-$base_input_background_color__light:white;
+$baseInputBackgroundColorDark: #f5f9fe;
+$baseInputBackgroundColorLight:white;
 
 
 /*font-sizes*/
 /*text*/
-$base_font_size_h1__desktop: 48px;
-$base_font_size_h3__desktop: 48px;
-$base_font_size_p__desktop: 20px;
+$baseFontSizeH1Desktop: 48px;
+$baseFontSizeH3Desktop: 48px;
+$baseFontSizePDesktop: 20px;
 
-$base_font_size_h1__mobile: 40px;
-$base_font_size_h3__mobile: 36px;
-$base_font_size_p__mobile: 18px;
+$baseFontSizeH1Mobile: 40px;
+$baseFontSizeH3Mobile: 36px;
+$baseFontSizePMobile: 18px;
 
-$base_font_size_h1_line_height__desktop: 51px;
-$base_font_size_h3_line_height__desktop: 72px;
-$base_font_size_p_line_height__desktop: 40px;
+$baseFontSizeH1LineHeightDesktop: 51px;
+$baseFontSizeH3LineHeightDesktop: 72px;
+$baseFontSizePLineHeightDesktop: 40px;
 
-$base_font_size_h1_line_height__mobile: 40px;
-$base_font_size_h3_line_height__mobile: 54px;
-$base_font_size_p_line_height__mobile: 40px;
+$baseFontSizeH1LineHeightMobile: 40px;
+$baseFontSizeH3LineHeightMobile: 54px;
+$baseFontSizePLineHeightMobile: 40px;
 
 
 /*btn*/
-$base_font_size_btn__desktop: 20px;
-$base_font_size_btn__mobile: 23px;
+$baseFontSizeBtnDesktop: 20px;
+$baseFontSizeBtnMobile: 23px;
 
 /*border radius*/
 /*btn*/
-$base_border_radius_btn__desktop: 20px;
-$base_border_radius_btn__mobile: 14px;
-
-/*div*/
-
+$baseBorderRadiusBtnDesktop: 20px;
+$baseBorderRadiusBtnMobile: 14px;

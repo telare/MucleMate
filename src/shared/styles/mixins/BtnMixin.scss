@@ -14,14 +14,14 @@
   $height: 100%,
   $width-mobile: $width,
   $height-mobile: $height,
-  $font-size: variables.$base_font_size_btn__desktop,
-  $border-radius: variables.$base_border_radius_btn__desktop,
+  $font-size: variables.$baseFontSizeBtnDesktop,
+  $border-radius: variables.$baseBorderRadiusBtnDesktop,
 ) {
-  // background-color: variables.$base_background_color__light;
-  // color: variables.$base_color__light;
+  // background-color: variables.$baseBackgroundColorLight;
+  // color: variables.$baseColorLight;
   // :global(html.dark) & {
-  //   background-color: variables.$base_background_color__dark;
-  //   color: variables.$base_color__dark;
+  //   background-color: variables.$baseBackgroundColorDark;
+  //   color: variables.$baseColorDark;
   // }
 
   font-size: $font-size;
@@ -35,7 +35,7 @@
   @include global__breakpointsMixin.breakpoint(small) {
     width: $width-mobile;
     height: $height-mobile;
-    font-size: variables.$base_font_size_btn__mobile;
-    border-radius: variables.$base_border_radius_btn__mobile;
+    font-size: variables.$baseFontSizeBtnMobile;
+    border-radius: variables.$baseBorderRadiusBtnMobile;
   }
 }

@@ -1,0 +1,52 @@
+@use "@shared/styles/mixins/DivMixin.scss" as global__divMixin;
+@use "@shared/styles/mixins/BreakpointsMixin.scss" as global__breakpointsMixin;
+@use "@shared/styles/Variables.scss" as variables;
+
+.statusPage {
+  @include global__divMixin.basic__div(
+    $width: 100vw,
+    $height: 100vh,
+  );
+  flex-direction: column;
+  padding: 2rem;
+  box-sizing: border-box;
+  text-align: center;
+
+  h1 {
+    margin-bottom: 1rem;
+    font-weight: 800;
+  }
+
+  p {
+    margin-bottom: 2rem;
+    max-width: 30rem;
+  }
+
+  button {
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    background-color: variables.$baseBackgroundColorDark;
+    color: variables.$baseColorDark;
+
+    :global(html.dark) & {
+      background-color: variables.$baseBackgroundColorLight;
+      color: variables.$baseColorLight;
+    }
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+    &:focus {
+      outline: 2px solid variables.$baseAccentColor;
+    }
+    width: auto;
+    min-width: 12rem;
+    height: auto;
+  }
+
+  @include global__breakpointsMixin.breakpoint(small) {
+    padding: 1rem;
+  }
+}

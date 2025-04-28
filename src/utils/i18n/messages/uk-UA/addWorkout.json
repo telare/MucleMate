@@ -2,7 +2,20 @@
   "workoutDashboardTitle": "Загальне тренування",
   "formTitle": "Додати вправу",
   "titleField": "Введіть назву",
+
+  "formtitleFieldInvalidError": "Введіть рядок",
+  "formtitleFieldMinError": "Щонайменше 1 символ",
+
   "setField": "Введіть підхід",
+  "formsetFieldInvalidError": "Введіть число",
+  "formsetFieldMinError": "Значення має бути більше або дорівнювати 1",
+
   "repsField": "Введіть кількість повторень",
-  "weightField": "Введіть вагу"
+  "formrepsFieldInvalidError": "Введіть число",
+  "formrepsFieldMinError": "Значення має бути більше або дорівнювати 1",
+  
+  "weightField": "Введіть вагу",
+  "formweightFieldInvalidError": "Введіть число",
+  "formweightFieldMinError": "Значення має бути більше або дорівнювати 1"
 }
+

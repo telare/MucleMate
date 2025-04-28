@@ -1,12 +1,13 @@
 export type Exercise = {
   title: string;
-  set: string;
-  reps: string;
-  weight: string;
+  set: number;
+  reps: number;
+  weight: number;
+  date: Date;
 };
-export const formFieldsRegisterTitles: string[] = [
-  "Title",
-  "Set",
-  "Reps",
-  "Weight",
+export const formFieldsConfig: { name: string; type: string }[] = [
+  { name: "title", type: "text" },
+  { name: "set", type: "number" },
+  { name: "reps", type: "number" },
+  { name: "weight", type: "number" },
 ];

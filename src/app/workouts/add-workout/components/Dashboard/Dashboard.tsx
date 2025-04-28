@@ -1,27 +1,34 @@
+"use client";
 import { Exercise } from "../../utils/utils";
 import DashboardItem from "./DashboardItem";
 import styles from "../../AddWorkout.module.scss";
 import Button from "@/shared/components/buttons/Button";
+import { Dispatch, SetStateAction } from "react";
 
 interface DashboardProps {
   workoutInfo: Exercise[];
+  setWorkoutInfo: Dispatch<SetStateAction<Exercise[]>>;
 }
 
-export default function Dashboard({ workoutInfo }: DashboardProps) {
-  function SubmitWorkoutData(e: React.FormEvent) {
-    // fetch API to post the data
+export default function Dashboard({
+  workoutInfo,
+  setWorkoutInfo,
+}: DashboardProps) {
+  function formSubmitHandler(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    // read from state
   }
 
   return (
-    <form className={styles.dashboard} onSubmit={(e) => SubmitWorkoutData(e)}>
-      <h1>Total Workout</h1>
+    <form className={styles.dashboard} onSubmit={(e) => formSubmitHandler(e)}>
+      <h2>Total Workout</h2>
       {workoutInfo.map((exercise, i) => (
         <DashboardItem
           key={i}
           title={exercise.title}
-          repsPerSet={exercise.set}
-          totalSets={exercise.reps}
-          weightPerSet={exercise.weight}
+          reps={exercise.set}
+          sets={exercise.reps}
+          weight={exercise.weight}
         />
       ))}
       <div className={styles.buttonsWrapper}>
@@ -31,6 +38,17 @@ export default function Dashboard({ workoutInfo }: DashboardProps) {
         />
         <Button
           type="reset"
+          onClick={() =>
+            setWorkoutInfo([
+              {
+                title: "Exercise title",
+                reps: 12,
+                set: 1,
+                weight: 100,
+                date: new Date(),
+              },
+            ])
+          }
           translation={{ context: "common", key: "cancelBtn" }}
         />
       </div>

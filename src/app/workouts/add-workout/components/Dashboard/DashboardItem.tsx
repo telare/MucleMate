@@ -1,24 +1,24 @@
 import styles from "../../AddWorkout.module.scss";
 
-type DashboardItemProps = {
+interface DashboardItemProps {
   title: string;
-  totalSets: string;
-  repsPerSet: string;
-  weightPerSet: string;
-};
+  sets: number;
+  reps: number;
+  weight: number;
+}
 
 export default function DashboardItem({
   title,
-  totalSets,
-  repsPerSet,
-  weightPerSet,
+  sets,
+  reps,
+  weight,
 }: DashboardItemProps) {
   return (
     <div className={styles.item}>
-      <h1>{title}</h1>
+      <h3>{title}</h3>
       <div className={styles.info}>
-        {totalSets} sets × {repsPerSet} reps
-        {weightPerSet ? ` • ${weightPerSet}kg` : ""}
+        {sets} sets × {reps} reps
+        {weight ? ` • ${weight}kg` : ""}
       </div>
     </div>
   );

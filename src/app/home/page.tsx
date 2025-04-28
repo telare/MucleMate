@@ -1,5 +1,5 @@
 // import CategoryDisplay from "@/shared/components/CategoryDisplay";
-import Section from "./components/Section";
+import Section from "@/app/home/components/Section";
 export default function HomePage() {
   return (
     <>

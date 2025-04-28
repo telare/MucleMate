@@ -9,8 +9,9 @@
   @include global__divMixin.basic__div();
 
   .fieldCon {
+    flex-direction: column;
+    align-items: start;
     justify-content: start;
-
     @include global__divMixin.basic__div();
 
     input {
@@ -18,11 +19,11 @@
       // margin: 19px 0 0;
       border-radius: 17px;
 
-      background-color: variables.$base_input_background_color__light;
-      color: variables.$base_input_color;
+      background-color: variables.$baseInputBackgroundColorLight;
+      color: variables.$baseInputColor;
       :global(html.dark) & {
-        background-color: variables.$base_input_background_color__dark;
-        color: variables.$base_color__light;
+        background-color: variables.$baseInputBackgroundColorDark;
+        color: variables.$baseColorLight;
       }
 
       &::placeholder {
@@ -43,10 +44,10 @@
   span {
     width: 100%;
     margin: 8px 0 0 16px;
-    color: variables.$base_color__dark;
+    color: variables.$baseColorDark;
 
     :global(html.dark) & {
-      color: variables.$base_color__light;
+      color: variables.$baseColorLight;
     }
   }
 
@@ -59,10 +60,10 @@
   //     }
   //     &:has(input:checked) {
   //       background-color: #f5f9fe;
-  //       color: variables.$base_background_color__dark;
+  //       color: variables.$baseBackgroundColorDark;
   //       :global(html.dark) & {
-  //         background-color: variables.$base_background_color__dark;
-  //         color: variables.$base_background_color__light;
+  //         background-color: variables.$baseBackgroundColorDark;
+  //         color: variables.$baseBackgroundColorLight;
   //       }
   //     }
   //     @include global__divMixin.basic__div(
@@ -113,10 +114,10 @@
 //     span {
 //       width: 100%;
 //       margin: 8px 0 0 16px;
-//       color: variables.$base_color__dark;
+//       color: variables.$baseColorDark;
 
 //       :global(html.dark) & {
-//         color: variables.$base_color__light;
+//         color: variables.$baseColorLight;
 //       }
 //     }
 
@@ -129,10 +130,10 @@
 //     //     }
 //     //     &:has(input:checked) {
 //     //       background-color: #f5f9fe;
-//     //       color: variables.$base_background_color__dark;
+//     //       color: variables.$baseBackgroundColorDark;
 //     //       :global(html.dark) & {
-//     //         background-color: variables.$base_background_color__dark;
-//     //         color: variables.$base_background_color__light;
+//     //         background-color: variables.$baseBackgroundColorDark;
+//     //         color: variables.$baseBackgroundColorLight;
 //     //       }
 //     //     }
 //     //     @include global__divMixin.basic__div(

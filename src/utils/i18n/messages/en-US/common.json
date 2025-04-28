@@ -8,5 +8,6 @@
   
   "editBtn":"Edit",
   "submitBtn": "Submit",
-  "cancelBtn": "Cancel"
+  "cancelBtn": "Cancel",
+  "tryAgainBtn":"Try again"
 }

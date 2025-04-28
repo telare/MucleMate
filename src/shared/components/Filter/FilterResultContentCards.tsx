@@ -1,14 +1,14 @@
 import styles from "@shared/styles/components-styles/CategoryDisplay.module.scss";
-import Cart, { CardProps } from "../Carts/Card";
+import Cart, { CardProps } from "../Cards/Card";
 
 interface FilterResultsContentCards {
   renderContent: Omit<CardProps, "linkPrefix">[];
   cardLinkPrefix:string; 
 }
 
-export default function FilterResultContentCarts({renderContent,cardLinkPrefix}: FilterResultsContentCards) {
+export default function FilterResultContentCards({renderContent,cardLinkPrefix}: FilterResultsContentCards) {
   return (
-    <div className={styles.cartsContainer}>
+    <div className={styles.CardsContainer}>
       {Array(11)
         .fill(0)
         .map((_, index) => (

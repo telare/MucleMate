@@ -45,7 +45,7 @@
 /* Light Theme */
 :root {
   --radius: 0.625rem;
-  --background: #{$base_background_color__light};
+  --background: #{$baseBackgroundColorLight};
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
@@ -61,7 +61,7 @@
   --accent-foreground: oklch(0.205 0 0);
   --destructive: oklch(0.577 0.245 27.325);
   --border:#1877F2;
-  --input: #{$base_input_color};
+  --input: #{$baseInputColor};
   --ring: oklch(0.708 0 0);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
@@ -80,7 +80,7 @@
 
 /* Dark Theme */
 .dark {
-  --background: #{$base_background_color__dark};
+  --background: #{$baseBackgroundColorDark};
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);

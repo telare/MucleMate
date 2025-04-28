@@ -4,8 +4,8 @@
 
 .card {
   border-radius: 1rem;
-  background-color: variables.$base_background_color__dark;
-  color: variables.$base_color__dark;
+  background-color: variables.$baseBackgroundColorDark;
+  color: variables.$baseColorDark;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   flex-direction: column;
   justify-content: flex-start;
@@ -17,8 +17,8 @@
   @include global__divMixin.basic__div($height: 200px, $width: 220px);
 
   :global(html.dark) & {
-    background-color: variables.$base_background_color__light;
-    color: variables.$base_color__light;
+    background-color: variables.$baseBackgroundColorLight;
+    color: variables.$baseColorLight;
     box-shadow: 0 4px 12px rgba(255, 255, 255, 0.08);
   }
 
@@ -96,10 +96,10 @@
         visibility 0.2s,
         opacity 0.3s;
 
-      color: variables.$base_color__dark;
+      color: variables.$baseColorDark;
 
       :global(html.dark) & {
-        color: variables.$base_color__light;
+        color: variables.$baseColorLight;
       }
     }
   }

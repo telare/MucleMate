@@ -19,23 +19,23 @@
   height: $height;
 
   h1 {
-    font-size: variables.$base_font_size_h1__desktop;
-    // line-height: variables.$base_font_size_h1_line_height__desktop;
+    font-size: variables.$baseFontSizeH1Desktop;
+    // line-height: variables.$baseFontSizeH1LineHeightDesktop;
   }
 
   h3 {
-    font-size: variables.$base_font_size_h3__desktop;
-    // line-height: variables.$base_font_size_h3_line_height__desktop;
+    font-size: variables.$baseFontSizeH3Desktop;
+    // line-height: variables.$baseFontSizeH3LineHeightDesktop;
   }
 
   p,a {
-    font-size: variables.$base_font_size_p__desktop;
-    // line-height: variables.$base_font_size_p_line_height__desktop;
+    font-size: variables.$baseFontSizePDesktop;
+    // line-height: variables.$baseFontSizePLineHeightDesktop;
   }
   
 
   input {
-    font-size: variables.$base_font_size_p__desktop;
+    font-size: variables.$baseFontSizePDesktop;
   }
 
   @include global__breakpointsMixin.breakpoint(small) {
@@ -43,22 +43,22 @@
     height: $height-mobile;
 
     h1 {
-      font-size: variables.$base_font_size_h1__mobile;
-      // line-height: variables.$base_font_size_h1_line_height__mobile;
+      font-size: variables.$baseFontSizeH1Mobile;
+      // line-height: variables.$baseFontSizeH1LineHeightMobile;
     }
 
     h3 {
-      font-size: variables.$base_font_size_h3__mobile;
-      // line-height: variables.$base_font_size_h3_line_height__mobile;
+      font-size: variables.$baseFontSizeH3Mobile;
+      // line-height: variables.$baseFontSizeH3LineHeightMobile;
     }
 
     p,a {
-      font-size: variables.$base_font_size_p__mobile;
-      // line-height: variables.$base_font_size_p_line_height__mobile;
+      font-size: variables.$baseFontSizePMobile;
+      // line-height: variables.$baseFontSizePLineHeightMobile;
     }
 
     input {
-      font-size: variables.$base_font_size_p__mobile;
+      font-size: variables.$baseFontSizePMobile;
     }
   }
 }

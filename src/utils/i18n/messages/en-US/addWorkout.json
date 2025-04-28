@@ -2,7 +2,19 @@
   "workoutDashboardTitle": "Total Workout",
   "formTitle": "Add an exercise",
   "titleField": "Enter Title",
+
+  "formtitleFieldInvalidError": "Enter a string",
+  "formtitleFieldMinError": "At least 1 character",
+  
   "setField": "Enter Set",
+  "formsetFieldInvalidError": "Enter a number",
+  "formsetFieldMinError": "Value must be greater than or equal to 1",
+
   "repsField": "Enter Reps",
-  "weightField": "Enter Weight"
+  "formrepsFieldInvalidError": "Enter a number",
+  "formrepsFieldMinError": "Value must be greater than or equal to 1",
+
+  "weightField": "Enter Weight",
+  "formweightFieldInvalidError": "Enter a number",
+  "formweightFieldMinError": "Value must be greater than or equal to 1"
 }

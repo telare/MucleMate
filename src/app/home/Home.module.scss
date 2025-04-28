@@ -6,13 +6,13 @@
   justify-content: start;
   align-items: center;
   
-  background-color: variables.$base_background_color__light;
-  color: variables.$base_color__light;
+  background-color: variables.$baseBackgroundColorLight;
+  color: variables.$baseColorLight;
   @include global__divMixin.basic__div();
 
   :global(html.dark) & {
-    background-color: variables.$base_background_color__dark;
-    color: variables.$base_color__dark;
+    background-color: variables.$baseBackgroundColorDark;
+    color: variables.$baseColorDark;
   }
 
   .section {

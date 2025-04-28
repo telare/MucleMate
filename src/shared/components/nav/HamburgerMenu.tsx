@@ -8,15 +8,13 @@ import styles from "@shared/styles/components-styles/Nav.module.scss";
 export default function HamburgerMenu() {
   const [isActive, setIsActive] = useState<boolean>(false);
   return (
-    <div className={styles.hamburger}>
+    <div className={!isActive ? styles.hamburger : styles.hamburgerActive}>
       <Hamburger toggled={isActive} toggle={setIsActive} />
 
       {isActive && (
-        <div className={styles.contentWrapper}>
+        <div className={styles.content}>
           <NavLinks isMobile />
-          <div className={styles.btnsContainer}>
-            <NavControls />
-          </div>
+          <NavControls />
         </div>
       )}
     </div>

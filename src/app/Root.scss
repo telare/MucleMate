@@ -2,15 +2,15 @@
 body {
   display: flex;
   justify-content: center;
-  padding: 0.3rem 1rem;
+  padding: 0.3rem 1rem !important;
   align-items: center;
   box-sizing: border-box;
-  background-color: variables.$base_background_color__light;
-  color: variables.$base_color__light;
+  background-color: variables.$baseBackgroundColorLight;
+  color: variables.$baseColorLight;
   overflow-x: hidden;
   
   html.dark & {
-    background-color: variables.$base_background_color__dark;
-    color: variables.$base_color__dark;
+    background-color: variables.$baseBackgroundColorDark;
+    color: variables.$baseColorDark;
   }
 }

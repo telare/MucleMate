@@ -7,9 +7,9 @@
   justify-content: start !important;
   position: relative;
 
-  background-color: variables.$base_background_color__dark;
+  background-color: variables.$baseBackgroundColorDark;
   :global(html.dark) & {
-    background-color: variables.$base_background_color__light;
+    background-color: variables.$baseBackgroundColorLight;
   }
 
   .ball {
@@ -19,9 +19,9 @@
     margin-right: 5%;
     transform: translateX(100%);
 
-    background-color: variables.$base_background_color__light;
+    background-color: variables.$baseBackgroundColorLight;
     :global(html.dark) & {
-      background-color: variables.$base_background_color__dark;
+      background-color: variables.$baseBackgroundColorDark;
       transform: translateX(0%);
     }
 

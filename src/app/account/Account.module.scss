@@ -72,8 +72,8 @@
                 flex-direction: column;
                 align-items: start;
                 justify-content: start;
-                background-color: variables.$base_background_color__dark;
-                color: variables.$base_color__dark;
+                background-color: variables.$baseBackgroundColorDark;
+                color: variables.$baseColorDark;
                 border-radius: 15px;
                 padding: 0.9rem;
                 transform: scale(1);
@@ -100,12 +100,12 @@
                 }
 
                 :global(html.dark) & {
-                  background-color: variables.$base_background_color__light;
-                  color: variables.$base_color__light;
+                  background-color: variables.$baseBackgroundColorLight;
+                  color: variables.$baseColorLight;
 
                   input {
-                    background-color: variables.$base_input_background_color__dark;
-                    color: variables.$base_color__light;
+                    background-color: variables.$baseInputBackgroundColorDark;
+                    color: variables.$baseColorLight;
                   }
                 }
 
@@ -125,11 +125,11 @@
 
         .buttonsContainer {
           button {
-            background-color: variables.$base_background_color__dark;
-            color: variables.$base_color__dark;
+            background-color: variables.$baseBackgroundColorDark;
+            color: variables.$baseColorDark;
             :global(html.dark) & {
-              background-color: variables.$base_background_color__light;
-              color: variables.$base_color__light;
+              background-color: variables.$baseBackgroundColorLight;
+              color: variables.$baseColorLight;
             }
 
             padding: 0.3rem 1rem;
