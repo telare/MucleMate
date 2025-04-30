@@ -46,7 +46,7 @@
 
       li {
         transition: all 0.3s ease-in-out;
-        border-radius: 8px;
+        border-radius:0.5rem;
         position: relative;
 
         a {
@@ -79,7 +79,7 @@
           position: relative;
           background-color: variables.$baseBackgroundColorLight;
           color: variables.$baseColorLight;
-          border-radius: 8px;
+          border-radius:0.5rem;
           padding-left: 1%;
           padding-right: 1%;
           transition: all 0.3s ease-in-out;
@@ -100,6 +100,7 @@
             opacity: 1;
             pointer-events: all;
             transition: all 0.3s ease-in-out;
+            border-radius: 0.5rem;
 
             background-color: variables.$baseBackgroundColorDark;
             color: variables.$baseColorDark;
@@ -113,7 +114,7 @@
 
             //items of dropdown
             li {
-              border-radius: 8px;
+              border-radius:0.5rem;
               justify-content: start;
               transform: translateX(0);
               transition: transform 0.3s ease-in-out;

@@ -1,7 +1,7 @@
 "use client";
 import styles from "@shared/styles/components-styles/Nav.module.scss";
 import Link from "next/link";
-import { links } from "@/app/home/utils/data";
+import { links } from "@/shared/components/nav/utils/data";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 
@@ -12,15 +12,14 @@ export default function NavLinks({ isMobile }: NavLinksProps) {
   const pathname = usePathname();
   const [openIndex, setOpenIndex] = useState<number>(0);
   const [nestedLinksOpen, setNestedLinksOpen] = useState<boolean>(false);
-  const linksKeys = Object.keys(links);
-  const linksValues = Object.values(links);
+  
   return (
     <ul className={styles.linksContainer}>
-      {linksKeys.map((linkKey, i) => (
+      {links.map((link, i) => (
         <li
           key={i}
           className={
-            pathname === `/${linkKey.toLocaleLowerCase()}`
+            pathname === link.mainPath
               ? styles.activeLink
               : undefined
           }
@@ -36,17 +35,17 @@ export default function NavLinks({ isMobile }: NavLinksProps) {
                 // href={`/${linkKey.slice(0, 1).toLowerCase()}${linkKey.slice(1)}`}
                 href={""}
               >
-                {linkKey}
+                {link.title}
               </Link>
 
-              {linksValues[i].subLinks &&
+              {link.subLinks &&
                 openIndex === i &&
                 nestedLinksOpen && (
                   <ul>
-                    {linksValues[i].subLinks.map((link, j) => (
+                    {link.subLinks.map((subLink, j) => (
                       <li key={j}>
-                        <Link href={`/${linkKey.toLowerCase()}/${link.link}`}>
-                          {link.title}
+                        <Link href={link.mainPath ? link.mainPath + subLink.path : subLink.path}>
+                          {subLink.title}
                         </Link>
                       </li>
                     ))}
@@ -56,19 +55,17 @@ export default function NavLinks({ isMobile }: NavLinksProps) {
           ) : (
             <>
               <Link
-                href={`/${linkKey.slice(0, 1).toLowerCase()}${linkKey.slice(
-                  1
-                )}`}
+                href={link.mainPath}
               >
-                {linkKey}
+                {link.title}
               </Link>
 
-              {linksValues[i].subLinks && (
+              {link.subLinks && (
                 <ul>
-                  {linksValues[i].subLinks.map((link, j) => (
+                  {link.subLinks.map((subLink, j) => (
                     <li key={j}>
-                      <Link href={`/${linkKey.toLowerCase()}/${link.link}`}>
-                        {link.title}
+                      <Link href={link.mainPath ? link.mainPath + subLink.path : subLink.path}>
+                        {subLink.title}
                       </Link>
                     </li>
                   ))}

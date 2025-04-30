@@ -1,4 +1,5 @@
 import Button from "@/shared/components/buttons/Button";
+import { MouseEvent } from "react";
 import { useFormContext } from "react-hook-form";
 
 interface AccountFormButtons {
@@ -33,7 +34,10 @@ export default function AccountFormButtons({
           <Button
             type="button"
             translation={{ context: "common", key: "editBtn" }}
-            onClick={() => setEditMode(true)}
+            onClick={(e: MouseEvent<HTMLButtonElement>) => {
+              e.preventDefault();
+              setEditMode(true);
+            }}
           />
         </>
       )}

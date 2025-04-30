@@ -8,11 +8,12 @@ import { useEffect, useState } from "react";
 export default function Wellcome() {
   const [mounted, setMounted] = useState<boolean>(false);
   const t = useTranslations("wellcome");
-  const { theme } = useTheme();
+  const { theme, systemTheme, setTheme } = useTheme();
 
   useEffect(() => {
     const userLang: string = navigator.language || "en";
     document.cookie = `lang=${userLang}`;
+    setTheme(systemTheme || "dark");
     setMounted(true);
   }, []);
 

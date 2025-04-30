@@ -50,22 +50,23 @@
         @include global__divMixin.basic__div($width: auto);
 
         .sectionsWrapper {
-          row-gap: 1vh;
-          column-gap: 2%;
+          row-gap: 1rem;
+          column-gap: 2rem;
           flex-wrap: wrap;
           justify-content: start;
           @include global__divMixin.basic__div($height: auto);
 
           .sectionGroup {
             flex-direction: column;
-
             align-items: baseline;
             @include global__divMixin.basic__div($height: auto);
-
+            h1{
+              text-align: center;
+            }
             .fieldsGroup {
               justify-content: start;
               flex-wrap: wrap;
-              gap: 2%;
+              gap: 1.375rem;
               @include global__divMixin.basic__div();
 
               .formField {
