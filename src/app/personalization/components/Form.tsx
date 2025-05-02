@@ -54,9 +54,8 @@ export default function PersonalizationForm({
                     translationContext="personalization"
                     key={j}
                     value={label}
-                    placeholder={t(`form${field}FieldOption${j + 1}`)}
                     registerTitle={field}
-                    label={label}
+                    label={`form${field}FieldOption${j + 1}`}
                     type={"radio"}
                     defaultChecked={j % 2 === 0 && true}
                   />

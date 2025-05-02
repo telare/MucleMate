@@ -1,0 +1,9 @@
+{
+  "greeting": "Привіт",
+  "homeLink": "Головна",
+  "workoutsLink": "Тренування",
+  "workoutsLinkForMen": "Для чоловіків",
+  "workoutsLinkForWomen": "Для жінок",
+  "workoutsLinkAll": "Усі",
+  "workoutsLinkAddWorkout": "Додати тренування"
+}

@@ -8,7 +8,9 @@ type Messages = {
 export async function detectUserServerLang(): Promise<string | null> {
   const cookiesStore = await cookies();
   const userLang = cookiesStore.get("lang");
-  if (userLang) return userLang.value;
+  if (userLang) return userLang.value.split(/[-_]/)[0]
+  .toLowerCase();
+;
   return null;
 }
 
@@ -17,7 +19,7 @@ export async function getUserLocalServerConfig(): Promise<{
   messages: Record<string, Messages>;
 }> {
   const userLang = await detectUserServerLang();
-  const locale = userLang || "en-US";
+  const locale = userLang || "en";
   const messages = {
     wellcome: (await import(`../i18n/messages/${locale}/wellcome.json`))
       .default,
