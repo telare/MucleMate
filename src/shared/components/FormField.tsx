@@ -36,7 +36,7 @@ export default function FormField({
   return (
     <div className={styles.mainCon}>
       <div className={styles.fieldCon}>
-        {label && <label htmlFor={registerTitle}>{label}</label>}
+        {label && <label htmlFor={registerTitle}>{t(label)}</label>}
         <input
           id={registerTitle}
           placeholder={placeholder && placeholder}

@@ -1,0 +1,9 @@
+{
+  "greeting": "Hi",
+  "homeLink": "Home",
+  "workoutsLink": "Workouts",
+  "workoutsLinkForMen": "For Men",
+  "workoutsLinkForWomen": "For Women",
+  "workoutsLinkAll": "All",
+  "workoutsLinkAddWorkout": "Add Workout"
+}
