@@ -15,7 +15,7 @@ export default function FilterCategory({ title, options }: FilterCategory) {
             <FormField
               placeholder=""
               registerTitle={title}
-              translationContext="categoryFilter"
+              translationContext="category"
               type="checkbox"
               label={opt}
             />

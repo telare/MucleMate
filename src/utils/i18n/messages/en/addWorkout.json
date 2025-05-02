@@ -2,7 +2,7 @@
   "workoutDashboardTitle": "Total Workout",
   "formTitle": "Add an exercise",
   "titleField": "Enter Title",
-
+  
   "formtitleFieldInvalidError": "Enter a string",
   "formtitleFieldMinError": "At least 1 character",
   

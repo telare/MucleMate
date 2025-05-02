@@ -1,24 +1,16 @@
 "use server";
-import { cookies } from "next/headers";
 
-type Messages = {
+import { detectUserLang } from "../serverFunctions";
+
+export type Messages = {
   [key: string]: string | Messages;
 };
 
-export async function detectUserServerLang(): Promise<string | null> {
-  const cookiesStore = await cookies();
-  const userLang = cookiesStore.get("lang");
-  if (userLang) return userLang.value.split(/[-_]/)[0]
-  .toLowerCase();
-;
-  return null;
-}
-
-export async function getUserLocalServerConfig(): Promise<{
+export async function getUserLocaleConfig(): Promise<{
   locale: string;
   messages: Record<string, Messages>;
 }> {
-  const userLang = await detectUserServerLang();
+  const userLang = await detectUserLang();
   const locale = userLang || "en";
   const messages = {
     wellcome: (await import(`../i18n/messages/${locale}/wellcome.json`))
@@ -29,12 +21,13 @@ export async function getUserLocalServerConfig(): Promise<{
     personalization: (
       await import(`../i18n/messages/${locale}/personalization.json`)
     ).default,
-    categoryFilter: (
-      await import(`../i18n/messages/${locale}/categoryFilter.json`)
-    ).default,
-    addWorkout: (
-      await import(`../i18n/messages/${locale}/addWorkout.json`)
-    ).default,
+    category: (await import(`../i18n/messages/${locale}/category.json`))
+      .default,
+    addWorkout: (await import(`../i18n/messages/${locale}/addWorkout.json`))
+      .default,
+    nav: (await import(`../i18n/messages/${locale}/nav.json`)).default,
+    account: (await import(`../i18n/messages/${locale}/account.json`)).default,
+    section: (await import(`../i18n/messages/${locale}/section.json`)).default,
     common: (await import(`../i18n/messages/${locale}/common.json`)).default,
   };
 

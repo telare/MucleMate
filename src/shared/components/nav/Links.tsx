@@ -4,12 +4,14 @@ import Link from "next/link";
 import { links } from "@/shared/components/nav/utils/data";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
+import { useTranslations } from "next-intl";
 
 interface NavLinksProps {
   isMobile: boolean;
 }
 export default function NavLinks({ isMobile }: NavLinksProps) {
   const pathname = usePathname();
+  const t = useTranslations("nav");
   const [openIndex, setOpenIndex] = useState<number>(0);
   const [nestedLinksOpen, setNestedLinksOpen] = useState<boolean>(false);
   
@@ -35,7 +37,7 @@ export default function NavLinks({ isMobile }: NavLinksProps) {
                 // href={`/${linkKey.slice(0, 1).toLowerCase()}${linkKey.slice(1)}`}
                 href={""}
               >
-                {link.title}
+              {t(`${link.title}Link`)}
               </Link>
 
               {link.subLinks &&
@@ -45,7 +47,7 @@ export default function NavLinks({ isMobile }: NavLinksProps) {
                     {link.subLinks.map((subLink, j) => (
                       <li key={j}>
                         <Link href={link.mainPath ? link.mainPath + subLink.path : subLink.path}>
-                          {subLink.title}
+                          {t(`${link.title}Link${subLink.title}`)}
                         </Link>
                       </li>
                     ))}
@@ -57,7 +59,7 @@ export default function NavLinks({ isMobile }: NavLinksProps) {
               <Link
                 href={link.mainPath}
               >
-                {link.title}
+                {t(`${link.title}Link`)}
               </Link>
 
               {link.subLinks && (
@@ -65,7 +67,7 @@ export default function NavLinks({ isMobile }: NavLinksProps) {
                   {link.subLinks.map((subLink, j) => (
                     <li key={j}>
                       <Link href={link.mainPath ? link.mainPath + subLink.path : subLink.path}>
-                        {subLink.title}
+                      {t(`${link.title}Link${subLink.title}`)}
                       </Link>
                     </li>
                   ))}

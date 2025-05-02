@@ -8,6 +8,7 @@ import { FieldValues } from "react-hook-form";
 import FilterResultContentCards from "../Filter/FilterResultContentCards";
 import ControlsBar from "../Filter/ControlsBar";
 import { filterData, initialrenderContentAPIState } from "./utils/utils";
+import { useTranslations } from "next-intl";
 
 export default function CategoryDisplay() {
   // push this filter options into a body API / query params
@@ -17,6 +18,7 @@ export default function CategoryDisplay() {
     Omit<CardProps, "linkPrefix">[]
   >(initialrenderContentAPIState);
   const { section } = useParams();
+  const t = useTranslations("category");
 
   const searchParams = useSearchParams();
   const id = searchParams.get("id");
@@ -33,13 +35,13 @@ export default function CategoryDisplay() {
 
   const title: string =
     typeof section === "string"
-      ? (section as string).toUpperCase().split("-").join(" ")
+      ? (section as string).toLowerCase().split("-").join("")
       : "";
 
   return (
     <div className={styles.category}>
       <div className={styles.titleContainer}>
-        <h1>{title}</h1>
+        <h1>{t(`title${title}`)}</h1>
       </div>
 
       <div className={styles.contentWrapper}>

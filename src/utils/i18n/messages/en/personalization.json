@@ -4,10 +4,12 @@
   "subTitle1": "Select options that best fits you",
   "subTitle2": "Provide some details about your body and activity",
 
+  "formGenderField":"Gender",
   "formGenderFieldOption1": "Male",
   "formGenderFieldOption2": "Female",
   "formGenderFieldInvalidError": "Gender is required",
 
+  "formGoalField":"Goal",
   "formGoalFieldOption1": "Loose fat",
   "formGoalFieldOption2": "Gain mucles",
   "formGoalFieldInvalidError": "Goal is required",

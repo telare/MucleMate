@@ -84,12 +84,12 @@ export default function AuthForm({ titleTexts, schema }: AuthFormProps) {
             {section === "sign-in" ? (
               <p>
                 {t("withoutAccount")}{" "}
-                <Link href="/sign-up">{t("titleSignUp")}</Link>
+                <Link href="sign-up">{t("titleSignUp")}</Link>
               </p>
             ) : (
               <p>
                 {t("alreadyHaveAccount")}{" "}
-                <Link href="/sign-in">{t("titleSignIn")}</Link>
+                <Link href="sign-in">{t("titleSignIn")}</Link>
               </p>
             )}
           </span>

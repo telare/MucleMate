@@ -9,5 +9,7 @@
   "editBtn": "Редагувати",
   "submitBtn": "Підтверидити",
   "cancelBtn": "Скасувати",
-  "tryAgainBtn":"Спробувати ще раз"
+  "tryAgainBtn":"Спробувати ще раз",
+
+  "searchPlaceholder":"Підтягування, планка..."
 }

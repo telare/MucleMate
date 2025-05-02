@@ -1,0 +1,24 @@
+{
+    "titleformen":"For Men",
+    "titleforwomen":"For Women",
+    "titleall":"All",
+
+
+    "filter1Title":"Filter title 1",
+    "filter1Option1":"2",
+    "filter1Option2":"2",
+    "filter1Option3":"2",
+
+
+    "filter2Title":"Filter title 2",
+    "filter2Option1":"2",
+    "filter2Option2":"2",
+    "filter2Option3":"2", 
+
+
+    "sortBtnOptionNewest":"Newest",
+    "sortBtnOptionOldest":"Oldest",
+    "sortBtnOptionA-Z":"A-Z",
+    "sortBtnOptionZ-A":"Z-A"
+
+}

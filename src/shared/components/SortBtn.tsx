@@ -5,13 +5,10 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { sortBtnOptions } from "./CategoryDisplay/utils/utils";
+import { useTranslations } from "next-intl";
 
-const sortOptions = [
-  { label: "Newest", value: "newest" },
-  { label: "Oldest", value: "oldest" },
-  { label: "A-Z", value: "asc" },
-  { label: "Z-A", value: "desc" },
-];
+
 interface SortBtnProps {
   setActiveSortMode: (mode: string) => void;
   activeSortMode: string;
@@ -21,15 +18,16 @@ export default function SortBtn({
   setActiveSortMode,
   activeSortMode,
 }: SortBtnProps) {
+  const t = useTranslations("category");
   return (
     <Select value={activeSortMode} onValueChange={setActiveSortMode}>
       <SelectTrigger>
         <SelectValue placeholder={activeSortMode}></SelectValue>
       </SelectTrigger>
       <SelectContent>
-        {sortOptions.map((opt) => (
+        {sortBtnOptions.map((opt) => (
           <SelectItem key={opt.value} value={opt.value}>
-            {opt.label}
+            {t(`sortBtnOption${opt.label}`)}
           </SelectItem>
         ))}
       </SelectContent>

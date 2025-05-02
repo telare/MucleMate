@@ -3,9 +3,11 @@ import { SearchBtnIcon } from "@/utils/icons/Icons";
 import styles from "@shared/styles/components-styles/Search.module.scss";
 import Button from "../buttons/Button";
 import { MouseEvent, useState } from "react";
+import { useTranslations } from "next-intl";
 
 export default function Search() {
   const [searchValue, setSearchValue] = useState<string>("");
+  const t = useTranslations("common");
   function searchSubmit(e: MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
     // fetch(`?q=${searchValue}`);
@@ -17,7 +19,7 @@ export default function Search() {
     <div className={styles.search}>
       <input
         type="text"
-        placeholder="Pull-ups, plank ..."
+        placeholder={t("searchPlaceholder")}
         value={searchValue}
         onChange={(e) => setSearchValue(e.currentTarget.value)}
       />

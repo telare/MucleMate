@@ -59,9 +59,9 @@ export default function Form({ setExercises }: FormProps) {
               <FormField
                 type={field.type}
                 key={i}
-                label={`Enter ${field.name}`}
+                label={`${field.name}Field`}
                 registerTitle={field.name}
-                placeholder={`Enter ${field.name}`}
+                // placeholder={`Enter ${field.name}`}
                 translationContext="addWorkout"
               />
             ))}

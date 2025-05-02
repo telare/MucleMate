@@ -9,5 +9,7 @@
   "editBtn":"Edit",
   "submitBtn": "Submit",
   "cancelBtn": "Cancel",
-  "tryAgainBtn":"Try again"
+  "tryAgainBtn":"Try again",
+  
+  "searchPlaceholder":"Pull-ups, plank ..."
 }

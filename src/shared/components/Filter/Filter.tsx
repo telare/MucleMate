@@ -7,6 +7,7 @@ import { FieldValues, FormProvider, useForm } from "react-hook-form";
 import Button from "../buttons/Button";
 import { useEffect, useState } from "react";
 import { FilterIcon } from "@/utils/icons/Icons";
+import { useTranslations } from "next-intl";
 
 type FilterProps = {
   categories: {
@@ -19,6 +20,7 @@ export default function Filter({ categories, setFilterOptions }: FilterProps) {
   const isMobile = useMediaQuery("(max-width: 420px)");
   const [isOpen, setIsOpen] = useState<boolean>(true);
   const methods = useForm();
+  const t = useTranslations("category");
 
   function submitData(data: FieldValues) {
     setFilterOptions(Object.values(data));
@@ -46,7 +48,7 @@ export default function Filter({ categories, setFilterOptions }: FilterProps) {
               <FilterCategory
                 key={i}
                 options={category.options}
-                title={category.title}
+                title={t(category.title)}
               />
             ))}
             <FilterBtns />

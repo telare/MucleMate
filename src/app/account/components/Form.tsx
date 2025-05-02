@@ -6,7 +6,7 @@ import { z } from "zod";
 import styles from "../Account.module.scss";
 import { PersonalizationSchemas } from "@/app/personalization/utils/data";
 import AccountFormButtons from "./Buttons";
-import {  useState } from "react";
+import { useState } from "react";
 import { useAppSelector } from "@/lib/hooks";
 import {
   getAll,
@@ -14,61 +14,12 @@ import {
   UserMetricsInfoKeys,
 } from "@/lib/features/userSlice";
 import { data } from "@/app/auth/utils/data";
+import { useTranslations } from "next-intl";
+import { generalFieldsConfig, metricsConfig } from "../utils/utils";
 
-const generalFieldsConfig = [
-  {
-    field: "name",
-    registerTitle: "UserName",
-    label: "Name",
-    type: "text",
-    translationContext: "auth",
-  },
-  {
-    field: "email",
-    registerTitle: "Email",
-    label: "Email",
-    type: "text",
-    translationContext: "auth",
-  },
-  {
-    field: "gender",
-    registerTitle: "Gender",
-    label: "Gender",
-    type: "text",
-    translationContext: "personalization",
-  },
-  {
-    field: "goal",
-    registerTitle: "Goal",
-    label: "Goal",
-    type: "text",
-    translationContext: "personalization",
-  },
-];
-
-const metricsConfig = [
-  { field: "age", registerTitle: "Age", label: "Age", type: "number" },
-  {
-    field: "height",
-    registerTitle: "Height",
-    label: "Height",
-    type: "number",
-  },
-  {
-    field: "weight",
-    registerTitle: "Weight",
-    label: "Weight",
-    type: "number",
-  },
-  {
-    field: "ActivityLevel",
-    registerTitle: "ActivityLevel",
-    label: "Physical Activity Level",
-    type: "number",
-  },
-];
 
 export default function Form() {
+  const t = useTranslations("account");
   const [editMode, setEditMode] = useState(false);
   const userData = useAppSelector(getAll);
   const userAccountSchema = PersonalizationSchemas[0]
@@ -85,8 +36,7 @@ export default function Form() {
   const methods = useForm<UserAccountSchema>({
     resolver: zodResolver(userAccountSchema),
   });
-  function submitData(data: UserAccountSchema) {
-  }
+  function submitData(data: UserAccountSchema) {}
 
   return (
     <FormProvider {...methods}>
@@ -96,18 +46,18 @@ export default function Form() {
       >
         <div className={styles.sectionsWrapper}>
           <div className={styles.sectionGroup}>
-            <h1>General Information</h1>
+            <h1>{t("generalInformationTitle")}</h1>
             <div className={styles.fieldsGroup}>
               {generalFieldsConfig.map(
                 ({ field, registerTitle, label, type, translationContext }) => (
                   <div key={registerTitle} className={styles.formField}>
-                    <label htmlFor={registerTitle}>{label}</label>
                     <FormField
                       placeholder={
                         userData.generalInfo[field as UserGeneralInfoKeys]
                       }
                       registerTitle={registerTitle}
                       type={type}
+                      label={`form${label}Field`}
                       disabled={!editMode}
                       translationContext={translationContext}
                     />
@@ -118,17 +68,17 @@ export default function Form() {
           </div>
 
           <div className={styles.sectionGroup}>
-            <h1>Physical Information</h1>
+            <h1>{t("physicalInformationTitle")}</h1>
             <div className={styles.fieldsGroup}>
               {metricsConfig.map(({ field, registerTitle, label, type }) => (
                 <div key={registerTitle} className={styles.formField}>
-                  <label htmlFor={registerTitle}>{label}</label>
                   <FormField
                     placeholder={String(
                       userData.metrics[field as UserMetricsInfoKeys]
                     )}
                     registerTitle={registerTitle}
                     type={type}
+                    label={`form${label}Field`}
                     disabled={!editMode}
                     translationContext="personalization"
                   />

@@ -4,10 +4,12 @@
   "subTitle1": "Виберіть варіанти, які вам найкраще підходять",
   "subTitle2": "Вкажіть деякі деталі про ваше тіло та активність",
   
+  "formGenderField":"Стать",
   "formGenderFieldOption1": "Чоловік",
   "formGenderFieldOption2": "Жінка",
   "formGenderFieldInvalidError": "Стать є обов'язковою",
 
+  "formGoalField":"Ціль",
   "formGoalFieldOption1": "Втратити жир",
   "formGoalFieldOption2": "Набрати м'язів",
   "formGoalFieldInvalidError": "Мета є обов'язковою",

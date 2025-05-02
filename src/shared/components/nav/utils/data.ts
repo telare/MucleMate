@@ -10,19 +10,19 @@ type Links = {
 
 export const links:Links = [
   {
-    title: "Home",
+    title: "home",
     mainPath: "/home",
   },
   {
-    title: "Workouts",
+    title: "workouts",
     mainPath: "/workouts",
     subLinks: [
       {
-        title: "For men",
+        title: "ForMen",
         path: "/for-men",
       },
       {
-        title: "For women",
+        title: "ForWomen",
         path: "/for-women",
       },
       {
@@ -30,7 +30,7 @@ export const links:Links = [
         path: "/all",
       },
       {
-        title: "+ Add workout",
+        title: "AddWorkout",
         path: "/add-workout",
       },
     ],
