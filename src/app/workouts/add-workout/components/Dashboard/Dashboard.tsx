@@ -4,6 +4,7 @@ import DashboardItem from "./DashboardItem";
 import styles from "../../AddWorkout.module.scss";
 import Button from "@/shared/components/buttons/Button";
 import { Dispatch, SetStateAction } from "react";
+import { useTranslations } from "next-intl";
 
 interface DashboardProps {
   workoutInfo: Exercise[];
@@ -14,6 +15,8 @@ export default function Dashboard({
   workoutInfo,
   setWorkoutInfo,
 }: DashboardProps) {
+  const t = useTranslations("addWorkout");
+
   function formSubmitHandler(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     // read from state
@@ -21,7 +24,7 @@ export default function Dashboard({
 
   return (
     <form className={styles.dashboard} onSubmit={(e) => formSubmitHandler(e)}>
-      <h2>Total Workout</h2>
+      <h2>{t("titleField")}</h2>
       {workoutInfo.map((exercise, i) => (
         <DashboardItem
           key={i}

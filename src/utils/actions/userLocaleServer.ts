@@ -17,7 +17,7 @@ export async function getUserLocalServerConfig(): Promise<{
   messages: Record<string, Messages>;
 }> {
   const userLang = await detectUserServerLang();
-  const locale = userLang || "en-US";
+  const locale = userLang || "en";
   const messages = {
     wellcome: (await import(`../i18n/messages/${locale}/wellcome.json`))
       .default,

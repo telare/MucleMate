@@ -8,12 +8,14 @@ import { Exercise, formFieldsConfig } from "../../utils/utils";
 import Buttons from "./Buttons";
 import { Calendar } from "@/components/ui/calendar";
 import { Dispatch, SetStateAction } from "react";
+import { useTranslations } from "next-intl";
 
 interface FormProps {
   setExercises: Dispatch<SetStateAction<Exercise[]>>;
 }
 
 export default function Form({ setExercises }: FormProps) {
+  const t = useTranslations("addWorkout");
   const schema = z.object({
     title: z.string().min(1),
     set: z
@@ -50,7 +52,7 @@ export default function Form({ setExercises }: FormProps) {
         onSubmit={methods.handleSubmit(submitExerciseData)}
         className={styles.form}
       >
-        <h2>Add an exercise</h2>
+        <h2>{t("formTitle")}</h2>
         <div className={styles.mainContentWrapper}>
           <div className={styles.fieldsContainer}>
             {formFieldsConfig.map((field, i) => (
