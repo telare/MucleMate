@@ -23,7 +23,7 @@ export default function Dashboard({
     // read from state
     const form = new FormData();
     form.append("workoutInfo", JSON.stringify(workoutInfo));
-    const resp = await fetch(`http://localhost:8080/users/${id}/workout`, {
+    const resp = await fetch("http://localhost:8080/users//workout", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

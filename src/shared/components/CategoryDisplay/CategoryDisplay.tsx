@@ -31,7 +31,7 @@ export default function CategoryDisplay() {
     filterOptions?: string[];
   }): Promise<Omit<CardProps, "linkPrefix">[]> {
     if (id) {
-      const resp = await fetch(`http://localhost:8080/exercises/${id}`);
+      const resp = await fetch("http://localhost:8080/exercises");
       return resp.json();
     }
     const resp = await fetch(

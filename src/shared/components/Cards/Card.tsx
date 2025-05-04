@@ -18,7 +18,7 @@ export default function Card({
   linkPrefix,
 }: CardProps) {
   return (
-    <Link href={`/card-details/${linkPrefix}/${id}`} className={styles.card}>
+    <Link href={`/card-details/${linkPrefix}`} className={styles.card}>
       <div className={styles.imgContainer}>
         <Image
           alt={`${title} preview`}
