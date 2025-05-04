@@ -5,16 +5,19 @@ import FilterBtns from "./Btns";
 import FilterCategory from "./Category";
 import { FieldValues, FormProvider, useForm } from "react-hook-form";
 import Button from "../buttons/Button";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { FilterIcon } from "@/utils/icons/Icons";
 import { useTranslations } from "next-intl";
 
 type FilterProps = {
   categories: {
     title: string;
-    options: string[];
+    options: {
+      label: string;
+      value: string;
+    }[];
   }[];
-  setFilterOptions: (data: FieldValues | undefined) => void;
+  setFilterOptions: (data: string[] | undefined) => void;
 };
 export default function Filter({ categories, setFilterOptions }: FilterProps) {
   const isMobile = useMediaQuery("(max-width: 420px)");
@@ -23,7 +26,10 @@ export default function Filter({ categories, setFilterOptions }: FilterProps) {
   const t = useTranslations("category");
 
   function submitData(data: FieldValues) {
-    setFilterOptions(Object.values(data));
+    const formattedFilterOptions = Object.entries(data).map(
+      (option) => `${option[0].toLowerCase().split(" ").join("")}=${option[1]}`
+    );
+    setFilterOptions(formattedFilterOptions);
   }
 
   // useEffect(()=>{
@@ -48,7 +54,9 @@ export default function Filter({ categories, setFilterOptions }: FilterProps) {
               <FilterCategory
                 key={i}
                 options={category.options}
-                title={t(category.title)}
+                title={t(
+                  `filterOptionsTitle${category.title.split(" ").join("")}`
+                )}
               />
             ))}
             <FilterBtns />

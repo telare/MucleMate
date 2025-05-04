@@ -19,12 +19,13 @@ export default function Button({
   imageSrc,
   icon,
   children,
+  type,
   className,
   ...rest
 }: ButtonProps) {
   const t = useTranslations();
   return (
-    <button className={clsx(styles.buttonWrapper, className)} {...rest}>
+    <button type={type} className={clsx(styles.buttonWrapper, className)} {...rest}>
       {imageSrc && <Image alt="" src={imageSrc} fill />}
       {icon && icon}
       {translation && <>{t(translation.context + "." + translation.key)}</>}

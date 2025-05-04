@@ -3,7 +3,10 @@ import styles from "@shared/styles/components-styles/Filter.module.scss";
 import FormField from "../FormField";
 interface FilterCategory {
   title: string;
-  options: string[];
+  options: {
+    label: string;
+    value: string;
+  }[];
 }
 export default function FilterCategory({ title, options }: FilterCategory) {
   return (
@@ -13,11 +16,11 @@ export default function FilterCategory({ title, options }: FilterCategory) {
         {options.map((opt, i) => (
           <div className={styles.option} key={i}>
             <FormField
-              placeholder=""
               registerTitle={title}
               translationContext="category"
               type="checkbox"
-              label={opt}
+              defaultValue={opt.value}
+              label={`filterOption${opt.label.split(" ").join("")}`}
             />
           </div>
         ))}

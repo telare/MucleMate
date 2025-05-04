@@ -4,15 +4,15 @@ import Filter from "../Filter/Filter";
 import { useParams, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { CardProps } from "../Cards/Card";
-import { FieldValues } from "react-hook-form";
 import FilterResultContentCards from "../Filter/FilterResultContentCards";
 import ControlsBar from "../Filter/ControlsBar";
 import { filterData, initialrenderContentAPIState } from "./utils/utils";
 import { useTranslations } from "next-intl";
+import { customToast } from "../toast/utils/notificationsBuilder";
 
 export default function CategoryDisplay() {
   // push this filter options into a body API / query params
-  const [filterOptions, setFilterOptions] = useState<FieldValues | undefined>();
+  const [filterOptions, setFilterOptions] = useState<string[] | undefined>();
   const [activeSortMode, setActiveSortMode] = useState<string>("newest");
   const [renderContentAPI, setRenderContentAPI] = useState<
     Omit<CardProps, "linkPrefix">[]
@@ -23,14 +23,49 @@ export default function CategoryDisplay() {
   const searchParams = useSearchParams();
   const id = searchParams.get("id");
 
-  useEffect(() => {
-    // 1. Check for id, if true fetch only that card
-    // 2. Update current renderContentAPI
-  }, []);
+  async function fetchExercises({
+    id,
+    filterOptions,
+  }: {
+    id?: string;
+    filterOptions?: string[];
+  }): Promise<Omit<CardProps, "linkPrefix">[]> {
+    if (id) {
+      const resp = await fetch(`http://localhost:8080/exercises/${id}`);
+      return resp.json();
+    }
+    const resp = await fetch(
+      `http://localhost:8080/exercises?${(filterOptions as string[]).join("&")}`
+    );
+    return resp.json();
+  }
 
   useEffect(() => {
-    // 1. Based on filter fetch cards' data
-    // 2. Update renderContentAPI
+    if (id) {
+      try {
+        fetchExercises({ id })
+          .then((data) => setRenderContentAPI(data))
+          .catch((e) => {
+            throw new Error(e);
+          });
+      } catch (e) {
+        customToast(`Error in fetching: ${e}`, "error");
+      }
+    }
+  }, [id]);
+
+  useEffect(() => {
+    if (filterOptions) {
+      try {
+        fetchExercises({filterOptions})
+          .then((data) => setRenderContentAPI(data))
+          .catch((e) => {
+            throw new Error(e);
+          });
+      } catch (e) {
+        customToast(`Error in fetching: ${e}`, "error");
+      }
+    }
   }, [filterOptions]);
 
   const title: string =

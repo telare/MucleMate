@@ -4,7 +4,7 @@ import { z, ZodEnum, ZodObject, ZodRawShape } from "zod";
 import { FormProvider, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import FormField from "@shared/components/FormField";
-import { useRouter } from "next/navigation";
+import { useParams,  useRouter } from "next/navigation";
 import Form from "next/form";
 import { useTranslations } from "next-intl";
 import Button from "@/shared/components/buttons/Button";
@@ -20,17 +20,21 @@ export default function PersonalizationForm({
   schema,
 }: PersonalizationFormProps) {
   const router = useRouter();
+  const { section } = useParams();
   const t = useTranslations("personalization");
   const methods = useForm<Schema>({
     resolver: zodResolver(schema),
   });
   const fields: string[] = Object.keys(schema._def.shape());
   type Schema = z.infer<typeof schema>;
+  const nextPath = section === "1" ? "/personalization/2" : "/home";
 
   const submitFnc = async (data: Schema) => {
-    const resp = await fetch("http://localhost:8080/personalization", data);
+    //dispacth user id
+    const resp = await fetch(`http://localhost:8080/personalization/${section}/${id}`, data);
     if (resp.status === 201) {
-      router.push("/home");
+      // dispatch data to store 
+      router.push(nextPath);
     }
     router.push("/error");
   };

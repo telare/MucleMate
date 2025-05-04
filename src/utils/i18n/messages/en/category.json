@@ -2,18 +2,24 @@
     "titleformen":"For Men",
     "titleforwomen":"For Women",
     "titleall":"All",
+    "titlesearchresults":"Search Results",
 
 
-    "filter1Title":"Filter title 1",
-    "filter1Option1":"2",
-    "filter1Option2":"2",
-    "filter1Option3":"2",
+    "filterOptionsTitleTargetMuscleGroup":"Target Muscle Group",
+    "filterOptionsTitleDifficulty":"Difficulty",
 
-
-    "filter2Title":"Filter title 2",
-    "filter2Option1":"2",
-    "filter2Option2":"2",
-    "filter2Option3":"2", 
+    "filterOptionChest": "Chest",
+    "filterOptionBack": "Back",
+    "filterOptionShoulders": "Shoulders",
+    "filterOptionBiceps": "Biceps",
+    "filterOptionTriceps": "Triceps",
+    "filterOptionLegs": "Legs",
+    "filterOptionGlutes&Hips": "Glutes & Hips",
+    "filterOptionCalves": "Calves",
+    "filterOptionCore/Abs": "Core/Abs",
+    "filterOptionEasy": "Easy",
+    "filterOptionNormal": "Normal",
+    "filterOptionHard": "Hard",
 
 
     "sortBtnOptionNewest":"Newest",

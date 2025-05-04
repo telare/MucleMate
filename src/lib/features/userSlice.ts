@@ -1,12 +1,13 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../store";
 
-type Gender = "male" | "female";
+type Gender = "Male" | "Female";
 type UserGoal = "Loose body fat" | "Gain mucles";
 type PhysicalActivityLevel = 1 | 2 | 3 | 4 | 5;
 
 export type User = {
   generalInfo: {
+    id:string;
     name: string;
     email: string;
     gender: Gender;
@@ -26,9 +27,10 @@ export type UserMetricsInfoKeys = keyof User["metrics"];
 
 const initialState: User = {
   generalInfo: {
+    id:"",
     name: "user",
     email: "user@example.com",
-    gender: "male",
+    gender: "Male",
     goal: "Gain mucles",
   },
   metrics: {
@@ -42,6 +44,9 @@ export const UserSlice = createSlice({
   name: "User",
   initialState,
   reducers: {
+    setId: (state, action: PayloadAction<string>) => {
+      state.generalInfo.id = action.payload;
+    },
     setName: (state, action: PayloadAction<string>) => {
       state.generalInfo.name = action.payload;
     },
@@ -69,6 +74,10 @@ export const UserSlice = createSlice({
     ) => {
       state.metrics.physicalActivityLevel = action.payload;
     },
+    setAll: (state, action: PayloadAction<User>) => {
+      state.generalInfo = action.payload.generalInfo;
+      state.metrics = action.payload.metrics;
+    },
     resetUser: () => initialState,
   },
 });
@@ -88,6 +97,7 @@ const getMetricsInfo = (state: RootState) => {
 export { getAll, getGeneralInfo, getMetricsInfo };
 
 export const {
+  setId,
   setName,
   setEmail,
   setGender,
@@ -96,6 +106,7 @@ export const {
   setHeight,
   setWeight,
   setPhysicalActivityLevel,
+  setAll,
   resetUser,
 } = UserSlice.actions;
 export default UserSlice.reducer;

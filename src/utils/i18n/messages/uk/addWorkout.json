@@ -1,7 +1,7 @@
 {
   "workoutDashboardTitle": "Загальне тренування",
   "formTitle": "Додати вправу",
-  "titleField": "Введіть назву",
+  "titleField": "Загальне тренування",
 
   "formtitleFieldInvalidError": "Введіть рядок",
   "formtitleFieldMinError": "Щонайменше 1 символ",

@@ -1,20 +1,29 @@
 {
     "titleformen": "Для чоловіків",
     "titleforwomen": "Для жінок",
-    "titleall": "Усі",
-
-    "filter1Title": "Назва фільтра 1",
-    "filter1Option1": "1",
-    "filter1Option2": "1",
-    "filter1Option3": "1",
-
-    "filter2Title": "Назва фільтра 2",
-    "filter2Option1": "1",
-    "filter2Option2": "1",
-    "filter2Option3": "1",
-
-    "sortBtnOptionNewest": "Найновіші",
-    "sortBtnOptionOldest": "Найстаріші",
-    "sortBtnOptionA-Z": "А-Я",
-    "sortBtnOptionZ-A": "Я-А"
-}
+    "titleall": "Всі",
+    "titlesearchresults":"Результати пошуку",
+  
+    "filterOptionsTitleTargetMuscleGroup": "Цільова група м’язів",
+    "filterOptionsTitleDifficulty": "Складність",
+  
+    "filterOptionChest": "Груди",
+    "filterOptionBack": "Спина",
+    "filterOptionShoulders": "Плечі",
+    "filterOptionBiceps": "Біцепс",
+    "filterOptionTriceps": "Трицепс",
+    "filterOptionLegs": "Ноги",
+    "filterOptionGlutes&Hips": "Ягодиці та стегна",
+    "filterOptionCalves": "Ікри",
+    "filterOptionCore/Abs": "Корпус/Прес",
+  
+    "filterOptionEasy": "Легко",
+    "filterOptionNormal": "Середньо",
+    "filterOptionHard": "Важко",
+  
+    "sortBtnOptionNewest": "Новіші",
+    "sortBtnOptionOldest": "Старіші",
+    "sortBtnOptionA-Z": "Від А до Я",
+    "sortBtnOptionZ-A": "Від Я до А"
+  }
+  

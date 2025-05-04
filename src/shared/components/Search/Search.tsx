@@ -4,15 +4,15 @@ import styles from "@shared/styles/components-styles/Search.module.scss";
 import Button from "../buttons/Button";
 import { MouseEvent, useState } from "react";
 import { useTranslations } from "next-intl";
+import { useRouter } from "next/navigation";
 
 export default function Search() {
   const [searchValue, setSearchValue] = useState<string>("");
   const t = useTranslations("common");
-  function searchSubmit(e: MouseEvent<HTMLButtonElement>) {
+  const router = useRouter();
+  async function searchSubmit(e: MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
-    // fetch(`?q=${searchValue}`);
-
-    // if status code 201, redirect to /workouts/search-results?id=id-from-response with this query in URL
+    router.push(`/workouts/search-results?q=${searchValue}`);
   }
 
   return (

@@ -5,6 +5,7 @@ import styles from "../../AddWorkout.module.scss";
 import Button from "@/shared/components/buttons/Button";
 import { Dispatch, SetStateAction } from "react";
 import { useTranslations } from "next-intl";
+import { customToast } from "@/shared/components/toast/utils/notificationsBuilder";
 
 interface DashboardProps {
   workoutInfo: Exercise[];
@@ -17,14 +18,28 @@ export default function Dashboard({
 }: DashboardProps) {
   const t = useTranslations("addWorkout");
 
-  function formSubmitHandler(e: React.FormEvent<HTMLFormElement>) {
+  async function formSubmitHandler(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     // read from state
+    const form = new FormData();
+    form.append("workoutInfo", JSON.stringify(workoutInfo));
+    const resp = await fetch(`http://localhost:8080/users/${id}/workout`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(form),
+    });
+    if (resp.status === 201) {
+      customToast("Training added successfuly!", "success");
+    }else{
+      customToast("Training added failed!", "error");
+    }
   }
 
   return (
     <form className={styles.dashboard} onSubmit={(e) => formSubmitHandler(e)}>
-      <h2>{t("titleField")}</h2>
+      <h2>{t("workoutDashboardTitle")}</h2>
       {workoutInfo.map((exercise, i) => (
         <DashboardItem
           key={i}

@@ -1,14 +1,14 @@
 const generalFieldsConfig = [
   {
     field: "name",
-    registerTitle: "formUserNameField",
+    registerTitle: "UserName",
     label: "UserName",
     type: "text",
     translationContext: "auth",
   },
   {
     field: "email",
-    registerTitle: "formEmailField",
+    registerTitle: "Email",
     label: "Email",
     type: "text",
     translationContext: "auth",
@@ -44,12 +44,11 @@ const metricsConfig = [
     type: "number",
   },
   {
-    field: "ActivityLevel",
+    field: "physicalActivityLevel",
     registerTitle: "ActivityLevel",
     label: "ActivityLevel",
     type: "number",
   },
 ];
-
 
 export { generalFieldsConfig, metricsConfig };

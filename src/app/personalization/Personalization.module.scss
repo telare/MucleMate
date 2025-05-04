@@ -31,7 +31,7 @@
     max-height: global__functions.figma-h-to-percent(800);
     @include global__divMixin.basic__div(
       $height: auto,
-      $width: 1032px,
+      $width: 45%,
       $width-mobile: 100%,
       $height-mobile: 85%
     );
@@ -41,7 +41,7 @@
       color: variables.$baseColorLight;
     }
 
-    form {
+    
       flex-direction: column;
 
       .titleContainer {
@@ -151,14 +151,9 @@
         }
       }
 
-      @include global__divMixin.basic__div(
-        $width: 414px,
-        $height: 95%,
-        $width-mobile: 354px
-      );
       @include global__breakpointsMixin.breakpoint(small) {
         border-radius: 30px;
       }
-    }
+   
   }
 }

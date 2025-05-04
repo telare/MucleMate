@@ -10,6 +10,7 @@ import Form from "next/form";
 import { useTranslations } from "next-intl";
 import Button from "@/shared/components/buttons/Button";
 import { useAppDispatch } from "@/lib/hooks";
+import { customToast } from "@/shared/components/toast/utils/notificationsBuilder";
 
 type AuthFormProps = {
   titleTexts: string[];
@@ -31,12 +32,17 @@ export default function AuthForm({ titleTexts, schema }: AuthFormProps) {
       },
       body: JSON.stringify({ data }),
     });
-
-    if (resp.status === 201) {
-      return router.push("/personalization");
+    if (resp.ok) {
+      // dispatch user id
+      customToast("Auth passed successfuly, wellcome!", "success");
+      return router.push("/personalization/1");
+    } else {
+      // customToast("Error in auth, try again", "error");
+      // router.push("/error");
     }
-    router.push("/error");
   };
+  
+   
   const methods = useForm<Schema>({
     resolver: zodResolver(schema),
   });
