@@ -23,50 +23,50 @@ export default function CategoryDisplay() {
   const searchParams = useSearchParams();
   const id = searchParams.get("id");
 
-  async function fetchExercises({
-    id,
-    filterOptions,
-  }: {
-    id?: string;
-    filterOptions?: string[];
-  }): Promise<Omit<CardProps, "linkPrefix">[]> {
-    if (id) {
-      const resp = await fetch("http://localhost:8080/exercises");
-      return resp.json();
-    }
-    const resp = await fetch(
-      `http://localhost:8080/exercises?${(filterOptions as string[]).join("&")}`
-    );
-    return resp.json();
-  }
+  // async function fetchExercises({
+  //   id,
+  //   filterOptions,
+  // }: {
+  //   id?: string;
+  //   filterOptions?: string[];
+  // }): Promise<CardProps, "linkPrefix">[]> {
+  //   if (id) {
+  //     const resp = await fetch("http://localhost:8080/exercises");
+  //     return resp.json();
+  //   }
+  //   const resp = await fetch(
+  //     `http://localhost:8080/exercises?${(filterOptions as string[]).join("&")}`
+  //   );
+  //   return resp.json();
+  // }
 
-  useEffect(() => {
-    if (id) {
-      try {
-        fetchExercises({ id })
-          .then((data) => setRenderContentAPI(data))
-          .catch((e) => {
-            throw new Error(e);
-          });
-      } catch (e) {
-        customToast(`Error in fetching: ${e}`, "error");
-      }
-    }
-  }, [id]);
+  // useEffect(() => {
+  //   if (id) {
+  //     try {
+  //       fetchExercises({ id })
+  //         .then((data) => setRenderContentAPI(data))
+  //         .catch((e) => {
+  //           throw new Error(e);
+  //         });
+  //     } catch (e) {
+  //       customToast(`Error in fetching: ${e}`, "error");
+  //     }
+  //   }
+  // }, [id]);
 
-  useEffect(() => {
-    if (filterOptions) {
-      try {
-        fetchExercises({filterOptions})
-          .then((data) => setRenderContentAPI(data))
-          .catch((e) => {
-            throw new Error(e);
-          });
-      } catch (e) {
-        customToast(`Error in fetching: ${e}`, "error");
-      }
-    }
-  }, [filterOptions]);
+  // useEffect(() => {
+  //   if (filterOptions) {
+  //     try {
+  //       fetchExercises({filterOptions})
+  //         .then((data) => setRenderContentAPI(data))
+  //         .catch((e) => {
+  //           throw new Error(e);
+  //         });
+  //     } catch (e) {
+  //       customToast(`Error in fetching: ${e}`, "error");
+  //     }
+  //   }
+  // }, [filterOptions]);
 
   const title: string =
     typeof section === "string"
