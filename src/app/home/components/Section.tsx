@@ -21,7 +21,6 @@ export default function Section({ title }: SectionProps) {
               imgSrc="./images/TestCardImg.png"
               title="plank"
               description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste ratione perferendis animi laboriosam placeat consectetur aperiam temporibus est ullam provident, accusantium dolorum, expedita dolore eaque aliquam a adipisci. Containersectetur, consequuntur."
-              linkPrefix={title.toLowerCase()}
             />
           ))}
       </div>

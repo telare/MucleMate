@@ -7,7 +7,6 @@ export type CardProps = {
   description: string;
   title: string;
   imgSrc: string;
-  linkPrefix: string;
 };
 
 export default function Card({
@@ -15,10 +14,9 @@ export default function Card({
   imgSrc,
   description,
   id,
-  linkPrefix,
 }: CardProps) {
   return (
-    <Link href={`/card-details/${linkPrefix}`} className={styles.card}>
+    <Link href={`/card-details/${id}`} className={styles.card}>
       <div className={styles.imgContainer}>
         <Image
           alt={`${title} preview`}

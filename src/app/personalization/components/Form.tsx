@@ -31,12 +31,13 @@ export default function PersonalizationForm({
 
   const submitFnc = async (data: Schema) => {
     //dispacth user id
-    const resp = await fetch(`http://localhost:8080/personalization/${section}`, data);
-    if (resp.status === 201) {
-      // dispatch data to store 
-      router.push(nextPath);
-    }
-    router.push("/error");
+    // const resp = await fetch(`http://localhost:8080/personalization/${section}`, data);
+    // if (resp.status === 201) {
+    //   // dispatch data to store 
+    //   router.push(nextPath);
+    // }
+    router.push(nextPath);
+    // router.push("/error");
   };
 
   return (

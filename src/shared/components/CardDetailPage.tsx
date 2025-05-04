@@ -5,7 +5,7 @@ import { useParams } from "next/navigation";
 import { useEffect } from "react";
 
 export default function CartDetailPage() {
-  const { type, id } = useParams();
+  const { id } = useParams();
   const mockData = {
     imgSrc: "/images/wellcome-background-img-2.png",
     title: "Title",

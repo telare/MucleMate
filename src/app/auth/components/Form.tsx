@@ -11,6 +11,7 @@ import { useTranslations } from "next-intl";
 import Button from "@/shared/components/buttons/Button";
 import { useAppDispatch } from "@/lib/hooks";
 import { customToast } from "@/shared/components/toast/utils/notificationsBuilder";
+import { setName } from "@/lib/features/userSlice";
 
 type AuthFormProps = {
   titleTexts: string[];
@@ -25,24 +26,11 @@ export default function AuthForm({ titleTexts, schema }: AuthFormProps) {
   type Schema = z.infer<typeof schema>;
 
   const submitFnc = async (data: Schema) => {
-    const resp = await fetch(`http://localhost:8080/auth/${section}`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ data }),
-    });
-    if (resp.ok) {
-      // dispatch user id
-      customToast("Auth passed successfuly, wellcome!", "success");
-      return router.push("/personalization/1");
-    } else {
-      // customToast("Error in auth, try again", "error");
-      // router.push("/error");
-    }
+    // dispatch user id
+    customToast("Auth passed successfuly, wellcome!", "success");
+    router.push("/personalization/1");
   };
-  
-   
+
   const methods = useForm<Schema>({
     resolver: zodResolver(schema),
   });
