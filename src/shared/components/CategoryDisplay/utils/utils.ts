@@ -2,7 +2,7 @@ export const initialrenderContentAPIState = [
   {
     id: 1,
     description: "",
-    imgSrc: "",
+    imageSrc: "",
     title: "",
   },
 ];

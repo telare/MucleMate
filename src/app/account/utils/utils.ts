@@ -1,52 +1,45 @@
 const generalFieldsConfig = [
   {
-    field: "name",
-    registerTitle: "UserName",
-    label: "UserName",
+    field: "name", // for reciving data from store
+    registerTitle: "username", // for registering field and translation key
     type: "text",
     translationContext: "auth",
   },
   {
     field: "email",
-    registerTitle: "Email",
-    label: "Email",
+    registerTitle: "email",
     type: "text",
     translationContext: "auth",
   },
   {
     field: "gender",
-    registerTitle: "Gender",
-    label: "Gender",
+    registerTitle: "gender",
     type: "text",
     translationContext: "personalization",
   },
   {
     field: "goal",
-    registerTitle: "Goal",
-    label: "Goal",
+    registerTitle: "goal",
     type: "text",
     translationContext: "personalization",
   },
 ];
 
 const metricsConfig = [
-  { field: "age", registerTitle: "Age", label: "Age", type: "number" },
+  { field: "age", registerTitle: "age", type: "number" },
   {
     field: "height",
-    registerTitle: "Height",
-    label: "Height",
+    registerTitle: "height",
     type: "number",
   },
   {
     field: "weight",
-    registerTitle: "Weight",
-    label: "Weight",
+    registerTitle: "weight",
     type: "number",
   },
   {
     field: "physicalActivityLevel",
-    registerTitle: "ActivityLevel",
-    label: "ActivityLevel",
+    registerTitle: "physicalActivityLevel",
     type: "number",
   },
 ];

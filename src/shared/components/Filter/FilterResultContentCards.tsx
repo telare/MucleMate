@@ -1,25 +1,28 @@
 import styles from "@shared/styles/components-styles/CategoryDisplay.module.scss";
-import Cart, { CardProps } from "../Cards/Card";
+import Card, { CardData } from "../Cards/Card";
 
 interface FilterResultsContentCards {
-  renderContent: CardProps[];
-  cardLinkPrefix:string; 
+  renderContent: CardData[];
 }
 
-export default function FilterResultContentCards({renderContent,cardLinkPrefix}: FilterResultsContentCards) {
+export default function FilterResultContentCards({
+  renderContent,
+}: FilterResultsContentCards) {
   return (
     <div className={styles.CardsContainer}>
-      {Array(11)
-        .fill(0)
-        .map((_, index) => (
-          <Cart
-            key={index}
-            id={1}
-            description="sdss"
-            title="Cart"
-            imgSrc="./images/TestCardImg.png"
-          />
-        ))}
+      {renderContent.map((card, i) => {
+        if (i > 1) {
+          return (
+            <Card
+              key={i}
+              id={card.id}
+              description={card.description}
+              title={card.title}
+              imageSrc={card.imageSrc}
+            />
+          );
+        }
+      })}
     </div>
   );
 }

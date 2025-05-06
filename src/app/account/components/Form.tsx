@@ -19,18 +19,20 @@ import { data } from "@/app/auth/utils/data";
 import { useTranslations } from "next-intl";
 import { generalFieldsConfig, metricsConfig } from "../utils/utils";
 import { customToast } from "@/shared/components/toast/utils/notificationsBuilder";
+import { RootState } from "@/lib/store";
 
 export default function Form() {
   const t = useTranslations("account");
   const dispatch = useAppDispatch();
   const [editMode, setEditMode] = useState(false);
-  const userData = useAppSelector(getAll);
+  const userStoreData = useAppSelector((state: RootState) => state.user);
+  // console.log(userStoreData)
   const userAccountSchema = PersonalizationSchemas[0]
     .merge(PersonalizationSchemas[1])
     .merge(
       data["sign-up"].schema.pick({
-        UserName: true,
-        Email: true,
+        username: true,
+        email: true,
       })
     );
 
@@ -38,23 +40,24 @@ export default function Form() {
   const methods = useForm<UserAccountSchema>({
     resolver: zodResolver(userAccountSchema),
   });
-  async function submitData(data: UserAccountSchema) {
-    const req = fetch(
-      `http://localhost:8080/users/${userData.generalInfo.id}`,
+  const token = localStorage.getItem("token");
+  async function submitData(userFormData: UserAccountSchema) {
+    const resp = await fetch(
+      `http://localhost:8080/users/${userStoreData.generalInfo.id}`,
       {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify({ data }),
+        body: JSON.stringify(userFormData),
       }
     );
-    const resp = await req;
-    if (resp.status === 200) {
-      dispatch(setAll(data as User));
+    if (resp.ok) {
+      dispatch(setAll(userFormData as User));
       setEditMode(false);
       customToast("Account detailes updated!", "success");
-    }else{
+    } else {
       customToast("Account detailes failed!", "error");
     }
   }
@@ -70,15 +73,15 @@ export default function Form() {
             <h1>{t("generalInformationTitle")}</h1>
             <div className={styles.fieldsGroup}>
               {generalFieldsConfig.map(
-                ({ field, registerTitle, label, type, translationContext }) => (
+                ({ field, registerTitle, type, translationContext }) => (
                   <div key={registerTitle} className={styles.formField}>
                     <FormField
                       registerTitle={registerTitle}
                       type={type}
                       defaultValue={
-                        userData.generalInfo[field as UserGeneralInfoKeys]
+                        userStoreData.generalInfo[field as UserGeneralInfoKeys]
                       }
-                      label={`form${label}Field`}
+                      label={`form${registerTitle}Field`}
                       disabled={!editMode}
                       translationContext={translationContext}
                     />
@@ -91,15 +94,15 @@ export default function Form() {
           <div className={styles.sectionGroup}>
             <h1>{t("physicalInformationTitle")}</h1>
             <div className={styles.fieldsGroup}>
-              {metricsConfig.map(({ field, registerTitle, label, type }) => (
+              {metricsConfig.map(({ field, registerTitle, type }) => (
                 <div key={registerTitle} className={styles.formField}>
                   <FormField
                     registerTitle={registerTitle}
                     type={type}
                     defaultValue={String(
-                      userData.metrics[field as UserMetricsInfoKeys]
+                      userStoreData.metrics[field as UserMetricsInfoKeys]
                     )}
-                    label={`form${label}Field`}
+                    label={`form${registerTitle}Field`}
                     disabled={!editMode}
                     translationContext="personalization"
                   />

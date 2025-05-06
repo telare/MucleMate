@@ -2,11 +2,11 @@ import { z, ZodObject, ZodRawShape } from "zod";
 
 export const PersonalizationSchemas: ZodObject<ZodRawShape>[] = [
   z.object({
-    Gender: z.enum(["Male", "Female"]),
-    Goal: z.enum(["Loose body fat", "Gain mucles"]),
+    gender: z.enum(["Male", "Female"]),
+    goal: z.enum(["Loose body fat", "Gain mucles"]),
   }),
   z.object({
-    Age: z
+    age: z
       .string()
       .transform((ageStr) => parseInt(ageStr, 10))
       .refine((age) => !isNaN(age), {
@@ -19,7 +19,7 @@ export const PersonalizationSchemas: ZodObject<ZodRawShape>[] = [
           .max(90, "Age must be less than 90")
       ),
 
-    Height: z
+    height: z
       .string()
       .transform((heightStr) => parseInt(heightStr, 10))
       .refine((height) => !isNaN(height), {
@@ -32,7 +32,7 @@ export const PersonalizationSchemas: ZodObject<ZodRawShape>[] = [
           .max(250, "Height must be at most 250 cm")
       ),
 
-    Weight: z
+    weight: z
       .string()
       .transform((weightStr) => parseInt(weightStr, 10))
       .refine((weight) => !isNaN(weight), {
@@ -45,7 +45,7 @@ export const PersonalizationSchemas: ZodObject<ZodRawShape>[] = [
           .max(120, "Weight must be at most 120 kg")
       ),
 
-    ActivityLevel: z
+    physicalActivityLevel: z
       .string()
       .transform((activityStr) => parseInt(activityStr, 10))
       .refine((activity) => !isNaN(activity), {

@@ -2,25 +2,25 @@ import Image from "next/image";
 import styles from "@shared/styles/components-styles/Card.module.scss";
 import Link from "next/link";
 
-export type CardProps = {
+export type CardData = {
   id: number;
   description: string;
   title: string;
-  imgSrc: string;
+  imageSrc: string;
 };
 
 export default function Card({
   title,
-  imgSrc,
+  imageSrc,
   description,
   id,
-}: CardProps) {
+}: CardData) {
   return (
     <Link href={`/card-details/${id}`} className={styles.card}>
       <div className={styles.imgContainer}>
         <Image
           alt={`${title} preview`}
-          src={imgSrc}
+          src={imageSrc}
           fill
           priority
           className={styles.image}

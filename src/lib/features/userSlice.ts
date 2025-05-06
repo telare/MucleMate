@@ -68,6 +68,12 @@ export const UserSlice = createSlice({
     setWeight: (state, action: PayloadAction<number>) => {
       state.metrics.weight = action.payload;
     },
+    setMetrics: (state, action:PayloadAction<User["metrics"]>) => {
+      state.metrics.age = action.payload.age;
+      state.metrics.height = action.payload.height;
+      state.metrics.weight = action.payload.weight;
+      state.metrics.physicalActivityLevel = action.payload.physicalActivityLevel;
+    },
     setPhysicalActivityLevel: (
       state,
       action: PayloadAction<PhysicalActivityLevel>
@@ -107,6 +113,7 @@ export const {
   setWeight,
   setPhysicalActivityLevel,
   setAll,
+  setMetrics,
   resetUser,
 } = UserSlice.actions;
 export default UserSlice.reducer;

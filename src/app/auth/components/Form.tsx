@@ -9,9 +9,11 @@ import FormField from "@/shared/components/FormField";
 import Form from "next/form";
 import { useTranslations } from "next-intl";
 import Button from "@/shared/components/buttons/Button";
-import { useAppDispatch } from "@/lib/hooks";
+import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import { customToast } from "@/shared/components/toast/utils/notificationsBuilder";
-import { setName } from "@/lib/features/userSlice";
+import { setEmail, setId, setName } from "@/lib/features/userSlice";
+import { useEffect } from "react";
+import { RootState } from "@/lib/store";
 
 type AuthFormProps = {
   titleTexts: string[];
@@ -23,12 +25,35 @@ export default function AuthForm({ titleTexts, schema }: AuthFormProps) {
   const router = useRouter();
   const t = useTranslations("auth");
   const dispatch = useAppDispatch();
+  const userStore = useAppSelector((state: RootState) => state.user);
   type Schema = z.infer<typeof schema>;
+  const submitFnc = async (userFormData: Schema) => {
+    const resp = await fetch(`http://localhost:8080/auth/${section}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userFormData),
+    });
 
-  const submitFnc = async (data: Schema) => {
-    // dispatch user id
-    customToast("Auth passed successfuly, wellcome!", "success");
-    router.push("/personalization/1");
+    const respData = await resp.json();
+    if (resp.ok) {
+      localStorage.setItem("token", respData.auth.token);
+      dispatch(setId(respData.userId));
+      dispatch(setEmail(userFormData.email));
+
+      if (section === "sign-up") {
+        dispatch(setName(userFormData.username));
+      }
+
+      customToast("Auth passed, wellcome!", "success");
+    } else {
+      customToast("Auth failed, try again!", "error");
+    }
+
+    setTimeout(() => {
+      router.push(resp.ok ? "/personalization/1" : "/error");
+    }, 5500);
   };
 
   const methods = useForm<Schema>({

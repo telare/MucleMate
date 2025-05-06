@@ -26,6 +26,7 @@
       row-gap: 20px;
       column-gap: 1%;
       flex-wrap: wrap;
+      justify-content: start;
 
       @include global__divMixin.basic__div();
     }

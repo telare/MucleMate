@@ -4,11 +4,13 @@ import { z, ZodEnum, ZodObject, ZodRawShape } from "zod";
 import { FormProvider, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import FormField from "@shared/components/FormField";
-import { useParams,  useRouter } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import Form from "next/form";
 import { useTranslations } from "next-intl";
 import Button from "@/shared/components/buttons/Button";
-import { useAppDispatch } from "@/lib/hooks";
+import { useAppDispatch, useAppSelector } from "@/lib/hooks";
+import { RootState } from "@/lib/store";
+import { setGender, setGoal, setMetrics, User } from "@/lib/features/userSlice";
 
 interface PersonalizationFormProps {
   titleText: string[];
@@ -20,6 +22,11 @@ export default function PersonalizationForm({
   schema,
 }: PersonalizationFormProps) {
   const router = useRouter();
+  const dispatch = useAppDispatch();
+  const userId = useAppSelector(
+    (state: RootState) => state.user.generalInfo.id
+  );
+
   const { section } = useParams();
   const t = useTranslations("personalization");
   const methods = useForm<Schema>({
@@ -28,16 +35,31 @@ export default function PersonalizationForm({
   const fields: string[] = Object.keys(schema._def.shape());
   type Schema = z.infer<typeof schema>;
   const nextPath = section === "1" ? "/personalization/2" : "/home";
-
-  const submitFnc = async (data: Schema) => {
-    //dispacth user id
-    // const resp = await fetch(`http://localhost:8080/personalization/${section}`, data);
-    // if (resp.status === 201) {
-    //   // dispatch data to store 
-    //   router.push(nextPath);
-    // }
-    router.push(nextPath);
-    // router.push("/error");
+  const token = localStorage.getItem("token");
+  const submitFnc = async (userFormData: Schema) => {
+    const resp = await fetch(
+      `http://localhost:8080/personalization/${section}/${userId}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`,
+        },
+        body: JSON.stringify(userFormData),
+      }
+    );
+    if (resp.ok) {
+      if (section === "1") {
+        dispatch(setGoal(userFormData.goal));
+        dispatch(setGender(userFormData.gender));
+      }else{
+        dispatch(setMetrics(userFormData as User["metrics"]));
+      }
+      
+      router.push(nextPath);
+    } else {
+      router.push("/error");
+    }
   };
 
   return (
