@@ -1,6 +1,5 @@
-import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import { combineReducers, configureStore, Reducer } from "@reduxjs/toolkit";
 import { UserSlice } from "./features/userSlice";
-// @ts-ignores
 import storage from "redux-persist/lib/storage";
 import {
   persistStore,
@@ -23,9 +22,9 @@ export const persistConfig = {
   storage,
 };
 
-const makeConfiguredStore = () =>
+const makeConfiguredStore = (reducer?:Reducer) =>
   configureStore({
-    reducer: rootReducer,
+    reducer: reducer ? reducer : rootReducer,
     middleware: (getDefaultMiddleware) =>
       getDefaultMiddleware({
         serializableCheck: {
@@ -40,7 +39,8 @@ export const makeStore = () => {
     return makeConfiguredStore();
   } else {
     const persistedReducer = persistReducer(persistConfig, rootReducer);
-    let store: any = makeConfiguredStore();
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const store:any = makeConfiguredStore(persistedReducer);
     store.__persistor = persistStore(store);
     return store;
   }
